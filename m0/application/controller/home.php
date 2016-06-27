@@ -56,5 +56,12 @@ class Home extends Controller
         require APP . 'view/_templates/footer.php';
     }
 
+    public function robertChung()
+    {
+	// load views
+	require APP . 'view/_templates/header.php';
+	require APP . 'view/home/robert_chung.php';
+	require APP . 'view/_templates/footer.php';
+    }	
     // Add function here with your name!
 }

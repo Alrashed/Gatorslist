@@ -23,5 +23,6 @@
     <div class="navigation">
         <a href="<?php echo URL; ?>">home</a>
         <a href="<?php echo URL; ?>home/ericchen">Eric Chen</a>
-        <!-- Add names to nav here! -->
+        <a href="<?php echo URL; ?>home/robertchung">Robert Chung</a>
+	<!-- Add names to nav here! -->
     </div>
