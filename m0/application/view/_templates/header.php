@@ -24,5 +24,6 @@
         <a href="<?php echo URL; ?>">home</a>
         <a href="<?php echo URL; ?>home/ericchen">Eric Chen</a>
         <a href="<?php echo URL; ?>home/robertchung">Robert Chung</a>
+        <a href="<?php echo URL; ?>home/guoyiruan">Guoyi Ruan</a>
 	<!-- Add names to nav here! -->
     </div>
