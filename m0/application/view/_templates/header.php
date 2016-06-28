@@ -26,5 +26,6 @@
         <a href="<?php echo URL; ?>home/robertchung">Robert Chung</a>
         <a href="<?php echo URL; ?>home/guoyiruan">Guoyi Ruan</a>
         <a href="<?php echo URL; ?>home/khalidalrashed">Khalid Alrashed</a>
+	<a href="<?php echo URL; ?>home/tainguyen">Tai Nguyen</a>
 	<!-- Add names to nav here! -->
     </div>

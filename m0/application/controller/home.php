@@ -81,4 +81,11 @@ class Home extends Controller
 	require APP . 'view/_templates/footer.php';
     }
     // Add function here with your name!
+    public function taiNguyen()
+    {
+        // load views
+        require APP . 'view/_templates/header.php';
+        require APP . 'view/home/tai_nguyen.php';
+        require APP . 'view/_templates/footer.php';
+    }
 }
