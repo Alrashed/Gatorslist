@@ -38,7 +38,6 @@ class Register extends Controller
     public function signUp()
     {
         // if we have POST data to create a new song entry
-//        echo "in sign up";
         if (isset($_POST["submit"])) {
             // do createUser() in model/model.php
             $this->model->createUser($_POST["email"], $_POST["username"],  $_POST["password"]);
@@ -46,6 +45,18 @@ class Register extends Controller
 
         // where to go after song has been added
         header('location: ' . URL . 'register/index');
+    }
+
+    public function deleteUser($user_id)
+    {
+        // if we have an id of a song that should be deleted
+        if (isset($user_id)) {
+            // do deleteSong() in model/model.php
+            $this->model->deleteUser($user_id);
+        }
+
+        // where to go after song has been deleted
+        header('location: ' . URL . 'songs/index');
     }
 
     
