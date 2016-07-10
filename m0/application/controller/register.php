@@ -56,7 +56,7 @@ class Register extends Controller
         }
 
         // where to go after song has been deleted
-        header('location: ' . URL . 'songs/index');
+        header('location: ' . URL . 'register/index');
     }
 
     
