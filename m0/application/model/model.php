@@ -126,4 +126,20 @@ class Model
         // fetch() is the PDO method that get exactly one result
         return $query->fetch()->amount_of_songs;
     }
+
+    public function createUser($email, $username, $password) {
+//        echo "create";
+        $sql = "INSERT INTO user (Email, Password, Username) VALUES (:email, :password, :username)";
+        $query = $this->db->prepare($sql);
+        $parameters = array(':email' => $email, ':username' => $username, ':password' => $password);
+        try {
+            if ($query->execute($parameters)) {
+                echo "success insert";
+            } else {
+                echo "fail insert";
+            }
+        } catch(PDOException $e) {
+            echo $e->getMessage();
+        }
+    }
 }
