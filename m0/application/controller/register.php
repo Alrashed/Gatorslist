@@ -18,7 +18,7 @@ class Register extends Controller
     public function index()
     {
         // getting all songs and amount of songs
-//        $songs = $this->model->getAllSongs();
+        $users = $this->model->getAllUsers();
 //        $amount_of_songs = $this->model->getAmountOfSongs();
 
         // load views. within the views we can echo out $songs and $amount_of_songs easily
@@ -45,7 +45,7 @@ class Register extends Controller
         }
 
         // where to go after song has been added
-//        header('location: ' . URL . 'register/index');
+        header('location: ' . URL . 'register/index');
     }
 
     

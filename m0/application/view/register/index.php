@@ -25,4 +25,26 @@
 
         </form>
     </div>
+
+    <h3>Test for DB (data from user table)</h3>
+    <table>
+        <thead style="background-color: #ddd; font-weight: bold;">
+        <tr>
+            <td>UserID</td>
+            <td>Username</td>
+            <td>Email</td>
+<!--            <td>DELETE</td>-->
+
+        </tr>
+        </thead>
+        <tbody>
+        <?php foreach ($users as $user) { ?>
+            <tr>
+                <td><?php if (isset($user->User_id)) echo htmlspecialchars($user->User_id, ENT_QUOTES, 'UTF-8'); ?></td>
+                <td><?php if (isset($user->Username)) echo htmlspecialchars($user->Username, ENT_QUOTES, 'UTF-8'); ?></td>
+                <td><?php if (isset($user->Email)) echo htmlspecialchars($user->Email, ENT_QUOTES, 'UTF-8'); ?></td>
+<!--                <td><a href="--><?php //echo URL . 'register/deleteUser/' . htmlspecialchars($user->User_id, ENT_QUOTES, 'UTF-8'); ?><!--">delete</a></td>-->
+
+            </tr>
+        <?php } ?>
 </div>

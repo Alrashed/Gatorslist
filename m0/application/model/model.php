@@ -127,6 +127,19 @@ class Model
         return $query->fetch()->amount_of_songs;
     }
 
+    public function getAllUsers()
+    {
+        $sql = "SELECT User_id, Username, Email FROM user";
+        $query = $this->db->prepare($sql);
+        $query->execute();
+
+        // fetchAll() is the PDO method that gets all result rows, here in object-style because we defined this in
+        // core/controller.php! If you prefer to get an associative array as the result, then do
+        // $query->fetchAll(PDO::FETCH_ASSOC); or change core/controller.php's PDO options to
+        // $options = array(PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC ...
+        return $query->fetchAll();
+    }
+
     public function createUser($email, $username, $password) {
 //        echo "create";
         $sql = "INSERT INTO user (Email, Password, Username) VALUES (:email, :password, :username)";
@@ -134,9 +147,9 @@ class Model
         $parameters = array(':email' => $email, ':username' => $username, ':password' => $password);
         try {
             if ($query->execute($parameters)) {
-                echo "success insert";
+//                echo "success insert";
             } else {
-                echo "fail insert";
+//                echo "fail insert";
             }
         } catch(PDOException $e) {
             echo $e->getMessage();
