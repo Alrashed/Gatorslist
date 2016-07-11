@@ -2,7 +2,7 @@
     <h2>You are in the View: application/view/song/index.php (everything in this box comes from that file)</h2>
     <div class="box">
         <h3>Search Results:</h3>
-        <form action="<?php echo URL; ?>admins/searchproducts" method="POST">
+        <form action="<?php echo URL; ?>products/searchproducts" method="POST">
         <table>
             <thead style="background-color: #ddd; font-weight: bold;">
             <tr>
