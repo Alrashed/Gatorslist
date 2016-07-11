@@ -168,4 +168,13 @@ class Model
         $query->execute($parameters);
 
     }
+    
+    public function getAllProducts($searchinput)
+    {
+        $sql = "SELECT * FROM product WHERE Title LIKE '%" . $searchinput . "%' or Description '%" . $searchinput . "%'";
+        $query = $this->db->prepare($sql);
+        $query->execute();
+
+        return $query->fetchAll();
+    }
 }
