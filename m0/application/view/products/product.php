@@ -6,7 +6,6 @@
         <table>
             <thead style="background-color: #ddd; font-weight: bold;">
             <tr>
-                <td></td>
                 <td>Title</td>
                 <td>Description</td>
                 <td>Price</td>
