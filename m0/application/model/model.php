@@ -126,4 +126,55 @@ class Model
         // fetch() is the PDO method that get exactly one result
         return $query->fetch()->amount_of_songs;
     }
+
+    public function getAllUsers()
+    {
+        $sql = "SELECT User_id, Username, Email FROM user";
+        $query = $this->db->prepare($sql);
+        $query->execute();
+
+        // fetchAll() is the PDO method that gets all result rows, here in object-style because we defined this in
+        // core/controller.php! If you prefer to get an associative array as the result, then do
+        // $query->fetchAll(PDO::FETCH_ASSOC); or change core/controller.php's PDO options to
+        // $options = array(PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC ...
+        return $query->fetchAll();
+    }
+
+    public function createUser($email, $username, $password) {
+//        echo "create";
+        $sql = "INSERT INTO user (Email, Password, Username) VALUES (:email, :password, :username)";
+        $query = $this->db->prepare($sql);
+        $parameters = array(':email' => $email, ':username' => $username, ':password' => $password);
+        try {
+            if ($query->execute($parameters)) {
+//                echo "success insert";
+            } else {
+//                echo "fail insert";
+            }
+        } catch(PDOException $e) {
+            echo $e->getMessage();
+        }
+    }
+
+    public function deleteUser($user_id)
+    {
+        $sql = "DELETE FROM user WHERE User_id = :user_id";
+        $query = $this->db->prepare($sql);
+        $parameters = array(':user_id' => $user_id);
+
+        // useful for debugging: you can see the SQL behind above construction by using:
+        // echo '[ PDO DEBUG ]: ' . Helper::debugPDO($sql, $parameters);  exit();
+
+        $query->execute($parameters);
+
+    }
+    
+    public function getAllProducts($searchinput)
+    {
+        $sql = "SELECT * FROM product WHERE Title LIKE '%" . $searchinput . "%' or Description LIKE '%" . $searchinput . "%'";
+        $query = $this->db->prepare($sql);
+        $query->execute();
+
+        return $query->fetchAll();
+    }
 }
