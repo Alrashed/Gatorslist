@@ -171,7 +171,7 @@ class Model
     
     public function getAllProducts($searchinput)
     {
-        $sql = "SELECT * FROM product WHERE Title LIKE '%" . $searchinput . "%' or Description '%" . $searchinput . "%'";
+        $sql = "SELECT * FROM product WHERE Title LIKE '%" . $searchinput . "%' or Description LIKE '%" . $searchinput . "%'";
         $query = $this->db->prepare($sql);
         $query->execute();
 

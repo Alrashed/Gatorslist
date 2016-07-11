@@ -1,5 +1,5 @@
 <div class="container">
-    <h2>You are in the View: application/view/song/index.php (everything in this box comes from that file)</h2>
+    <h2>You are in the View: application/view/products/product.php (everything in this box comes from that file)</h2>
     <div class="box">
         <h3>Search Results:</h3>
         <form action="<?php echo URL; ?>products/searchproducts" method="POST">
