@@ -88,4 +88,5 @@ class Home extends Controller
         require APP . 'view/home/tai_nguyen.php';
         require APP . 'view/_templates/footer.php';
     }
+    
 }
