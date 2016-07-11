@@ -17,7 +17,7 @@
           <li><a href="#">Sell Your Book</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="./register/index.php"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+          <li><a href="register"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
           <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
         </ul>
       </div>
