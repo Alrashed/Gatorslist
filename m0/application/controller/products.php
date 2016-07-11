@@ -30,7 +30,7 @@ class products extends Controller
         if (isset($_POST["submit_search_product"])) {
 
         // getting all songs and amount of songs
-        $admins = $this->model->getAllProducts($_POST["searchinput"]);
+        $products = $this->model->getAllProducts($_POST["searchinput"]);
 
        // load views. within the views we can echo out $songs and $amount_of_songs easily
         require APP . 'view/_templates/header.php';
@@ -46,7 +46,7 @@ class products extends Controller
         // if we have POST data to create a new song entry
         if (isset($_POST["submit_search_product"])) {
             // do addSong() in model/model.php
-            $admins = $this->model->getAllProducts($_POST["searchinput"]);
+            $products = $this->model->getAllProducts($_POST["searchinput"]);
         }
 
         // where to go after song has been added

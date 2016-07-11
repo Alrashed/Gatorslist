@@ -15,6 +15,7 @@
         <ul class="nav navbar-nav">
           <li><a href="home">Home</a></li>
           <li><a href="#">Sell Your Book</a></li>
+          <li><a href="products">Product Listing</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <li><a href="register"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
