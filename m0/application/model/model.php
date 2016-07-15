@@ -21,27 +21,25 @@ class Model
         return $this->dao->get([], "allUser");
     }
 
-    public function createUser($email, $username, $password) {
+    public function createUser($email, $username, $password, $firstname, $lastname) {
         $parameters = [
             ":email" => $email,
             ":username" => $username,
             ":password" => $password,
+            ":firstname" => $firstname,
+            ":lastname" => $lastname,
         ];
         $this->dao->create($parameters, "user");
     }
 
-//    public function deleteUser($user_id)
-//    {
-//        $sql = "DELETE FROM user WHERE User_id = :user_id";
-//        $query = $this->db->prepare($sql);
-//        $parameters = array(':user_id' => $user_id);
-//
-//        // useful for debugging: you can see the SQL behind above construction by using:
-//        // echo '[ PDO DEBUG ]: ' . Helper::debugPDO($sql, $parameters);  exit();
-//
-//        $query->execute($parameters);
-//
-//    }
+    public function deleteUser($user_id)
+    {
+        $parameters = [
+            ":user_id" => $user_id,
+        ];
+        $this->dao->delete($parameters, "user");
+
+    }
 //
 //    public function getAllProducts($searchinput)
 //    {

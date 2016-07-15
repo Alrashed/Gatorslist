@@ -39,7 +39,7 @@ class Dao {
     // CRUD create read update and delete to database
     public function create($parameters, $target) {
         if ($target == "user") {
-            $sql = "INSERT INTO user (Email, Password, Username) VALUES (:email, :password, :username)";
+            $sql = "INSERT INTO user (Email, Password, Username, Firstname, Lastname) VALUES (:email, :password, :username, :firstname, :lastname)";
             $query = $this->db->prepare($sql);
             try {
                 if ($query->execute($parameters)) {
@@ -57,7 +57,7 @@ class Dao {
 
     public function get($parameters, $target) {
         if ($target == "allUser") {
-            $sql = "SELECT User_id, Username, Email FROM user";
+            $sql = "SELECT User_id, Username, Email, Firstname, Lastname FROM user";
             $query = $this->db->prepare($sql);
             $query->execute();
             return $query->fetchAll();
@@ -69,6 +69,21 @@ class Dao {
     }
 
     public function delete ($parameters, $target) {
-
+        if($target == "user") {
+            $sql = "DELETE FROM user WHERE (User_id) = (:user_id)";
+            $query = $this->db->prepare($sql);
+            try {
+                if ($query->execute($parameters)) {
+                    return true;
+                } else {
+                    return false;
+                }
+            } catch(PDOException $e) {
+                echo $e->getMessage();
+            }
+        } else {
+            return false;
+        }
+        
     }
 }
