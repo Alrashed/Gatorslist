@@ -10,7 +10,7 @@
                 <td>Description</td>
                 <td>Price</td>
                 <td>Condition</td>
-                <td>Quantity</td>
+<!--                <td>Quantity</td>-->
                 <td>Date</td>
 
             </tr>
@@ -22,7 +22,7 @@
                     <td><?php if (isset($song->Description)) echo htmlspecialchars($song->Description, ENT_QUOTES, 'UTF-8'); ?></td>
                     <td><?php if (isset($song->Price)) echo htmlspecialchars($song->Price, ENT_QUOTES, 'UTF-8'); ?></td>
                     <td><?php if (isset($song->Condition)) echo htmlspecialchars($song->Condition, ENT_QUOTES, 'UTF-8'); ?></td>
-                    <td><?php if (isset($song->Quantity)) echo htmlspecialchars($song->Quantity, ENT_QUOTES, 'UTF-8'); ?></td>
+<!--                    <td>--><?php //if (isset($song->Quantity)) echo htmlspecialchars($song->Quantity, ENT_QUOTES, 'UTF-8'); ?><!--</td>-->
                     <td><?php if (isset($song->Postdate)) echo htmlspecialchars($song->Postdate, ENT_QUOTES, 'UTF-8'); ?></td>
                 </tr>
             <?php } ?>

@@ -19,7 +19,6 @@ class Register extends Controller
     {
         // getting all songs and amount of songs
         $users = $this->model->getAllUsers();
-//        $amount_of_songs = $this->model->getAmountOfSongs();
 
         // load views. within the views we can echo out $songs and $amount_of_songs easily
         require APP . 'view/_templates/header.php';
@@ -28,22 +27,17 @@ class Register extends Controller
     }
 
     /**
-     * ACTION: addSong
-     * This method handles what happens when you move to http://yourproject/songs/addsong
-     * IMPORTANT: This is not a normal page, it's an ACTION. This is where the "add a song" form on songs/index
-     * directs the user after the form submit. This method handles all the POST data from the form and then redirects
-     * the user back to songs/index via the last line: header(...)
-     * This is an example of how to handle a POST request.
+     * ACTION: signUp
+     * This method handles what happens when you move to http://../register/signup
      */
     public function signUp()
     {
-        // if we have POST data to create a new song entry
+        // if we have POST data to create a new user entry
         if (isset($_POST["submit"])) {
             // do createUser() in model/model.php
             $this->model->createUser($_POST["email"], $_POST["username"],  $_POST["password"]);
         }
-
-        // where to go after song has been added
+        // where to go after user has been added
         header('location: ' . URL . 'register/index');
     }
 
