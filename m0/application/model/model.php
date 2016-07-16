@@ -44,7 +44,7 @@ class Model
     public function getAllProducts($searchinput)
     {
         $parameters = [
-            ":searchinput" => $searchinput,
+            "(:searchinput)" => $searchinput,
         ];
         return $this->dao->get($parameters, "allProducts");
     }
