@@ -66,8 +66,17 @@ class Dao {
         if ($target == "allProducts") {
             $sql = "SELECT * FROM product WHERE Title LIKE '%" . $searchinput . "%' or Description LIKE '%" . $searchinput . "%'";
             $query = $this->db->prepare($sql);
-            $query->execute();
-            return $query->fetchAll();
+            try {
+                if ($query->execute($parameters)) {
+                    return $query->fetchAll();
+                } else {
+                    return false;
+                }
+            } catch(PDOException $e) {
+                echo $e->getMessage();
+            }
+        } else {
+            return false;
         }
     }
 

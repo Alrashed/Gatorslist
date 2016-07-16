@@ -27,13 +27,13 @@ class Products extends Controller
     {
         if (isset($_POST["submit_search_product"])) {
 
-        // getting all products
-        $products = $this->model->getAllProducts($_POST["searchinput"]);
+            // getting all products
+            $products = $this->model->getAllProducts($_POST["searchinput"]);
 
-       // load views
-        require APP . 'view/_templates/header.php';
-        require APP . 'view/products/product.php';
-        require APP . 'view/_templates/footer.php';
+           // load views
+            require APP . 'view/_templates/header.php';
+            require APP . 'view/products/product.php';
+            require APP . 'view/_templates/footer.php';
         }
     }
 

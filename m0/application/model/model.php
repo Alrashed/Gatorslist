@@ -43,6 +43,9 @@ class Model
 
     public function getAllProducts($searchinput)
     {
-        return $this->dao->get([], "allProducts");
+        $parameters = [
+            $searchinput => $_POST["searchinput"],
+        ];
+        return $this->dao->get($parameters, "allProducts");
     }
 }
