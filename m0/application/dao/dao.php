@@ -56,8 +56,15 @@ class Dao {
     }
 
     public function get($parameters, $target) {
-        if ($target == "allUser") {
+        if ($target == "allUsers") {
             $sql = "SELECT User_id, Username, Email, Firstname, Lastname FROM user";
+            $query = $this->db->prepare($sql);
+            $query->execute();
+            return $query->fetchAll();
+        }
+        
+        if ($target == "allProducts") {
+            $sql = "SELECT * FROM product WHERE Title LIKE '%" . $searchinput . "%' or Description LIKE '%" . $searchinput . "%'";
             $query = $this->db->prepare($sql);
             $query->execute();
             return $query->fetchAll();

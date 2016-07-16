@@ -18,7 +18,7 @@ class Model
     
     public function getAllUsers()
     {
-        return $this->dao->get([], "allUser");
+        return $this->dao->get([], "allUsers");
     }
 
     public function createUser($email, $username, $password, $firstname, $lastname) {
@@ -40,13 +40,9 @@ class Model
         $this->dao->delete($parameters, "user");
 
     }
-//
-//    public function getAllProducts($searchinput)
-//    {
-//        $sql = "SELECT * FROM product WHERE Title LIKE '%" . $searchinput . "%' or Description LIKE '%" . $searchinput . "%'";
-//        $query = $this->db->prepare($sql);
-//        $query->execute();
-//
-//        return $query->fetchAll();
-//    }
+
+    public function getAllProducts($searchinput)
+    {
+        return $this->dao->get([], "allProducts");
+    }
 }
