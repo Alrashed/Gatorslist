@@ -40,13 +40,36 @@ class Model
         $this->dao->delete($parameters, "user");
 
     }
-//
-//    public function getAllProducts($searchinput)
-//    {
+
+    public function getAllProducts($searchinput)
+    {
+        $sql = "SELECT * FROM product WHERE Title LIKE '%" . $searchinput . "%' or Description LIKE '%" . $searchinput . "%'";
+        $query = $this->db->prepare($sql);
+        $query->execute();
+
+        return $query->fetchAll();
+    }
+    
+    public function searchProducts($searchinput, $category)
+    {
+       if($category == "") {
+           $parameters = [
+               ":searchinput" => $searchinput,
+           ];
+           $this->dao->get($parameters, "searchbyKeyword");
+       } else {
+           $parameters = [
+               ":searchinput" => $searchinput,
+               ":category" => $category,
+           ];
+
+           $this->dao->get($parameters, "searchbyCategory");
+       }
+       
 //        $sql = "SELECT * FROM product WHERE Title LIKE '%" . $searchinput . "%' or Description LIKE '%" . $searchinput . "%'";
 //        $query = $this->db->prepare($sql);
 //        $query->execute();
 //
 //        return $query->fetchAll();
-//    }
+    }
 }

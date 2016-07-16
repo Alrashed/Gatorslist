@@ -30,29 +30,41 @@ class products extends Controller
         if (isset($_POST["submit_search_product"])) {
 
         // getting all songs and amount of songs
-        $products = $this->model->getAllProducts($_POST["searchinput"]);
+        $products = $this->model->searchProducts();
 
        // load views. within the views we can echo out $songs and $amount_of_songs easily
         require APP . 'view/_templates/header.php';
         require APP . 'view/products/product.php';
         require APP . 'view/_templates/footer.php';
-    }
+         }
     }
 
 
 
     public function searchProducts()
     {
-        // if we have POST data to create a new song entry
-        if (isset($_POST["submit_search_product"])) {
-            // do addSong() in model/model.php
-            $products = $this->model->getAllProducts($_POST["searchinput"]);
-        }
+//        // if we have POST data to create a new song entry
+//        if (isset($_POST["submit_search_product"])) {
+//            // do addSong() in model/model.php
+//            $products = $this->model->getAllProducts($_POST["searchinput"]);
+//        }
+//
+//        // where to go after song has been added
+//        require APP . 'view/_templates/header.php';
+//        require APP . 'view/products/product.php';
+//        require APP . 'view/_templates/footer.php';
 
-        // where to go after song has been added
-        require APP . 'view/_templates/header.php';
-        require APP . 'view/products/product.php';
-        require APP . 'view/_templates/footer.php';
+
+        // if we have POST data to create a new user entry
+        if (isset($_POST["submit_search_product"])) {
+            // do createUser() in model/model.php
+            $products = $this->model->searchProducts($_POST["searchinput"], $_POST["category"]);
+
+        }
+        // where to go after user has been added
+        header('location: ' . URL . 'product/product');
     }
+
+
 }
 ?>

@@ -62,6 +62,21 @@ class Dao {
             $query->execute();
             return $query->fetchAll();
         }
+        if($target == "searchbyKeyword"){
+            $keyword = array_shift( $parameters );
+            $sql = "SELECT * FROM product WHERE Title LIKE '%". $keyword. "%' or Description LIKE '%" . $keyword. "%'";
+//            echo $sql;
+            $query = $this->db->prepare($sql);
+            $query->execute();
+            return $query->fetchAll();
+        }
+        if($target == "searchbyCategory"){
+            $sql = "SELECT * FROM product WHERE Title LIKE '%" . $parameters . "%' or Description LIKE '%" . $parameters . "%'";
+            $query = $this->db->prepare($sql);
+            $query->execute();
+            return $query->fetchAll();
+        }
+
     }
 
     public function update($parameters, $target) {
