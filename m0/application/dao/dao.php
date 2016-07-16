@@ -64,7 +64,7 @@ class Dao {
         }
         
         if ($target == "allProducts") {
-            $sql = "SELECT * FROM product WHERE Title LIKE '%$searchinput%' or Description LIKE '%$searchinput%'";
+            $sql = "SELECT * FROM product WHERE Title LIKE '%(:searchinput)%' or Description LIKE '%(:searchinput)%'";
             $query = $this->db->prepare($sql);
             try {
                 if ($query->execute($parameters)) {
