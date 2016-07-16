@@ -18,7 +18,7 @@ class Model
     
     public function getAllUsers()
     {
-        return $this->dao->get([], "allUser");
+        return $this->dao->get([], "allUsers");
     }
 
     public function createUser($email, $username, $password, $firstname, $lastname) {
@@ -41,35 +41,20 @@ class Model
 
     }
 
-    public function getAllProducts($searchinput)
+    public function getAllProducts($searchinput, $category)
     {
-        $sql = "SELECT * FROM product WHERE Title LIKE '%" . $searchinput . "%' or Description LIKE '%" . $searchinput . "%'";
-        $query = $this->db->prepare($sql);
-        $query->execute();
-
-        return $query->fetchAll();
-    }
-    
-    public function searchProducts($searchinput, $category)
-    {
-       if($category == "") {
-           $parameters = [
-               ":searchinput" => $searchinput,
-           ];
-           $this->dao->get($parameters, "searchbyKeyword");
-       } else {
-           $parameters = [
-               ":searchinput" => $searchinput,
-               ":category" => $category,
-           ];
-
-           $this->dao->get($parameters, "searchbyCategory");
-       }
-       
-//        $sql = "SELECT * FROM product WHERE Title LIKE '%" . $searchinput . "%' or Description LIKE '%" . $searchinput . "%'";
-//        $query = $this->db->prepare($sql);
-//        $query->execute();
-//
-//        return $query->fetchAll();
+        if($category == "") {
+            $parameters = [
+                ":searchinput" => $searchinput,
+            ];
+            return $this->dao->get($parameters, "allProducts");
+        } else {
+            $parameters = [
+                ":searchinput" => $searchinput,
+                ":category" => $category,
+            ];
+            return $this->dao->get($parameters, "ProductsByCategory");
+        }
+        
     }
 }

@@ -13,14 +13,14 @@ class Register extends Controller
 {
     /**
      * PAGE: index
-     * This method handles what happens when you move to http://yourproject/songs/index
+     * This method handles what happens when you move to http://../register/index
      */
     public function index()
     {
-        // getting all songs and amount of songs
+        // getting all users
         $users = $this->model->getAllUsers();
 
-        // load views. within the views we can echo out $songs and $amount_of_songs easily
+        // load views. within the views we can echo out $users
         require APP . 'view/_templates/header.php';
         require APP . 'view/register/index.php';
         require APP . 'view/_templates/footer.php';
@@ -43,16 +43,13 @@ class Register extends Controller
 
     public function deleteUser($user_id)
     {
-        // if we have an id of a song that should be deleted
+        // if we have an id of a user that should be deleted
         if (isset($user_id)) {
-            // do deleteSong() in model/model.php
+            // do deleteUser() in model/model.php
             $this->model->deleteUser($user_id);
         }
 
-        // where to go after song has been deleted
+        // where to go after user has been deleted
         header('location: ' . URL . 'register/index');
     }
-
-    
-
 }

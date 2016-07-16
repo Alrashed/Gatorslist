@@ -55,28 +55,46 @@ class Dao {
         }
     }
 
-    public function get($parameters, $target) {
-        if ($target == "allUser") {
+    public function get($parameters, $target)
+    {
+        if ($target == "allUsers") {
             $sql = "SELECT User_id, Username, Email, Firstname, Lastname FROM user";
             $query = $this->db->prepare($sql);
             $query->execute();
             return $query->fetchAll();
         }
-        if($target == "searchbyKeyword"){
-            $keyword = array_shift( $parameters );
-            $sql = "SELECT * FROM product WHERE Title LIKE '%". $keyword. "%' or Description LIKE '%" . $keyword. "%'";
-//            echo $sql;
+
+        else if ($target == "allProducts") {
+            $keyword = array_shift($parameters);
+            $sql = "SELECT * FROM product WHERE Title LIKE '%" . $keyword . "%' or Description LIKE '%." . $keyword . "%'";
             $query = $this->db->prepare($sql);
-            $query->execute();
-            return $query->fetchAll();
-        }
-        if($target == "searchbyCategory"){
-            $sql = "SELECT * FROM product WHERE Title LIKE '%" . $parameters . "%' or Description LIKE '%" . $parameters . "%'";
-            $query = $this->db->prepare($sql);
-            $query->execute();
-            return $query->fetchAll();
+            try {
+                if ($query->execute()) {
+                    return $query->fetchAll();
+                } else {
+                    return false;
+                }
+            } catch (PDOException $e) {
+                echo $e->getMessage();
+            }
         }
 
+        else if ($target == "ProductsByCategory") {
+            $keyword = array_shift( $parameters );
+            $category =  $parameters[":category"];
+            $sql = "SELECT * FROM product p1 WHERE p1.Product_id = (SELECT p.Product_id FROM product p, productCategory pc WHERE pc.Category_name = '".$category."' AND pc.Category_id = p.Category_Id AND p.Title LIKE '%".$keyword."%')";
+
+            $query = $this->db->prepare($sql);
+            try {
+                if ($query->execute()) {
+                    return $query->fetchAll();
+                } else {
+                    return false;
+                }
+            } catch(PDOException $e) {
+                echo $e->getMessage();
+            }
+        }
     }
 
     public function update($parameters, $target) {
