@@ -82,7 +82,7 @@ class Dao {
         else if ($target == "ProductsByCategory") {
             $keyword = array_shift( $parameters );
             $category =  $parameters[":category"];
-            $sql = "SELECT * FROM product p1 WHERE p1.Product_id = (SELECT p.Product_id FROM product p, productCategory pc WHERE pc.Category_name = '".$category."' AND pc.Category_id = p.Category_Id AND p.Title LIKE '%".$keyword."%')";
+            $sql = "SELECT * FROM product p1 WHERE p1.Category_Id = (SELECT pc.Category_id FROM productCategory pc WHERE pc.Category_name = '".$category."') AND (p1.Title LIKE '%".$keyword."%'OR p1.Description LIKE '%".$keyword."%')";
 
             $query = $this->db->prepare($sql);
             try {
