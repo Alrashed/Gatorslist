@@ -14,7 +14,7 @@
         </div>
         <ul class="nav navbar-nav">
           <li><a href="home">Home</a></li>
-          <li><a href="#">Sell Your Book</a></li>
+          <li><a href="#">Sell Your Items</a></li>
           <li><a href="products">Product Listing</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
