@@ -1,21 +1,25 @@
-<div class="container">
+<div class="page-header text-center">
+  <h1>Welcome to Gatorslist!</h1>
+  <h1><small>Here you can purchase a variety of items sold by your fellow SFSU students.</small></h1>
+</div>
 
-  <h2>You are in the View: application/view/home/index.php (everything in the box comes from this file)</h2>
-  <div class="row">
-    <div class="col-lg-6">
+<div class="row">
+  <form action="<?php echo URL; ?>products/searchproducts" method="POST">
+    <div class="col-lg-4 col-lg-offset-4" >
       <div class="input-group">
-          
-        <div class="box">
-            <h3>Search an item (book, furniture, laptop... etc)<h3>
-            <form action="<?php echo URL; ?>products/searchproducts" method="POST">
-                <label>Item Name: </label>
-                <input type="text" name="searchinput" value="" required />
-                <input type="submit" name="submit_search_product" value="Search" />
-            </form>
+        <input class="form-control" type="text" name="searchinput" value="" placeholder="Search for book, furniture, laptop, etc" required />
+          <div class="input-group-btn">
+            <select name="category" class="form-control">
+              <option value="">All Categories</option>
+              <option value="book">Books</option>
+              <option value="furniture">Furniture</option>
+              <option value="laptop">Laptops</option>
+            </select>
+          </div>
+        <div class="input-group-btn">
+          <input class="btn btn-default" type="submit" name="submit_search_product" value="Search" />
         </div>
-                
       </div><!-- /input-group -->
-    </div><!-- /.col-lg-6 -->
-  </div><!-- /.row -->
-
+    </div><!-- /.col-lg-4 -->
+  </form>
 </div>
