@@ -2,11 +2,12 @@
 <!-- Bootstrap -->
 <link rel='stylesheet' type='text/css' href='//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>
 
+
 <html lang="en">
 <head>
     <meta charset="utf-8">
     <!--Nav Bar-->
-    <nav class="navbar navbar-default">
+    <nav class="navbar navbar-default navbar-fixed-top">
       <div class="container-fluid">
         <div class="navbar-header">
           <a class="navbar-brand" href="#">Gatorslist</a>
@@ -32,6 +33,8 @@
     <!-- See more here: http://stackoverflow.com/q/2105327/1114320 -->
     <!-- CSS -->
     <link href="<?php echo URL; ?>css/style.css" rel="stylesheet">
+    <link href="<?php echo URL; ?>img/demo-image.png" rel="icon">
+    
 </head>
 <body>
     <!-- logo -->
