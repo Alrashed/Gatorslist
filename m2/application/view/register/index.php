@@ -8,9 +8,6 @@
 
             <label for='email' >Email Address*:</label><br>
             <input type='text' name='email' id='email' maxlength="50" /><br>
-
-            <label for='username' >UserName*:</label><br>
-            <input type='text' name='username' id='username' maxlength="50" /><br>
             
             <label for='firstname' >FirstName*:</label><br>
             <input type='text' name='firstname' id='firstname' maxlength="50" /><br>
@@ -31,7 +28,7 @@
         <thead style="background-color: #ddd; font-weight: bold;">
         <tr>
             <td>UserID</td>
-            <td>Username</td>
+<!--            <td>Username</td>-->
             <td>Email</td>
             <td>FirstName</td>
             <td>LastName</td>
@@ -44,7 +41,7 @@
             <tr>
                 <td><?php if (isset($user->User_id)) echo htmlspecialchars($user->User_id, ENT_QUOTES, 'UTF-8'); ?></td>
                 
-                <td><?php if (isset($user->Username)) echo htmlspecialchars($user->Username, ENT_QUOTES, 'UTF-8'); ?></td>
+<!--                <td>--><?php //if (isset($user->Username)) echo htmlspecialchars($user->Username, ENT_QUOTES, 'UTF-8'); ?><!--</td>-->
                 
                 <td><?php if (isset($user->Email)) echo htmlspecialchars($user->Email, ENT_QUOTES, 'UTF-8'); ?></td>
                 

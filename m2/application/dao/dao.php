@@ -39,7 +39,7 @@ class Dao {
     // CRUD create read update and delete to database
     public function create($parameters, $target) {
         if ($target == "user") {
-            $sql = "INSERT INTO user (Email, Password, Username, Firstname, Lastname) VALUES (:email, :password, :username, :firstname, :lastname)";
+            $sql = "INSERT INTO user (Email, Password, Firstname, Lastname) VALUES (:email, :password, :firstname, :lastname)";
             $query = $this->db->prepare($sql);
             try {
                 if ($query->execute($parameters)) {
@@ -58,7 +58,7 @@ class Dao {
     public function get($parameters, $target)
     {
         if ($target == "allUsers") {
-            $sql = "SELECT User_id, Username, Email, Firstname, Lastname FROM user";
+            $sql = "SELECT User_id, Email, Firstname, Lastname FROM user";
             $query = $this->db->prepare($sql);
             $query->execute();
             return $query->fetchAll();

@@ -21,10 +21,10 @@ class Model
         return $this->dao->get([], "allUsers");
     }
 
-    public function createUser($email, $username, $password, $firstname, $lastname) {
+    public function createUser($email, $password, $firstname, $lastname) {
         $parameters = [
             ":email" => $email,
-            ":username" => $username,
+//            ":username" => $username,
             ":password" => $password,
             ":firstname" => $firstname,
             ":lastname" => $lastname,
