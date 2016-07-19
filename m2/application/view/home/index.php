@@ -3,12 +3,12 @@
   <h1><small>Here you can purchase a variety of items sold by your fellow SFSU students.</small></h1>
 </div>
 
-<div class="row jumbotron">
+<div class="margin-left-350">
   <form action="<?php echo URL; ?>products/searchproducts" method="POST">
-    <div class="col-lg-4 col-lg-offset-4" >
-      <div class="search-group float-left">
+    <div class="" >
+      <div class="float-left">
         <input class="form-control input-attributes float-left" type="text" name="searchinput" value="" placeholder="Search for book, furniture, laptop, etc" required />
-          <div class=" float-left">
+          <div class="margin-right-1 float-left">
             <select name="category" class="form-control">
               <option value="">All Categories</option>
               <option value="book">Books</option>
