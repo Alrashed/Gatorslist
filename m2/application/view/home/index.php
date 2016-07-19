@@ -1,4 +1,4 @@
-<div class="page-header text-center title-top-margin">
+<div class="page-header text-center ">
   <h1>Welcome to Gatorslist!</h1>
   <h1><small>Here you can purchase a variety of items sold by your fellow SFSU students.</small></h1>
 </div>

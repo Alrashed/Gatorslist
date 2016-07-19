@@ -24,7 +24,7 @@
       </div>
     </nav>
 
-    <title>Gatorslist</title>
+    <title class="title-top-margin">Gatorslist</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
