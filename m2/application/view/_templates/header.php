@@ -18,13 +18,13 @@
           <li><a href="products">Product Listing</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="register"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+          <li><a href="register"><span class="glyphicon glyphicon-user"></span> Register</a></li>
           <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
         </ul>
       </div>
     </nav>
 
-    <title>Gatorslist</title>
+    <div class="title-top-margin"><title>Gatorslist</title></div>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -33,7 +33,6 @@
     <!-- See more here: http://stackoverflow.com/q/2105327/1114320 -->
     <!-- CSS -->
     <link href="<?php echo URL; ?>css/style.css" rel="stylesheet">
-    <link href="<?php echo URL; ?>img/demo-image.png" rel="icon">
     
 </head>
 <body>
