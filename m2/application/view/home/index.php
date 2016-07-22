@@ -6,7 +6,7 @@
 <div class="margin-left-350">
   <form action="<?php echo URL; ?>products/searchproducts" method="POST">
       <div class="float-left">
-        <input class="form-control input-attributes float-left" type="text" name="searchinput" value="" placeholder="Search for book, furniture, laptop, etc" required />
+        <input id ="search_field" class="form-control input-attributes float-left" type="text" name="searchinput" value="" placeholder="Search for book, furniture, laptop, etc" required />
           <div class="margin-right-1 float-left">
             <select name="category" class="form-control">
               <option value="">All Categories</option>

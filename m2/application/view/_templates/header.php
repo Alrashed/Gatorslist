@@ -8,17 +8,17 @@
     <meta charset="utf-8">
     <!--Nav Bar-->
     <nav class="navbar navbar-default navbar-fixed-top">
-      <div class="container-fluid">
+      <div class="container-fluid " style="font-weight:500; font-size:16px; margin-left:10%; margin-right:10%">
         <div class="navbar-header">
-          <a class="navbar-brand" href="#">Gatorslist</a>
+          <a class="navbar-brand" style="font-weight:700; font-size:20px" href="#">Gatorslist</a>
         </div>
-        <ul class="nav navbar-nav">
+        <ul class="nav navbar-nav"  >
           <li><a href="home">Home</a></li>
           <li><a href="#">Sell Your Items</a></li>
-          <li><a href="products">Product Listing</a></li>
+          <li><a href="<?php echo URL; ?>products/index">Product Listing</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="register"><span class="glyphicon glyphicon-user"></span> Register</a></li>
+          <li><a href="<?php echo URL; ?>register/index"><span class="glyphicon glyphicon-user"></span> Register</a></li>
           <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
         </ul>
       </div>

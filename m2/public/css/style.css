@@ -70,7 +70,7 @@ body {
     margin-right: 1px;
         
 }
-input[type=text] {
+#search_field {
     background-size: 20px 20px;
     background-image: url('../public/img/search_icon.png');
     background-position: 6px 6px; 
