@@ -8,36 +8,36 @@
             	<!-- panel head-->
             	<div class="panel-heading" style="text-align:center; font-weight:800; font-size:20px">Create your account</div>
 				<!-- panel body -->                
-                <form class="panel-body col-lg-offset-0" style="padding-right:20%;padding-left:20%"  role="form" action="<?php echo URL; ?>register/signup" method="POST">
+                <form class="panel-body col-lg-offset-0" style="padding-right:15%;padding-left:15%;font-size: 16px;background-color: #A9A9A9"  role="form" action="<?php echo URL; ?>register/signup" method="POST">
                       
                       <div class="form-group">
                         <label class="" for="email">Email:</label>
                         <div class="">
-                          <input type="email" class="form-control" id="email" placeholder="Enter your email here" >
+                          <input type="email" class="form-control input-lg" id="email_field" placeholder="Enter your email here" >
                         </div>
                       </div>
                       <div class="form-group">
                         <label class="" for="first name" >First Name:</label>
                         <div class="">
-                          <input type="text" class="form-control" id="username" placeholder="Enter your first name">
+                          <input type="text" class="form-control input-lg" id="firstname" placeholder="Enter your first name">
                         </div>
                       </div>
                       <div class="form-group">
                         <label class="" for="last name" >Last Name:</label>
                         <div class="">
-                          <input type="text" class="form-control" id="username" placeholder="Enter your last name">
+                          <input type="text" class="form-control input-lg" id="lastname" placeholder="Enter your last name">
                         </div>
                       </div>
                       <div class="form-group">
                         <label class="" for="username" >Username:</label>
                         <div class="">
-                          <input type="text" class="form-control" id="username" placeholder="Username">
+                          <input type="text" class="form-control input-lg" id="username_field" placeholder="Username">
                         </div>
                       </div>
                       <div class="form-group">
                         <label class="" for="pwd">Password:</label>
                         <div class=""> 
-                          <input type="password" class="form-control" id="pwd" placeholder="Enter password">
+                          <input type="password" class="form-control input-lg" id="password_field" placeholder="Enter password">
                         </div>
                       </div>
                       <div class="form-group"> 
@@ -48,8 +48,8 @@
                         </div>
                       </div>
                       <div class="form-group"> 
-                        <div class="col-sm-offset-4 col-sm-10">
-                          <button type="submit" class="btn btn-default">Sign Up</button>
+                        <div class="">
+                          <button type="submit" class="btn btn-danger " style="height:50px; width:100%; font-size:18px; font-family:'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', 'DejaVu Sans', Verdana, sans-serif; border-radius:20px">Sign Up</button>
                         </div>
                       </div>
               </form>
