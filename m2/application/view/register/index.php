@@ -1,5 +1,4 @@
 <div class="container" style="border:none; margin-left:5%; margin-right:5%">
-    <h2>You are in the View: application/view/register/index.php (everything in this box comes from that file)</h2>
     <!-- register form -->
     <div class="box">
         <div class=" col-sm-6 col-lg-offset-3" >
@@ -8,36 +7,36 @@
             	<!-- panel head-->
             	<div class="panel-heading" style="text-align:center; font-weight:800; font-size:20px">Create your account</div>
 				<!-- panel body -->                
-                <form class="panel-body col-lg-offset-0" style="padding-right:15%;padding-left:15%;font-size: 16px;background-color: #A9A9A9"  role="form" action="<?php echo URL; ?>register/signup" method="POST">
+                <form class="panel-body col-lg-offset-0 " style="padding-right:15%;padding-left:15%;font-size: 16px;background-color: #87CEFA"  role="form" action="<?php echo URL; ?>register/signup" method="POST">
                       
                       <div class="form-group">
                         <label class="" for="email">Email:</label>
                         <div class="">
-                          <input type="email" class="form-control input-lg" id="email_field" placeholder="Enter your email here" >
+                          <input type="email" class="form-control input-lg placeholder" id="email_field" placeholder="Enter your email here" >
                         </div>
                       </div>
                       <div class="form-group">
                         <label class="" for="first name" >First Name:</label>
                         <div class="">
-                          <input type="text" class="form-control input-lg" id="firstname" placeholder="Enter your first name">
+                          <input type="text" class="form-control input-lg placeholder" id="firstname" placeholder="Enter your first name">
                         </div>
                       </div>
                       <div class="form-group">
                         <label class="" for="last name" >Last Name:</label>
                         <div class="">
-                          <input type="text" class="form-control input-lg" id="lastname" placeholder="Enter your last name">
+                          <input type="text" class="form-control input-lg placeholder" id="lastname" placeholder="Enter your last name">
                         </div>
                       </div>
                       <div class="form-group">
                         <label class="" for="username" >Username:</label>
                         <div class="">
-                          <input type="text" class="form-control input-lg" id="username_field" placeholder="Username">
+                          <input type="text" class="form-control input-lg placeholder" id="username_field" placeholder="Username">
                         </div>
                       </div>
                       <div class="form-group">
                         <label class="" for="pwd">Password:</label>
                         <div class=""> 
-                          <input type="password" class="form-control input-lg" id="password_field" placeholder="Enter password">
+                          <input type="password" class="form-control input-lg placeholder" id="password_field" placeholder="Enter password">
                         </div>
                       </div>
                       <div class="form-group"> 
