@@ -57,4 +57,19 @@ class Model
         }
         
     }
+
+    public function getAllHighProducts()
+    {
+            return $this->dao->get([], "allHighProducts");	
+    }
+    
+    public function getAllLowProducts()
+    {
+            return $this->dao->get([], "allLowProducts");
+    }
+
+    public function getAllNewestProducts()
+    {
+            return $this->dao->get([], "allNewestProducts");
+    }
 }

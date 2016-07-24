@@ -79,7 +79,29 @@ class Dao {
             }
         }
 
-        else if ($target == "ProductsByCategory") {
+        else if ($target == "allHighProducts") {;
+            $sql = "SELECT * FROM product ORDER BY Price DESC";
+            $query = $this->db->prepare($sql);
+            $query->execute();
+            return $query->fetchAll();	
+	}
+	
+	else if ($target == "allLowProducts") {;
+            $sql = "SELECT * FROM product ORDER BY Price ASC";
+            $query = $this->db->prepare($sql);
+            $query->execute();
+            return $query->fetchAll();
+        }
+
+        else if ($target == "allNewestProducts") {;
+            $sql = "SELECT * FROM product ORDER BY Postdate DESC";
+            $query = $this->db->prepare($sql);
+            $query->execute();
+            return $query->fetchAll();
+        }
+
+        
+	else if ($target == "ProductsByCategory") {
             $keyword = array_shift( $parameters );
             $category =  $parameters[":category"];
             $sql = "SELECT * FROM product p1 WHERE p1.Category_Id = (SELECT pc.Category_id FROM productCategory pc WHERE pc.Category_name = '".$category."') AND (p1.Title LIKE '%".$keyword."%'OR p1.Description LIKE '%".$keyword."%')";

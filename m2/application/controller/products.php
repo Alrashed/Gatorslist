@@ -52,5 +52,25 @@ class Products extends Controller
 
     }
 
+    public function sortBy()
+    {
+	if (isset($_POST["highprice"])) {	
+	$products = $this->model->getAllHighProducts();
+	}
+
+        else if (isset($_POST["lowprice"])) {
+        $products = $this->model->getAllLowProducts();
+        }
+	
+        else if (isset($_POST["date"])) {
+        $products = $this->model->getAllNewestProducts();
+        }
+
+
+        // where to go after product has been added
+        require APP . 'view/_templates/header.php';
+        require APP . 'view/products/product.php';
+        require APP . 'view/_templates/footer.php';
+    }
 
 }

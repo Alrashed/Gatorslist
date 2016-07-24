@@ -1,8 +1,19 @@
 <div class="container">
     <h2>You are in the View: application/view/products/product.php (everything in this box comes from that file)</h2>
-    <div class="box">
-        <h3>Search Results:</h3>
-<!--        <form action="--><?php //echo URL; ?><!--products/searchProducts" method="POST">-->
+   	<div class="box">
+	<label> Sort by:</label><br>
+        <form action="<?php echo URL; ?>products/sortBy" method="POST">
+        <input type="submit" name="lowprice" value="Lowest Price">
+        <input type="submit" name="highprice" value="Highest Price">
+        <input type="submit" name="date" value="Newly Listed"><br><br>
+        
+        <label>Less than: $</label>
+        <!-- <input type="text" name="priceinput" value="" required />-->
+	</div>
+
+	<div class="box">	
+	<h4>Search Results:</h4>
+                <td></td>
         <table>
             <thead style="background-color: #ddd; font-weight: bold;">
             <tr>
