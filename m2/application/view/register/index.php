@@ -48,7 +48,7 @@
                       </div>
                       <div class="form-group"> 
                         <div class="">
-                          <button type="submit" class="btn btn-danger " style="height:50px; width:100%; font-size:18px; font-family:'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', 'DejaVu Sans', Verdana, sans-serif; border-radius:20px">Sign Up</button>
+                          <button type="submit" class="btn btn-danger " id="signup">Sign Up</button>
                         </div>
                       </div>
               </form>
