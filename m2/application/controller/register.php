@@ -41,6 +41,8 @@ class Register extends Controller
         header('location: ' . URL . 'register/index');
     }
 
+    
+
     public function deleteUser($user_id)
     {
         // if we have an id of a user that should be deleted
