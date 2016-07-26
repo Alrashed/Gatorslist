@@ -32,7 +32,7 @@ class Sell extends Controller
     public function createItem()
     {
 //        echo "start upload";
-        $target_dir = "/home/su16g01/uploads/";
+        $target_dir = "/home/gruan/uploads";
         $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
         $uploadOk = 1;
         $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
@@ -59,7 +59,7 @@ class Sell extends Controller
             } else {
                 if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
                     
-                    $src = "/home/su16g01/uploads/" . $_POST["Title"] . '.' . $imageFileType;
+                    $src = "/home/gruan/uploads" . $_POST["Title"] . '.' . $imageFileType;
                     $img = new imaging;
                     $img->set_img($src);
                     $img->set_quality(80);
