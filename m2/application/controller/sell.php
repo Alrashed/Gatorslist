@@ -9,7 +9,7 @@ include 'resize.php';
  * This is really weird behaviour, but documented here: http://php.net/manual/en/language.oop5.decon.php
  *
  */
-class Item extends Controller
+class Sell extends Controller
 {
     /**
      * PAGE: index
@@ -22,7 +22,7 @@ class Item extends Controller
 
         // load views. within the views we can echo out $users
         require APP . 'view/_templates/header.php';
-        require APP . 'view/item/index.php';
+        require APP . 'view/sell/index.php';
         require APP . 'view/_templates/footer.php';
     }
 
@@ -31,35 +31,35 @@ class Item extends Controller
      */
     public function createItem()
     {
-        $target_dir = "uploads/";
+//        echo "start upload";
+        $target_dir = "/home/su16g01/uploads/";
         $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
         $uploadOk = 1;
         $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
         $target_file = $target_dir . $_POST["Title"] . '.' . $imageFileType;
         $filename = $_POST["Title"]. '.' . $imageFileType;
         
-
+//        echo"done with here";
         // if we have POST data to create a new user entry
         if (isset($_POST["submit"])) {
-//            if(checkLogin()) {
-//                $seller_id = getcurrentUser();
+
             //This is the directory where images will be saved
             $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
             if($check !== false) {
-//                echo "File is an image - " . $check["mime"] . ".";
+                echo "File is an image - " . $check["mime"] . ".";
                 $uploadOk = 1;
             } else {
-//                echo "File is not an image.";
+                echo "File is not an image.";
                 $uploadOk = 0;
             }
 
             if ($uploadOk == 0) {
-//                echo "Sorry, your file was not uploaded.";
+                echo "Sorry, your file was not uploaded.";
                 // if everything is ok, try to upload file
             } else {
                 if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
                     
-                    $src = "./uploads/" . $_POST["Title"] . '.' . $imageFileType;
+                    $src = "/home/su16g01/uploads/" . $_POST["Title"] . '.' . $imageFileType;
                     $img = new imaging;
                     $img->set_img($src);
                     $img->set_quality(80);
@@ -74,8 +74,9 @@ class Item extends Controller
             }
 
             $date = date("Y-m-d H:i:s");
-            $seller_id = "13";// example 
-            
+            //frontend need to pass the cookie here 
+            $seller_id = "16";// example
+            echo"model good";
             $this->model->createItem($seller_id,$_POST["Title"], $_POST["Description"], $_POST["Price"], $_POST["Condition"],$date, $_POST["Category_Id"],$small_img);
 
 //                header('location: ' . URL . 'item/index');

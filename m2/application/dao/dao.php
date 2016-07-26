@@ -53,6 +53,7 @@ class Dao {
             }
         }
         else if($target == "item"){
+            echo"dao good";
             $seller_id = $parameters[":seller_id"];
             $title = $parameters[":title"];
             $description = $parameters[":description"];
@@ -62,24 +63,33 @@ class Dao {
             $category_Id =  $parameters[":category_Id"];
             $small_img =  $parameters[":small_img"];
 
-            $sql1 ="INSERT INTO image (thumbnail) VALUES('".$small_img."')";
-//            echo $sql1;
+            $sql1 ="INSERT INTO image (thumbnail) VALUES(LOAD_FILE('".$small_img."'))";
+            echo $sql1;
             $query1 = $this->db->prepare($sql1);
             $query1->execute();
-
-            $sql = "INSERT INTO product (Seller_id, Title, Description, Price, ItemCondition, Postdate, Category_Id,Image_id) 
-                    VALUES ('".$seller_id."','".$title."' , '".$description."', '".$price."', '".$condition."','".$postdate."' , '".$category_Id."',(SELECT Image_id FROM image WHERE thumbnail = '".$small_img."'))";
-//            echo $sql;
-            $query = $this->db->prepare($sql);
             try {
-                if ($query->execute()) {
-                    return true;
+                if ($query1->execute()) {
+                    $sql = "INSERT INTO product (Seller_id, Title, Description, Price, ItemCondition, Postdate, Category_Id,Image_id)
+                    VALUES ('".$seller_id."','".$title."' , '".$description."', '".$price."', '".$condition."','".$postdate."' , '".$category_Id."','".$this->db->lastInsertId()."')";
+                    echo $sql;
+                    $query = $this->db->prepare($sql);
+                    try {
+                        if ($query->execute()) {
+                            return true;
+                        } else {
+                            return false;
+                        }
+                    } catch(PDOException $e) {
+                        echo $e->getMessage();
+                    }
                 } else {
                     return false;
                 }
             } catch(PDOException $e) {
                 echo $e->getMessage();
             }
+
+
         }
         else if ($target == "order") {
             $product_id = $parameters[":product_id"];
@@ -98,7 +108,7 @@ class Dao {
             $query = $this->db->prepare($sql1);
             try {
                 if ($query->execute()) {
-                    return $query->fetchAll();;
+                    return $query->fetchAll();
                 } else {
                     return false;
                 }
@@ -120,7 +130,7 @@ class Dao {
 
         else if ($target == "allProducts") {
             $keyword = array_shift($parameters);
-            $sql = "SELECT * FROM product  WHERE Title LIKE '%" . $keyword . "%' or Description LIKE '%." . $keyword . "%'";
+            $sql = "SELECT i.thumbnail,p.Title,p.ItemCondition, p.Description, p.Price, p.Postdate FROM product p, image i  WHERE (i.Image_id = p. Image_id AND p.Title LIKE '%" . $keyword . "%') or (i.Image_id = p. Image_id AND Description LIKE '%." . $keyword . "%')";
             $query = $this->db->prepare($sql);
             try {
                 if ($query->execute()) {
