@@ -63,12 +63,13 @@ class Dao {
             $category_Id =  $parameters[":category_Id"];
             $small_img =  $parameters[":small_img"];
 
-            $sql1 ="INSERT INTO image (thumbnail) VALUES(LOAD_FILE('".$small_img."'))";
-            echo $sql1;
+
+            $sql1 = "INSERT INTO image (thumbnail) VALUES (:small_img)";
             $query1 = $this->db->prepare($sql1);
-            $query1->execute();
+            $parameters1 = array(':small_img' => $small_img);
             try {
-                if ($query1->execute()) {
+                if ($query1->execute($parameters1)) {
+
                     $sql = "INSERT INTO product (Seller_id, Title, Description, Price, ItemCondition, Postdate, Category_Id,Image_id)
                     VALUES ('".$seller_id."','".$title."' , '".$description."', '".$price."', '".$condition."','".$postdate."' , '".$category_Id."','".$this->db->lastInsertId()."')";
                     echo $sql;

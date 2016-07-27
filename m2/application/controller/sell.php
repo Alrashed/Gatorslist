@@ -67,6 +67,7 @@ class Sell extends Controller
                     $img->set_size(200);
                     $img->save_img($small_img);
                     $img->clear_cache();
+                    $imageString = file_get_contents($small_img);
 
                 } else {
                     echo "Sorry, there was an error uploading your file.";
@@ -77,7 +78,7 @@ class Sell extends Controller
             //frontend need to pass the cookie here 
             $seller_id = "16";// example
             echo"model good";
-            $this->model->createItem($seller_id,$_POST["Title"], $_POST["Description"], $_POST["Price"], $_POST["Condition"],$date, $_POST["Category_Id"],$small_img);
+            $this->model->createItem($seller_id,$_POST["Title"], $_POST["Description"], $_POST["Price"], $_POST["Condition"],$date, $_POST["Category_Id"],$imageString);
 
 //                header('location: ' . URL . 'item/index');
 //            } else {
