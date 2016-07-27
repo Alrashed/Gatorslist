@@ -42,7 +42,9 @@ class Login extends Controller
             
             $this->model->loginUser($_POST["email"],  $_POST["password"]);
             
-            if ($this->email == $email) {
+            echo $this->Email == $email;
+            
+            if ($this->Email == $email) {
                 $_SESSION['CurrentUser'] = $this->User_id;  // create session for user             
                 header('location: ' . URL . 'home');   
             } 

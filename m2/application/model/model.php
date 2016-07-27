@@ -30,7 +30,7 @@ class Model
             ":email" => $email,
             ":password" => $password,
         ];
-        $this->dao->get($parameters, "user");
+        return $this->dao->get($parameters, "user");
     }
 
     //add a user
@@ -43,6 +43,7 @@ class Model
             ":lastname" => $lastname,
         ];
         $this->dao->create($parameters, "user");
+        
     }
 
     //delete user
