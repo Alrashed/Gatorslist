@@ -65,7 +65,7 @@ class Model
 
     //item controller
     // add product with images
-    public function createItem($seller_id, $title, $description, $price, $condition, $date, $category_Id,$small_img) {
+    public function createItem($seller_id, $title, $description, $price, $condition, $date, $category_Id,$image1,$image2, $image3,$image4) {
         echo "model good";
         $parameters = [
             ":seller_id" => $seller_id,
@@ -75,7 +75,10 @@ class Model
             ":condition" => $condition,
             ":date" =>$date,
             ":category_Id" =>$category_Id,
-            ":small_img" => $small_img,
+            ":image1" => $image1,
+            ":image2" => $image2,
+            ":image3" => $image3,
+            ":image4" => $image4,
         ];
         $this->dao->create($parameters, "item");
     }

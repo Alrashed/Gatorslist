@@ -61,14 +61,18 @@ class Dao {
             $condition = $parameters[":condition"];
             $postdate = $parameters[":date"];
             $category_Id =  $parameters[":category_Id"];
-            $small_img =  $parameters[":small_img"];
+            $image1 =  $parameters[":image1"];
+            $image2 =  $parameters[":image2"];
+            $image3 =  $parameters[":image3"];
+            $image4 =  $parameters[":image4"];
 
-            $sql1 ="INSERT INTO image (thumbnail) VALUES(LOAD_FILE('".$small_img."'))";
-            echo $sql1;
+
+            $sql1 = "INSERT INTO image (Image_blob1,Image_blob2,Image_blob3,Image_blob4) VALUES (:image1, :image2, :image3, :image4)";
             $query1 = $this->db->prepare($sql1);
-            $query1->execute();
+            $parameters1 = array(':image1' => $image1, ':image2' => $image2, ':image3' => $image3, ':image4' => $image4 );
             try {
-                if ($query1->execute()) {
+                if ($query1->execute($parameters1)) {
+
                     $sql = "INSERT INTO product (Seller_id, Title, Description, Price, ItemCondition, Postdate, Category_Id,Image_id)
                     VALUES ('".$seller_id."','".$title."' , '".$description."', '".$price."', '".$condition."','".$postdate."' , '".$category_Id."','".$this->db->lastInsertId()."')";
                     echo $sql;
@@ -130,7 +134,7 @@ class Dao {
 
         else if ($target == "allProducts") {
             $keyword = array_shift($parameters);
-            $sql = "SELECT i.thumbnail,p.Title,p.ItemCondition, p.Description, p.Price, p.Postdate FROM product p, image i  WHERE (i.Image_id = p. Image_id AND p.Title LIKE '%" . $keyword . "%') or (i.Image_id = p. Image_id AND Description LIKE '%." . $keyword . "%')";
+            $sql = "SELECT i.Image_blob1,p.Title,p.ItemCondition, p.Description, p.Price, p.Postdate, p.Product_id FROM product p, image i  WHERE (i.Image_id = p. Image_id AND p.Title LIKE '%" . $keyword . "%') or (i.Image_id = p. Image_id AND Description LIKE '%." . $keyword . "%')";
             $query = $this->db->prepare($sql);
             try {
                 if ($query->execute()) {
@@ -161,7 +165,7 @@ class Dao {
         }
         else if ($target == "item") {
             $pid = $parameters[":product_id"];
-            $sql ="SELECT i.thumbnail, p.Seller_id, p.Title, p.Description, p.Price, p.ItemCondition, p.Postdate FROM product p,image i  WHERE p.Image_id = i.Image_id AND p.product_id = '".$pid."' ";
+            $sql ="SELECT i.Image_blob1, p.Seller_id, p.Title, p.Description, p.Price, p.ItemCondition, p.Postdate, p.Product_id FROM product p,image i  WHERE p.Image_id = i.Image_id AND p.product_id = '".$pid."' ";
             $query = $this->db->prepare($sql);
             try {
                 if ($query->execute()) {
