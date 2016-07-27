@@ -58,21 +58,40 @@ class Model
         
     }
     
-    public function getAllSortedProducts($searchinput,$sorttype)
-    {   
-            $parameters = [
-                ":searchinput" => $searchinput,
-            ];
+    public function getAllSortedProducts($searchinput, $category, $sorttype)
+    {   	
+	  if($category == "") {
+            
+	  	$parameters = [
+                	":searchinput" => $searchinput,
+            	];
 	
-            if ($sorttype == "highprice") 
-            return $this->dao->get($parameters, "allHighProducts");
+           	if ($sorttype == "highprice") 
+            		return $this->dao->get($parameters, "allHighProducts");
 	    
-	    else if($sorttype == "lowprice")
-	    return $this->dao->get($parameters, "allLowProducts");
-		
-	    
-	    else if($sorttype == "date") 
-	    return $this->dao->get($parameters, "allNewestProducts");
+	    	else if($sorttype == "lowprice")
+	    		return $this->dao->get($parameters, "allLowProducts");
+	
+	    	else if($sorttype == "date") 
+	    		return $this->dao->get($parameters, "allNewestProducts");
+	  }
+	   
+	else {
+	     $parameters = [
+                ":searchinput" => $searchinput,
+		":category" => $category,
+             ];
+        
+             if ($sorttype == "highprice") 
+             		return $this->dao->get($parameters, "allHighProducts");
+
+             else if($sorttype == "lowprice")
+             		return $this->dao->get($parameters, "allLowProducts");
+                
+            
+             else if($sorttype == "date") 
+             		return $this->dao->get($parameters, "allNewestProducts");
+	    }
 		
     }
 

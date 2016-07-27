@@ -81,15 +81,31 @@ class Dao {
 
         else if ($target == "allHighProducts") {
             $keyword = array_shift($parameters);
-	    $sql = "SELECT * FROM product WHERE Title LIKE '%" . $keyword . "%' or Description LIKE '%." . $keyword . "%' ORDER BY Price DESC";
-            $query = $this->db->prepare($sql);
+	    
+	    if(isset($parameters[":category"])) {
+	    	$category = $parameters[":category"];
+	    	$sql = "SELECT * FROM product p1 WHERE (p1.Category_Id = (SELECT pc.Category_id FROM productCategory pc WHERE pc.Category_name = '".$category."')) AND (Title LIKE '%" . $keyword . "%' or Description LIKE '%." . $keyword . "%') ORDER BY Price DESC";
+            }
+
+	    else 
+		$sql = "SELECT * FROM product WHERE Title LIKE '%" . $keyword . "%' or Description LIKE '%." . $keyword . "%' ORDER BY Price DESC";  
+	  
+	    $query = $this->db->prepare($sql);
             $query->execute();
             return $query->fetchAll();	
 	}
 	
 	else if ($target == "allLowProducts") {
             $keyword = array_shift($parameters);
-	    $sql = "SELECT * FROM product WHERE Title LIKE '%" . $keyword . "%' or Description LIKE '%." . $keyword . "%' ORDER BY Price ASC";                
+	    
+	    if(isset($parameters[":category"])) {
+                $category = $parameters[":category"];
+                $sql = "SELECT * FROM product p1 WHERE (p1.Category_Id = (SELECT pc.Category_id FROM productCategory pc WHERE pc.Category_name = '".$category."')) AND (Title LIKE '%" . $keyword . "%' or Description LIKE '%." . $keyword . "%') ORDER BY Price ASC";
+            }
+
+            else 
+                $sql = "SELECT * FROM product WHERE Title LIKE '%" . $keyword . "%' or Description LIKE '%." . $keyword . "%' ORDER BY Price ASC";  
+
 	    $query = $this->db->prepare($sql);
             $query->execute();
             return $query->fetchAll();
@@ -97,8 +113,16 @@ class Dao {
 
         else if ($target == "allNewestProducts") {
 	    $keyword = array_shift($parameters);
-            $sql = "SELECT * FROM product WHERE Title LIKE '%" . $keyword . "%' or Description LIKE '%." . $keyword . "%' ORDER BY Postdate DESC";
-            $query = $this->db->prepare($sql);
+
+  	    if(isset($parameters[":category"])) {
+                $category = $parameters[":category"];
+                $sql = "SELECT * FROM product p1 WHERE (p1.Category_Id = (SELECT pc.Category_id FROM productCategory pc WHERE pc.Category_name = '".$category."')) AND (Title LIKE '%" . $keyword . "%' or Description LIKE '%." . $keyword . "%') ORDER BY Postdate DESC";
+            }
+
+            else 
+                $sql = "SELECT * FROM product WHERE Title LIKE '%" . $keyword . "%' or Description LIKE '%." . $keyword . "%' ORDER BY Postdate DESC";  
+          
+       	    $query = $this->db->prepare($sql);
             $query->execute();
             return $query->fetchAll();
         }
