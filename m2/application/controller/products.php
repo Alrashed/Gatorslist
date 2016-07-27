@@ -32,15 +32,18 @@ class Products extends Controller
 	}
 	
         else if (isset($_GET["highprice"])) {
-	$products = $this->model->getAllHighProducts($_GET["searchinput"], $_GET["highprice"]);
+	$sorttype = "highprice";
+	$products = $this->model->getAllSortedProducts($_GET["searchinput"], $sorttype);
         }
 
         else if (isset($_GET["lowprice"])) {
-        $products = $this->model->getAllLowProducts($_GET["searchinput"]);
+        $sorttype = "lowprice";
+	$products = $this->model->getAllSortedProducts($_GET["searchinput"], $sorttype);
         }
 
         else if (isset($_GET["date"])) {
-        $products = $this->model->getAllNewestProducts($_GET["searchinput"]);
+	$sorttype = "date";
+        $products = $this->model->getAllSortedProducts($_GET["searchinput"], $sorttype);
         }
 
         else if (isset($_GET["submit_filter_price_product"])) {
@@ -53,38 +56,10 @@ class Products extends Controller
 
 
         // where to go after product has been added
-        //require APP . 'view/_templates/header.php';
+        require APP . 'view/_templates/header.php';
         require APP . 'view/products/product.php';
         require APP . 'view/_templates/footer.php';
 
     }
-
-  /*  public function sortBy()
-    {
-	if (isset($_POST["highprice"])) {	
-	$products = $this->model->getAllProducts($_POST["searchinput"], $_POST["category"]);
-	}
-
-        else if (isset($_POST["lowprice"])) {
-        $products = $this->model->getAllLowProducts();
-        }
-	
-        else if (isset($_POST["date"])) {
-        $products = $this->model->getAllNewestProducts();
-        }
-
-        else if (isset($_POST["submit_filter_price_product"])) { 
-	$products = $this->model->getAllFilterPriceProducts($_POST["minprice"], $_POST["maxprice"]);
-        }
-
-        else if (isset($_POST["submit_condition_product"])) {
-	$products = $this->model->getAllFilterConditionProducts($_POST["itemcondition"]);
-        
-	}
-	 
-       require APP . 'view/_templates/header.php';
-       require APP . 'view/products/product.php';
-       require APP . 'view/_templates/footer.php';
-    } */
 
 }

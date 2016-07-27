@@ -57,31 +57,23 @@ class Model
         }
         
     }
-
-    public function getAllHighProducts($searchinput,$sorttype)
-    {	
+    
+    public function getAllSortedProducts($searchinput,$sorttype)
+    {   
             $parameters = [
                 ":searchinput" => $searchinput,
             ];
-
-	    if ($sorttype = "highprice")
+	
+            if ($sorttype == "highprice") 
             return $this->dao->get($parameters, "allHighProducts");
-    }
-    
-    public function getAllLowProducts($searchinput)
-    {
-	    $parameters = [   
-                ":searchinput" => $searchinput,
-            ];
+	    
+	    else if($sorttype == "lowprice")
 	    return $this->dao->get($parameters, "allLowProducts");
-    }
-
-    public function getAllNewestProducts($searchinput)
-    {
-	    $parameters = [   
-                ":searchinput" => $searchinput,
-            ];
-            return $this->dao->get($parameters, "allNewestProducts");
+		
+	    
+	    else if($sorttype == "date") 
+	    return $this->dao->get($parameters, "allNewestProducts");
+		
     }
 
     public function getAllFilterPriceProducts($searchinput,$minprice, $maxprice)
