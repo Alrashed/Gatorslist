@@ -58,18 +58,49 @@ class Model
         
     }
 
-    public function getAllHighProducts()
-    {
-            return $this->dao->get([], "allHighProducts");	
+    public function getAllHighProducts($searchinput,$sorttype)
+    {	
+            $parameters = [
+                ":searchinput" => $searchinput,
+            ];
+
+	    if ($sorttype = "highprice")
+            return $this->dao->get($parameters, "allHighProducts");
     }
     
-    public function getAllLowProducts()
+    public function getAllLowProducts($searchinput)
     {
-            return $this->dao->get([], "allLowProducts");
+	    $parameters = [   
+                ":searchinput" => $searchinput,
+            ];
+	    return $this->dao->get($parameters, "allLowProducts");
     }
 
-    public function getAllNewestProducts()
+    public function getAllNewestProducts($searchinput)
     {
-            return $this->dao->get([], "allNewestProducts");
+	    $parameters = [   
+                ":searchinput" => $searchinput,
+            ];
+            return $this->dao->get($parameters, "allNewestProducts");
     }
+
+    public function getAllFilterPriceProducts($searchinput,$minprice, $maxprice)
+    {
+            $parameters = [
+		":searchinput" => $searchinput,
+                ":minprice" => $minprice,
+		":maxprice" => $maxprice,
+            ];
+            return $this->dao->get($parameters, "allFilterPriceProducts");
+    }
+
+    public function getAllFilterConditionProducts($searchinput,$itemcondition)
+    {
+            $parameters = [
+		":searchinput" => $searchinput,
+                ":itemcondition" => $itemcondition,
+            ];
+            return $this->dao->get($parameters, "allFilterConditionProducts");
+    }
+
 }

@@ -23,39 +23,46 @@ class Products extends Controller
         require APP . 'view/_templates/footer.php';
     }
 
-    public function product()
-    {
-        if (isset($_POST["submit_search_product"])) {
-            
-            // getting all products
-            $products = $this->model->getAllProducts($_POST["searchinput"], $_POST["category"]);
-
-           // load views
-            require APP . 'view/_templates/header.php';
-            require APP . 'view/products/product.php';
-            require APP . 'view/_templates/footer.php';
-        }
-    }
-
     public function searchProducts()
     {
         // if we have POST data to create a new product entry
-        if (isset($_POST["submit_search_product"])) {
+        if (isset($_GET["submit_search_product"])) {
             // do getAllProducts() in model/model.php
-            $products = $this->model->getAllProducts($_POST["searchinput"], $_POST["category"]);
+	$products = $this->model->getAllProducts($_GET["searchinput"], $_GET["category"]);
+	}
+	
+        else if (isset($_GET["highprice"])) {
+	$products = $this->model->getAllHighProducts($_GET["searchinput"], $_GET["highprice"]);
         }
 
+        else if (isset($_GET["lowprice"])) {
+        $products = $this->model->getAllLowProducts($_GET["searchinput"]);
+        }
+
+        else if (isset($_GET["date"])) {
+        $products = $this->model->getAllNewestProducts($_GET["searchinput"]);
+        }
+
+        else if (isset($_GET["submit_filter_price_product"])) {
+        $products = $this->model->getAllFilterPriceProducts($_GET["searchinput"],$_GET["minprice"], $_GET["maxprice"]);
+        }
+
+        else if (isset($_GET["submit_condition_product"])) {
+        $products = $this->model->getAllFilterConditionProducts($_GET["searchinput"],$_GET["itemcondition"]);	
+        }
+
+
         // where to go after product has been added
-        require APP . 'view/_templates/header.php';
+        //require APP . 'view/_templates/header.php';
         require APP . 'view/products/product.php';
         require APP . 'view/_templates/footer.php';
 
     }
 
-    public function sortBy()
+  /*  public function sortBy()
     {
 	if (isset($_POST["highprice"])) {	
-	$products = $this->model->getAllHighProducts();
+	$products = $this->model->getAllProducts($_POST["searchinput"], $_POST["category"]);
 	}
 
         else if (isset($_POST["lowprice"])) {
@@ -66,11 +73,18 @@ class Products extends Controller
         $products = $this->model->getAllNewestProducts();
         }
 
+        else if (isset($_POST["submit_filter_price_product"])) { 
+	$products = $this->model->getAllFilterPriceProducts($_POST["minprice"], $_POST["maxprice"]);
+        }
 
-        // where to go after product has been added
-        require APP . 'view/_templates/header.php';
-        require APP . 'view/products/product.php';
-        require APP . 'view/_templates/footer.php';
-    }
+        else if (isset($_POST["submit_condition_product"])) {
+	$products = $this->model->getAllFilterConditionProducts($_POST["itemcondition"]);
+        
+	}
+	 
+       require APP . 'view/_templates/header.php';
+       require APP . 'view/products/product.php';
+       require APP . 'view/_templates/footer.php';
+    } */
 
 }

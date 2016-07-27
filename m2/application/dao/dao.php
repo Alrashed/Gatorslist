@@ -79,27 +79,48 @@ class Dao {
             }
         }
 
-        else if ($target == "allHighProducts") {;
-            $sql = "SELECT * FROM product ORDER BY Price DESC";
+        else if ($target == "allHighProducts") {
+            $keyword = array_shift($parameters);
+	    $sql = "SELECT * FROM product WHERE Title LIKE '%" . $keyword . "%' or Description LIKE '%." . $keyword . "%' ORDER BY Price DESC";
             $query = $this->db->prepare($sql);
             $query->execute();
             return $query->fetchAll();	
 	}
 	
-	else if ($target == "allLowProducts") {;
-            $sql = "SELECT * FROM product ORDER BY Price ASC";
-            $query = $this->db->prepare($sql);
+	else if ($target == "allLowProducts") {
+            $keyword = array_shift($parameters);
+	    $sql = "SELECT * FROM product WHERE Title LIKE '%" . $keyword . "%' or Description LIKE '%." . $keyword . "%' ORDER BY Price ASC";                
+	    $query = $this->db->prepare($sql);
             $query->execute();
             return $query->fetchAll();
         }
 
-        else if ($target == "allNewestProducts") {;
-            $sql = "SELECT * FROM product ORDER BY Postdate DESC";
+        else if ($target == "allNewestProducts") {
+	    $keyword = array_shift($parameters);
+            $sql = "SELECT * FROM product WHERE Title LIKE '%" . $keyword . "%' or Description LIKE '%." . $keyword . "%' ORDER BY Postdate DESC";
             $query = $this->db->prepare($sql);
             $query->execute();
             return $query->fetchAll();
         }
-
+       
+	else if ($target == "allFilterPriceProducts") {
+	    $minprice = $parameters[":minprice"];
+	    $maxprice = $parameters[":maxprice"];
+            $searchinput = $parameters[":searchinput"];
+	    $sql = "SELECT * FROM product WHERE (Price BETWEEN $minprice AND $maxprice ) AND (Title LIKE '%" . $searchinput . "%' or Description LIKE '%." . $searchinput . "%')";
+            $query = $this->db->prepare($sql);
+            $query->execute();
+            return $query->fetchAll();
+        }
+        
+	else if ($target == "allFilterConditionProducts") {
+            $itemcondition = $parameters[":itemcondition"];
+            $searchinput = $parameters[":searchinput"];
+	    $sql = "SELECT * FROM product WHERE (ItemCondition = '".$itemcondition."') AND (Title LIKE '%" . $searchinput . "%' or Description LIKE '%." . $searchinput . "%')";
+	    $query = $this->db->prepare($sql);
+            $query->execute();
+            return $query->fetchAll();
+        }   
         
 	else if ($target == "ProductsByCategory") {
             $keyword = array_shift( $parameters );
