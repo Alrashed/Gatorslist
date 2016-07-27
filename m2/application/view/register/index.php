@@ -1,3 +1,4 @@
+
 <div class="container" style="border:none; margin-left:5%; margin-right:5%">
     <!-- register form -->
     <div class="box">
@@ -12,31 +13,31 @@
                       <div class="form-group">
                         <label class="" for="email">Email:</label>
                         <div class="">
-                          <input type="email" class="form-control input-lg placeholder" id="email_field" placeholder="Enter your email here" >
+                          <input type="email" class="form-control input-lg placeholder" name="email" id="email_field" placeholder="Enter your email here" >
                         </div>
                       </div>
                       <div class="form-group">
                         <label class="" for="first name" >First Name:</label>
                         <div class="">
-                          <input type="text" class="form-control input-lg placeholder" id="firstname" placeholder="Enter your first name">
+                          <input type="text" class="form-control input-lg placeholder" name="firstname" id="firstname" placeholder="Enter your first name">
                         </div>
                       </div>
                       <div class="form-group">
                         <label class="" for="last name" >Last Name:</label>
                         <div class="">
-                          <input type="text" class="form-control input-lg placeholder" id="lastname" placeholder="Enter your last name">
+                          <input type="text" class="form-control input-lg placeholder" name="lastname" id="lastname" placeholder="Enter your last name">
                         </div>
                       </div>
-                      <div class="form-group">
-                        <label class="" for="username" >Username:</label>
-                        <div class="">
-                          <input type="text" class="form-control input-lg placeholder" id="username_field" placeholder="Username">
-                        </div>
-                      </div>
+<!--                      <div class="form-group">-->
+<!--                        <label class="" for="username" >Username:</label>-->
+<!--                        <div class="">-->
+<!--                          <input type="text" class="form-control input-lg placeholder" id="username_field" placeholder="Username">-->
+<!--                        </div>-->
+<!--                      </div>-->
                       <div class="form-group">
                         <label class="" for="pwd">Password:</label>
                         <div class=""> 
-                          <input type="password" class="form-control input-lg placeholder" id="password_field" placeholder="Enter password">
+                          <input type="password" class="form-control input-lg placeholder" name= "password" id="password_field" placeholder="Enter password">
                         </div>
                       </div>
                       <div class="form-group"> 
@@ -48,7 +49,7 @@
                       </div>
                       <div class="form-group"> 
                         <div class="">
-                          <button type="submit" class="btn btn-danger " id="signup">Sign Up</button>
+                          <button type="submit" class="btn btn-danger " name= "submit" value='submit' id="submit">Sign Up</button>
                         </div>
                       </div>
               </form>
@@ -62,7 +63,7 @@
         <thead style="background-color: #ddd; font-weight: bold;">
         <tr>
             <td>UserID</td>
-            <td>Username</td>
+<!--            <td>Username</td>-->
             <td>Email</td>
             <td>FirstName</td>
             <td>LastName</td>
@@ -75,7 +76,7 @@
             <tr>
                 <td><?php if (isset($user->User_id)) echo htmlspecialchars($user->User_id, ENT_QUOTES, 'UTF-8'); ?></td>
                 
-                <td><?php if (isset($user->Username)) echo htmlspecialchars($user->Username, ENT_QUOTES, 'UTF-8'); ?></td>
+<!--                <td>--><?php //if (isset($user->Username)) echo htmlspecialchars($user->Username, ENT_QUOTES, 'UTF-8'); ?><!--</td>-->
                 
                 <td><?php if (isset($user->Email)) echo htmlspecialchars($user->Email, ENT_QUOTES, 'UTF-8'); ?></td>
                 
@@ -89,3 +90,4 @@
         </tbody>
         </table>
 </div>
+

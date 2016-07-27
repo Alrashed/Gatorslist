@@ -34,12 +34,15 @@ class Register extends Controller
     {
         // if we have POST data to create a new user entry
         if (isset($_POST["submit"])) {
+
             // do createUser() in model/model.php
-            $this->model->createUser($_POST["email"], $_POST["username"],  $_POST["password"], $_POST["firstname"], $_POST["lastname"]);
+            $this->model->createUser($_POST["email"],  $_POST["password"], $_POST["firstname"], $_POST["lastname"]);
         }
         // where to go after user has been added
         header('location: ' . URL . 'register/index');
     }
+
+    
 
     public function deleteUser($user_id)
     {

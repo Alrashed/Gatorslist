@@ -36,10 +36,11 @@ class Dao {
             echo $e->getMessage();
         }
     }
+
     // CRUD create read update and delete to database
     public function create($parameters, $target) {
         if ($target == "user") {
-            $sql = "INSERT INTO user (Email, Password, Username, Firstname, Lastname) VALUES (:email, :password, :username, :firstname, :lastname)";
+            $sql = "INSERT INTO user (Email, Password, Firstname, Lastname) VALUES (:email, :password, :firstname, :lastname)";
             $query = $this->db->prepare($sql);
             try {
                 if ($query->execute($parameters)) {
@@ -50,15 +51,82 @@ class Dao {
             } catch(PDOException $e) {
                 echo $e->getMessage();
             }
-        } else {
-            return false;
         }
+        else if($target == "item"){
+            echo"dao good";
+            $seller_id = $parameters[":seller_id"];
+            $title = $parameters[":title"];
+            $description = $parameters[":description"];
+            $price = $parameters[":price"];
+            $condition = $parameters[":condition"];
+            $postdate = $parameters[":date"];
+            $category_Id =  $parameters[":category_Id"];
+            $image1 =  $parameters[":image1"];
+            $image2 =  $parameters[":image2"];
+            $image3 =  $parameters[":image3"];
+            $image4 =  $parameters[":image4"];
+
+
+            $sql1 = "INSERT INTO image (Image_blob1,Image_blob2,Image_blob3,Image_blob4) VALUES (:image1, :image2, :image3, :image4)";
+            $query1 = $this->db->prepare($sql1);
+            $parameters1 = array(':image1' => $image1, ':image2' => $image2, ':image3' => $image3, ':image4' => $image4 );
+            try {
+                if ($query1->execute($parameters1)) {
+
+                    $sql = "INSERT INTO product (Seller_id, Title, Description, Price, ItemCondition, Postdate, Category_Id,Image_id)
+                    VALUES ('".$seller_id."','".$title."' , '".$description."', '".$price."', '".$condition."','".$postdate."' , '".$category_Id."','".$this->db->lastInsertId()."')";
+                    echo $sql;
+                    $query = $this->db->prepare($sql);
+                    try {
+                        if ($query->execute()) {
+                            return true;
+                        } else {
+                            return false;
+                        }
+                    } catch(PDOException $e) {
+                        echo $e->getMessage();
+                    }
+                } else {
+                    return false;
+                }
+            } catch(PDOException $e) {
+                echo $e->getMessage();
+            }
+
+
+        }
+        else if ($target == "order") {
+            $product_id = $parameters[":product_id"];
+            $buyer_id = $parameters[":buyer_id"];
+            $date = $parameters[":date"];
+            $detail = $parameters[":detail"];
+            $status = $parameters[":status"];
+
+            $sql = "SELECT Price FROM product WHERE Product_id = '".$product_id."' ";
+            $query = $this->db->prepare($sql);
+            $query->execute();
+            $price = $query->fetchAll();
+//            echo $price[0];
+            
+            $sql1 ="INSERT INTO order (Product_id, Buyer_id, OrderDate, Detail,Price, Status) VALUES('".$product_id."', '".$buyer_id."', '".$date."', '".$detail."','".$price[0]."' '".$status."')";
+            $query = $this->db->prepare($sql1);
+            try {
+                if ($query->execute()) {
+                    return $query->fetchAll();
+                } else {
+                    return false;
+                }
+            } catch(PDOException $e) {
+                echo $e->getMessage();
+            }
+        }
+
     }
 
     public function get($parameters, $target)
     {
         if ($target == "allUsers") {
-            $sql = "SELECT User_id, Username, Email, Firstname, Lastname FROM user";
+            $sql = "SELECT User_id, Email, Firstname, Lastname FROM user";
             $query = $this->db->prepare($sql);
             $query->execute();
             return $query->fetchAll();
@@ -66,7 +134,7 @@ class Dao {
 
         else if ($target == "allProducts") {
             $keyword = array_shift($parameters);
-            $sql = "SELECT * FROM product WHERE Title LIKE '%" . $keyword . "%' or Description LIKE '%." . $keyword . "%'";
+            $sql = "SELECT i.Image_blob1,p.Title,p.ItemCondition, p.Description, p.Price, p.Postdate, p.Product_id FROM product p, image i  WHERE (i.Image_id = p. Image_id AND p.Title LIKE '%" . $keyword . "%') or (i.Image_id = p. Image_id AND Description LIKE '%." . $keyword . "%')";
             $query = $this->db->prepare($sql);
             try {
                 if ($query->execute()) {
@@ -80,7 +148,7 @@ class Dao {
         }
 
         else if ($target == "ProductsByCategory") {
-            $keyword = array_shift( $parameters );
+            $keyword = $parameters[":searchinput"];
             $category =  $parameters[":category"];
             $sql = "SELECT * FROM product p1 WHERE p1.Category_Id = (SELECT pc.Category_id FROM productCategory pc WHERE pc.Category_name = '".$category."') AND (p1.Title LIKE '%".$keyword."%'OR p1.Description LIKE '%".$keyword."%')";
 
@@ -95,10 +163,65 @@ class Dao {
                 echo $e->getMessage();
             }
         }
+        else if ($target == "item") {
+            $pid = $parameters[":product_id"];
+            $sql ="SELECT i.Image_blob1, p.Seller_id, p.Title, p.Description, p.Price, p.ItemCondition, p.Postdate, p.Product_id FROM product p,image i  WHERE p.Image_id = i.Image_id AND p.product_id = '".$pid."' ";
+            $query = $this->db->prepare($sql);
+            try {
+                if ($query->execute()) {
+                    return $query->fetchAll();
+                } else {
+                    return false;
+                }
+            } catch(PDOException $e) {
+                echo $e->getMessage();
+            }
+        }
+        else if ($target == "order") {
+            $order_id = $parameters[":order_id"];
+            $sql ="SELECT *FROM order WHERE Order_id = '".$order_id."' ";
+            $query = $this->db->prepare($sql);
+            try {
+                if ($query->execute()) {
+                    return $query->fetchAll();
+                } else {
+                    return false;
+                }
+            } catch(PDOException $e) {
+                echo $e->getMessage();
+            }
+        }
     }
 
     public function update($parameters, $target) {
-
+        if ($target == "resetPrice") {
+            $pid =  $parameters[":product_id"];
+            $newprice =  $parameters[":newprice"];
+            $sql = "UPDATE product SET Price = '".$newprice."' WHERE Product_id = '".$pid. "' ";
+            try {
+                if ($sql->execute()) {
+                    return true;
+                } else {
+                    return false;
+                }
+            } catch (PDOException $e) {
+                echo $e->getMessage();
+            }
+        }
+        else if ($target == "editStatus") {
+            $order_id =  $parameters[":order_id"];
+            $status =  $parameters[":status"];
+            $sql = "UPDATE order SET Status = '".$status."' WHERE Order_id = '".$order_id. "'";
+            try {
+                if ($sql->execute()) {
+                    return true;
+                } else {
+                    return false;
+                }
+            } catch (PDOException $e) {
+                echo $e->getMessage();
+            }
+        }
     }
 
     public function delete ($parameters, $target) {
@@ -114,9 +237,21 @@ class Dao {
             } catch(PDOException $e) {
                 echo $e->getMessage();
             }
-        } else {
-            return false;
         }
-        
+
+        else if($target == "item") {
+            $sql = "DELETE FROM product WHERE (Product_id) = (:product_id)";
+            $query = $this->db->prepare($sql);
+            try {
+                if ($query->execute($parameters)) {
+                    return true;
+                } else {
+                    return false;
+                }
+            } catch(PDOException $e) {
+                echo $e->getMessage();
+            }
+        }
+
     }
 }
