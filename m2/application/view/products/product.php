@@ -18,7 +18,7 @@
             <tbody>
             <?php foreach ($products as $product) { ?>
                 <tr>
-                    <td><?php if (isset($product->thumbnail) && $product->thumbnail != "") echo '<img src="data:image/jpeg;base64,'.base64_encode($product->thumbnail).'"  height="100" width="200" />'; ?>
+                    <td><?php if (isset($product->Image_blob1) && $product->Image_blob1 != "") echo '<img src="data:image/jpeg;base64,'.base64_encode($product->Image_blob1).'"  height="100" width="100" />'; ?>
 
                     <td><?php if (isset($product->Title)) echo htmlspecialchars($product->Title, ENT_QUOTES, 'UTF-8'); ?></td>
                     
