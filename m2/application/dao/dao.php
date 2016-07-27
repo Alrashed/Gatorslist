@@ -134,7 +134,7 @@ class Dao {
 
         else if ($target == "allProducts") {
             $keyword = array_shift($parameters);
-            $sql = "SELECT i.Image_blob1,p.Title,p.ItemCondition, p.Description, p.Price, p.Postdate FROM product p, image i  WHERE (i.Image_id = p. Image_id AND p.Title LIKE '%" . $keyword . "%') or (i.Image_id = p. Image_id AND Description LIKE '%." . $keyword . "%')";
+            $sql = "SELECT i.Image_blob1,p.Title,p.ItemCondition, p.Description, p.Price, p.Postdate, p.Product_id FROM product p, image i  WHERE (i.Image_id = p. Image_id AND p.Title LIKE '%" . $keyword . "%') or (i.Image_id = p. Image_id AND Description LIKE '%." . $keyword . "%')";
             $query = $this->db->prepare($sql);
             try {
                 if ($query->execute()) {
@@ -165,7 +165,7 @@ class Dao {
         }
         else if ($target == "item") {
             $pid = $parameters[":product_id"];
-            $sql ="SELECT i.Image_blob1, p.Seller_id, p.Title, p.Description, p.Price, p.ItemCondition, p.Postdate FROM product p,image i  WHERE p.Image_id = i.Image_id AND p.product_id = '".$pid."' ";
+            $sql ="SELECT i.Image_blob1, p.Seller_id, p.Title, p.Description, p.Price, p.ItemCondition, p.Postdate, p.Product_id FROM product p,image i  WHERE p.Image_id = i.Image_id AND p.product_id = '".$pid."' ";
             $query = $this->db->prepare($sql);
             try {
                 if ($query->execute()) {
