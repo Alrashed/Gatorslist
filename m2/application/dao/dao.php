@@ -131,8 +131,15 @@ class Dao {
 	    $minprice = $parameters[":minprice"];
 	    $maxprice = $parameters[":maxprice"];
             $searchinput = $parameters[":searchinput"];
-	    $sql = "SELECT * FROM product WHERE (Price BETWEEN $minprice AND $maxprice ) AND (Title LIKE '%" . $searchinput . "%' or Description LIKE '%." . $searchinput . "%')";
-            $query = $this->db->prepare($sql);
+	    if(isset($parameters[":category"])) {
+		$category = $parameters[":category"];
+	    	$sql = "SELECT * FROM product p1 WHERE (p1.Category_Id = (SELECT pc.Category_id FROM productCategory pc WHERE pc.Category_name = '".$category."')) AND (Price BETWEEN $minprice AND $maxprice ) AND (Title LIKE '%" . $searchinput . "%' or Description LIKE '%." . $searchinput . "%')";
+            }
+
+	    else {
+	    	$sql = "SELECT * FROM product WHERE (Price BETWEEN $minprice AND $maxprice ) AND (Title LIKE '%" . $searchinput . "%' or Description LIKE '%." . $searchinput . "%')";
+	    }
+	    $query = $this->db->prepare($sql);
             $query->execute();
             return $query->fetchAll();
         }
@@ -140,7 +147,16 @@ class Dao {
 	else if ($target == "allFilterConditionProducts") {
             $itemcondition = $parameters[":itemcondition"];
             $searchinput = $parameters[":searchinput"];
+            
+	    if(isset($parameters[":category"])) {
+                $category = $parameters[":category"];
+		$sql = "SELECT * FROM product p1 WHERE (p1.Category_Id = (SELECT pc.Category_id FROM productCategory pc WHERE pc.Category_name = '".$category."')) AND (ItemCondition = '".$itemcondition."') AND (Title LIKE '%" . $searchinput . "%' or Description LIKE '%." . $searchinput . "%')";
+	    }	    
+	    
+	    else {
 	    $sql = "SELECT * FROM product WHERE (ItemCondition = '".$itemcondition."') AND (Title LIKE '%" . $searchinput . "%' or Description LIKE '%." . $searchinput . "%')";
+	    }
+
 	    $query = $this->db->prepare($sql);
             $query->execute();
             return $query->fetchAll();

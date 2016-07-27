@@ -47,16 +47,18 @@ class Products extends Controller
         }
 
         else if (isset($_GET["submit_filter_price_product"])) {
-        $products = $this->model->getAllFilterPriceProducts($_GET["searchinput"],$_GET["minprice"], $_GET["maxprice"]);
+	$filtertype = "price";
+        $products = $this->model->getAllFilteredProducts($_GET["searchinput"], $_GET["category"], $filtertype, $_GET["minprice"], $_GET["maxprice"]);
         }
 
         else if (isset($_GET["submit_condition_product"])) {
-        $products = $this->model->getAllFilterConditionProducts($_GET["searchinput"],$_GET["itemcondition"]);	
+	$filtertype = "condition";
+        $products = $this->model->getAllFilteredProducts($_GET["searchinput"], $_GET["category"], $filtertype, $_GET["itemcondition"]);	
         }
 
 
         // where to go after product has been added
-        //require APP . 'view/_templates/header.php';
+        require APP . 'view/_templates/header.php';
         require APP . 'view/products/product.php';
         require APP . 'view/_templates/footer.php';
 

@@ -95,23 +95,50 @@ class Model
 		
     }
 
-    public function getAllFilterPriceProducts($searchinput,$minprice, $maxprice)
+    public function getAllFilteredProducts($searchinput,$category, $filtertype,$var1, $var2 = "constant")
     {
-            $parameters = [
-		":searchinput" => $searchinput,
-                ":minprice" => $minprice,
-		":maxprice" => $maxprice,
-            ];
-            return $this->dao->get($parameters, "allFilterPriceProducts");
-    }
+	if ($category == "") {
+	    	if ($filtertype == "price"){ 
+           		$parameters = [
+                		":searchinput" => $searchinput,
+				":minprice" => $var1,
+				":maxprice" => $var2,
+	    		];
 
-    public function getAllFilterConditionProducts($searchinput,$itemcondition)
-    {
-            $parameters = [
-		":searchinput" => $searchinput,
-                ":itemcondition" => $itemcondition,
-            ];
-            return $this->dao->get($parameters, "allFilterConditionProducts");
-    }
+	    		return $this->dao->get($parameters, "allFilterPriceProducts");
+		}	
+		
+		else if ($filtertype == "condition") {
+			$parameters = [
+				":searchinput" => $searchinput,
+				":itemcondition" => $var1,
+			];
+			return $this->dao->get($parameters, "allFilterConditionProducts");
+		}
+	}
+
+	else {
+		if ($filtertype == "price"){ 
+                        $parameters = [
+                                ":searchinput" => $searchinput,
+				":category" => $category,
+                                ":minprice" => $var1,
+                                ":maxprice" => $var2,
+                        ];
+                        
+                        return $this->dao->get($parameters, "allFilterPriceProducts");
+                }       
+                
+                else if ($filtertype == "condition") {
+                        $parameters = [
+                                ":searchinput" => $searchinput,
+				":category" => $category,
+                                ":itemcondition" => $var1,
+                        ];
+                        return $this->dao->get($parameters, "allFilterConditionProducts");
+                }
+
+	}
+   }
 
 }
