@@ -42,7 +42,8 @@ class Login extends Controller
             
             $this->model->loginUser($_POST["email"],  $_POST["password"]);
             
-            echo $this->Email == $email;
+            echo $this->Email;
+            echo "adadaw";
             
             if ($this->Email == $email) {
                 $_SESSION['CurrentUser'] = $this->User_id;  // create session for user             
