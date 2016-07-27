@@ -26,20 +26,43 @@ if (!isset($_SESSION)) {
 <body>
 	<!--Nav Bar-->
     <nav class="navbar navbar-default navbar-fixed-top ">
-      <div class="container-fluid " style="font-weight:600; font-size:16px; margin-left:10%; margin-right:10%">
-        <div class="navbar-header">
-          <a class="navbar-brand" style="font-weight:700; font-size:20px" href="#">Gatorslist</a>
+        <div class="container-fluid " style="font-weight:600; font-size:16px; margin-left:10%; margin-right:10%">
+            <div class="navbar-header">
+                <a class="navbar-brand" style="font-weight:700; font-size:20px" href="#">Gatorslist</a>
+            </div>
+            
+          <?php if (isset($_SESSION['CurrentUser'])) : ?>
+            
+            <ul class="nav navbar-nav">
+                <li><a href="<?php echo URL; ?>home/index">Home</a></li>
+                <li><a href="<?php echo URL; ?>sell/index">Sell Your Items</a></li>
+                <li><a href="<?php echo URL; ?>products/index">Product Listing</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="<?php echo URL; ?>register/index"><span class="glyphicon glyphicon-user"></span> Logged in as useremail@mail.sfsu.edu</a></li>
+                <li><a href="<?php echo URL; ?>logout/destroySession"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+            </ul>
+            
+          <?php else : ?>
+            
+            <ul class="nav navbar-nav">
+                <li><a href="<?php echo URL; ?>home/index">Home</a></li>
+                <li><a href="<?php echo URL; ?>login/index">Sell Your Items</a></li>
+                <li><a href="<?php echo URL; ?>products/index">Product Listing</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="<?php echo URL; ?>users/index"><span class="glyphicon glyphicon-user"></span> Register</a></li>
+                <li><a href="<?php echo URL; ?>login/index"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+            </ul>
+            
+          <?php endif; ?>
+            
         </div>
-        <ul class="nav navbar-nav "  >
-          <li><a href="<?php echo URL; ?>home/index">Home</a></li>
-          <li><a href="<?php echo URL; ?>sell/index">Sell Your Items</a></li>
-          <li><a href="<?php echo URL; ?>products/index">Product Listing</a></li>
-        </ul>
-        <ul class="nav navbar-nav navbar-right">
-          <li><a href="<?php echo URL; ?>register/index"><span class="glyphicon glyphicon-user"></span> Register</a></li>
-          <li><a href="<?php echo URL; ?>login/index"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-        </ul>
-      </div>
+        
+      <?php if (isset($_SESSION['CurrentUser'])) : ?>
+                        
+      <?php endif; ?>
+        
     </nav>
     <!-- logo -->
     <div class="logo title-top-margin">

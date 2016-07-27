@@ -1,4 +1,10 @@
 <?php
+if(!isset($_SESSION)) {
+    session_start();
+}
+?>
+
+<?php
 
 /**
  * Class login
@@ -26,6 +32,22 @@ class Login extends Controller
         require APP . 'view/_templates/footer.php';
     }
 
+    public function loginUser() {
+        
+        if (isset($_POST["loginuser"])) {
+//            $email = $_POST["email"];
+//            $password = $_POST["password"];
+//            $salt = "saltedpass4team4";
+//            $saltedpassword = md5($salt . $password);
+            
+            $this->model->loginUser($_POST["email"],  $_POST["password"]);
+            
+            if ($this->email == $email) {
+                $_SESSION['CurrentUser'] = $this->User_id;  // create session for user             
+                header('location: ' . URL . 'home');   
+            } 
+        }
+    }
     /**
      * ACTION: signUp
      * This method handles what happens when you move to http://../login/login
