@@ -7,10 +7,13 @@
             <label>Item Name: </label>
             <input type="text" name="searchinput" value="" required />
             <select type = "text" name="category">
-                <option value=""></option>
-                <option value="book">Book</option>
+                <option value="">All Categories</option>
+                <option value="book">Books</option>
                 <option value="furniture">Furniture</option>
-                <option value="laptop">Laptop</option>
+                <option value="electronics">Electronics</option>
+                <option value="clothing">Clothing</option>
+                <option value="office suppies">Office Supplies</option>
+                <option value="other">Other</option>
             </select>
             <input type="submit" name="submit_search_product" value="Search" />
         </form>

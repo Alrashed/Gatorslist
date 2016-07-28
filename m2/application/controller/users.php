@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Class register
+ * Class users
  * This is a demo class.
  *
  * Please note:
@@ -9,11 +9,11 @@
  * This is really weird behaviour, but documented here: http://php.net/manual/en/language.oop5.decon.php
  *
  */
-class Register extends Controller
+class Users extends Controller
 {
     /**
      * PAGE: index
-     * This method handles what happens when you move to http://../register/index
+     * This method handles what happens when you move to http://../users/index
      */
     public function index()
     {
@@ -22,24 +22,27 @@ class Register extends Controller
 
         // load views. within the views we can echo out $users
         require APP . 'view/_templates/header.php';
-        require APP . 'view/register/index.php';
+        require APP . 'view/users/index.php';
         require APP . 'view/_templates/footer.php';
     }
 
     /**
      * ACTION: signUp
-     * This method handles what happens when you move to http://../register/signup
+     * This method handles what happens when you move to http://../users/registerUser
      */
-    public function signUp()
+    public function registerUser()
     {
         // if we have POST data to create a new user entry
         if (isset($_POST["submit"])) {
+
             // do createUser() in model/model.php
-            $this->model->createUser($_POST["email"], $_POST["username"],  $_POST["password"], $_POST["firstname"], $_POST["lastname"]);
+            $this->model->createUser($_POST["email"],  $_POST["password"], $_POST["firstname"], $_POST["lastname"]);
         }
         // where to go after user has been added
-        header('location: ' . URL . 'register/index');
+        header('location: ' . URL . 'users/index');
     }
+
+    
 
     public function deleteUser($user_id)
     {
@@ -50,6 +53,6 @@ class Register extends Controller
         }
 
         // where to go after user has been deleted
-        header('location: ' . URL . 'register/index');
+        header('location: ' . URL . 'users/index');
     }
 }

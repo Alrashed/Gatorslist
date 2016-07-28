@@ -5,14 +5,17 @@ body {
 .logo {
     font-size: 100px;
     font-weight: bolder;
-    letter-spacing: -6px;
-    color: #222;
-    margin: 20px 30px;
+    letter-spacing: -1px;
     text-align: center;
 }
 .logo .number {
     color: #222;
     opacity: 0.1;
+}
+.title-top-margin {
+    margin-top: 4%;
+    width: 100%;
+    background: #A8A8A8; 
 }
 .navigation {
     margin-left: 33px;
@@ -33,49 +36,138 @@ body {
     background: transparent;
 }
 .container {
-    border: 1px solid #ddd;
-    padding: 20px;
-    margin: 33px;
+    padding: 5px;
+    margin: 5px;
 }
 .container a {
     color: #222;
 }
 .container table {
     font-size: 11px;
-    margin-top: 20px;
+    margin-top: 0px;
 }
 .container table thead td {
     background-color: #f5f5f5;
-    padding: 4px 10px;
+    padding: 0px 0px;
 }
 .container table tbody td {
     padding: 4px 10px;
 }
 .container .box {
     border-top: 1px solid #ddd;
-    padding-top: 10px;
-    margin-top: 30px;
+    padding-top: 15px;
+    margin-top: 20px;
 }
-.container input {
-    background-color: #f5f5f5;
-    border: 0;
-    padding: 5px 10px;
+
+
+.search-group {
+    margin-left: 20%;
 }
-.container input[type="submit"] {
-    background-color: #ccc;
-    cursor: pointer;
+.input-attributes {
+    width: 400px;
+    margin-left: 0%;   
+    float:left;
+    margin-right: 1px;
+        
 }
-.container input[type="submit"]:hover {
-    background-color: #222;
-    color: #fff;
+#search_field {
+    background-size: 20px 20px;
+    background-image: url('../public/img/search_icon.png');
+    background-position: 6px 6px; 
+    background-repeat: no-repeat;
+    padding-left: 30px;
 }
-.container button {
-    background-color: #ccc;
-    border: 0;
-    padding: 5px 10px;
-    cursor: pointer;
+.margin-right-1 {
+    margin-right: 1px;
 }
-.container button:hover {
-    background-color: #222;
-    color: #fff;
+.float-left {
+    float: left;
+}
+.border {
+    display: block;
+    width: 1000px;
+    height: 100px;    
+    border-color: 1px solid red;
+}
+.margin-left-350 {
+    margin-left: 30%;
+}
+.placeholder {
+    font-size: 12px;
+}
+#email_field {
+    background-size: 30px 32px;
+    background-image: url('../public/img/mail.png');
+    background-position: 6px 6px; 
+    background-repeat: no-repeat;
+    padding-left: 40px;
+}
+#username_field {
+    background-size: 30px 32px;
+    background-image: url('../public/img/account.png');
+    background-position: 6px 6px; 
+    background-repeat: no-repeat;
+    padding-left: 40px;
+}
+#password_field {
+    background-size: 30px 32px;
+    background-image: url('../public/img/lock.png');
+    background-position: 6px 6px; 
+    background-repeat: no-repeat;
+    padding-left: 40px;
+}
+#signup {
+    height:50px; 
+    width:100%; 
+    font-size:18px; 
+    font-family:'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', 'DejaVu Sans', Verdana, sans-serif; 
+    border-radius:20px;
+}
+#login {
+    height:50px;
+    width:100%; 
+    font-size:18px; 
+    font-family:'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', 'DejaVu Sans', Verdana, sans-serif; 
+    border-radius:20px; 
+    margin-top: 3%;
+}
+#item_title {
+    height:50px;
+    width:200%; 
+    font-size:18px; 
+    font-family:'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', 'DejaVu Sans', Verdana, sans-serif; 
+    border-radius:20px; 
+    margin-top: 3%;
+}
+#item_price {
+    height:50px;
+    width:50%; 
+    font-size:14px; 
+    font-family:'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', 'DejaVu Sans', Verdana, sans-serif; 
+    border-radius:20px; 
+    margin-top: 3%;
+}
+#categories {
+    height:50px;
+    width:50%; 
+    font-size:14px; 
+    font-family:'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', 'DejaVu Sans', Verdana, sans-serif; 
+    border-radius:20px; 
+    margin-top: 0%;
+}
+#item_condition{
+    height:50px;
+    width:50%; 
+    font-size:14px; 
+    font-family:'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', 'DejaVu Sans', Verdana, sans-serif; 
+    border-radius:20px; 
+    margin-top: 0%;
+}
+#submit {
+    height:50px;
+    width:30%; 
+    font-size:18px; 
+    font-family:'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', 'DejaVu Sans', Verdana, sans-serif; 
+    border-radius:20px; 
+    margin-top: 3%;
 }
