@@ -34,20 +34,17 @@ class Login extends Controller
 
     public function loginUser() {
         
-        if (isset($_POST["loginuser"])) {
+        if (isset($_GET["loginuser"])) {
 //            $email = $_POST["email"];
 //            $password = $_POST["password"];
 //            $salt = "saltedpass4team4";
 //            $saltedpassword = md5($salt . $password);
             
-            $this->model->loginUser($_POST["email"],  $_POST["password"]);
+            $users=$this->model->loginUser($_GET["email"],  $_GET["password"]);
             
-            echo $this->Email;
-            echo "adadaw";
-            
-            if ($this->Email == $email) {
-                $_SESSION['CurrentUser'] = $this->User_id;  // create session for user             
-                header('location: ' . URL . 'home');   
+            if (($users->Email) == ($_GET["email"])) {
+                $_SESSION['CurrentUser'] = $users->User_id;  // create session for user             
+                header('location: ' . URL . 'home');
             } 
         }
     }

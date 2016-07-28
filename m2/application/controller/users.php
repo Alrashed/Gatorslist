@@ -28,7 +28,7 @@ class Users extends Controller
 
     /**
      * ACTION: signUp
-     * This method handles what happens when you move to http://../users/signup
+     * This method handles what happens when you move to http://../users/registerUser
      */
     public function registerUser()
     {

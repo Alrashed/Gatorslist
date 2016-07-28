@@ -133,18 +133,20 @@ class Dao {
         }
         
         if ($target == "user") {
-            $sql = "SELECT User_id, Email FROM user WHERE Email = :email AND Password = :password";
-            $query = $this->db->prepare($sql);
-            try {
-                if ($query->execute()) {
-                    return $query->fetch();
-                } else {
-                    return false;
-                }
-            } catch (PDOException $e) {
-                echo $e->getMessage();
-            }
-        }
+           $email = $parameters[":email"];
+           $password = $parameters[":password"];
+           $sql = "SELECT User_id, Email FROM user WHERE (Email = '".$email."') AND (Password = '".$password."')";
+           $query = $this->db->prepare($sql);
+           try {
+               if ($query->execute()) {
+                   return $query->fetch();
+               } else {
+                   return false;
+               }
+           } catch (PDOException $e) {
+               echo $e->getMessage();
+           }
+       }
 
         else if ($target == "allProducts") {
             $keyword = array_shift($parameters);

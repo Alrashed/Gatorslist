@@ -7,7 +7,7 @@
             	<!-- panel head-->
             	<div class="panel-heading" style="text-align:center; font-weight:800; font-size:20px">Member Login</div>
 				<!-- panel body -->                
-                <form class="panel-body col-lg-offset-0" style="padding-right:15%;padding-left:15%;font-size: 16px;background-color: #87CEFA"  role="form" action="<?php echo URL; ?>login/loginuser" method="POST">
+                <form class="panel-body col-lg-offset-0" style="padding-right:15%;padding-left:15%;font-size: 16px;background-color: #87CEFA"  role="form" action="<?php echo URL; ?>login/loginuser" method="GET">
                       
                       
                       <div class="form-group">
