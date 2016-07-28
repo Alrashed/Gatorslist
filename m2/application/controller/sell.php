@@ -63,7 +63,7 @@ class Sell extends Controller
 //            echo"model good";
             $this->model->createItem($seller_id,$_POST["Title"], $_POST["Description"], $_POST["Price"], $_POST["Condition"],$date, $_POST["Category_Id"],$image1,$image2,$image3,$image4);
 
-//                header('location: ' . URL . 'sell/index');
+                header('location: ' . URL . 'home/index');
         
         
     }
