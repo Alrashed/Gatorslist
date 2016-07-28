@@ -30,8 +30,10 @@
                                       <option value="">All Categories</option>
                                       <option value="1">Books</option>
                                       <option value="2">Furniture</option>
-                                      <option value="3">Laptops</option>
+                                      <option value="3">Electronics</option>
                                       <option value="4">Office Supplies</option>
+                                      <option value="5">Clothing</option>
+                                      <option value="6">Other</option>
                                   </select>
                               </div>
                           </div>

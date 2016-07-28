@@ -9,11 +9,13 @@
         <input id ="search_field" class="form-control input-attributes float-left" type="text" name="searchinput" value="" placeholder="Search for book, furniture, laptop, etc" required />
           <div class="margin-right-1 float-left">
             <select name="category" class="form-control">
-              <option value="">All Categories</option>
-              <option value="book">Books</option>
-              <option value="furniture">Furniture</option>
-              <option value="laptop">Laptops</option>
-              <option value="office suppies">Office Supplies</option>
+                <option value="">All Categories</option>
+                <option value="book">Books</option>
+                <option value="furniture">Furniture</option>
+                <option value="electronics">Electronics</option>
+                <option value="clothing">Clothing</option>
+                <option value="office suppies">Office Supplies</option>
+                <option value="other">Other</option>
             </select>
           </div>
         <div class="float-left">

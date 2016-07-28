@@ -66,7 +66,6 @@ class Model
     //item controller
     // add product with images
     public function createItem($seller_id, $title, $description, $price, $condition, $date, $category_Id,$image1,$image2, $image3,$image4) {
-        echo "model good";
         $parameters = [
             ":seller_id" => $seller_id,
             ":title" => $title,
