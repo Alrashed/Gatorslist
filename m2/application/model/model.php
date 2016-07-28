@@ -22,9 +22,20 @@ class Model
     {
         return $this->dao->get([], "allUsers");
     }
+    
+    //get user
+    public function loginUser($email, $password)
+    {
+        $parameters = [
+            ":email" => $email,
+            ":password" => $password,
+        ];
+        return $this->dao->get($parameters, "user");
+    }
 
     //add a user
-    public function createUser($email, $password, $firstname, $lastname) {
+    public function createUser($email, $password, $firstname, $lastname) 
+    {
         $parameters = [
             ":email" => $email,
             ":password" => $password,
@@ -32,6 +43,7 @@ class Model
             ":lastname" => $lastname,
         ];
         $this->dao->create($parameters, "user");
+        
     }
 
     //delete user
@@ -149,7 +161,8 @@ class Model
 
     //item controller
     // add product with images
-    public function createItem($seller_id, $title, $description, $price, $condition, $date, $category_Id,$image1,$image2, $image3,$image4) {
+    public function createItem($seller_id, $title, $description, $price, $condition, $date, $category_Id,$image1,$image2, $image3,$image4) 
+    {
         echo "model good";
         $parameters = [
             ":seller_id" => $seller_id,
@@ -168,7 +181,8 @@ class Model
     }
 
     //edit product price
-    public function editItem($product_id, $newprice) {
+    public function editItem($product_id, $newprice) 
+    {
         $parameters = [
             ":product_id" => $product_id,
             ":newprice" => $newprice,
@@ -177,7 +191,8 @@ class Model
     }
 
     //delete a product
-    public function deleteItem($product_id) {
+    public function deleteItem($product_id) 
+    {
         $parameters = [
             ":product_id" => $product_id,
         ];
@@ -185,7 +200,8 @@ class Model
     }
 
     //get an item with full description include image
-    public function getItem($product_id) {
+    public function getItem($product_id) 
+    {
         $parameters = [
             ":product_id" => $product_id,
         ];
@@ -194,7 +210,8 @@ class Model
 
     //order controller
     //purchase function, create an order, change order status to in process
-    public function createOrder($product_id, $buyer_id, $date, $detail, $status) {
+    public function createOrder($product_id, $buyer_id, $date, $detail, $status) 
+    {
         $parameters = [
             ":product_id" => $product_id,
             ":buyer_id" => $buyer_id,
@@ -206,7 +223,8 @@ class Model
     }
 
     //edit order status, buyer or seller can change order status to received or cancelled
-    public function editStatus($order_id, $status) {
+    public function editStatus($order_id, $status) 
+    {
         $parameters = [
             ":order_id" => $order_id,
             ":status" => $status,
@@ -215,7 +233,8 @@ class Model
     }
 
     //get order, buyer or seller can change order status to received or cancelled
-    public function getOrder($order_id) {
+    public function getOrder($order_id) 
+    {
         $parameters = [
             ":order_id" => $order_id,
         ];

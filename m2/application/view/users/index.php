@@ -8,12 +8,12 @@
             	<!-- panel head-->
             	<div class="panel-heading" style="text-align:center; font-weight:800; font-size:20px">Create your account</div>
 				<!-- panel body -->                
-                <form class="panel-body col-lg-offset-0 " style="padding-right:15%;padding-left:15%;font-size: 16px;background-color: #87CEFA"  role="form" action="<?php echo URL; ?>register/signup" method="POST">
+                <form class="panel-body col-lg-offset-0 " style="padding-right:15%;padding-left:15%;font-size: 16px;background-color: #87CEFA"  role="form" action="<?php echo URL; ?>users/registeruser" method="POST">
                       
                       <div class="form-group">
                         <label class="" for="email">Email:</label>
                         <div class="">
-                          <input type="email" class="form-control input-lg placeholder" name="email" id="email_field" placeholder="Enter your email here" >
+                          <input type="email" class="form-control input-lg placeholder" name="email" id="email_field" placeholder="Enter your email here">
                         </div>
                       </div>
                       <div class="form-group">
@@ -35,7 +35,7 @@
 <!--                        </div>-->
 <!--                      </div>-->
                       <div class="form-group">
-                        <label class="" for="pwd">Password:</label>
+                        <label class="" for="password">Password:</label>
                         <div class=""> 
                           <input type="password" class="form-control input-lg placeholder" name= "password" id="password_field" placeholder="Enter password">
                         </div>
@@ -84,7 +84,7 @@
                 
                 <td><?php if (isset($user->Lastname)) echo htmlspecialchars($user->Lastname, ENT_QUOTES, 'UTF-8'); ?></td>
                 
-                <td><a href="<?php echo URL . 'register/deleteUser/' . htmlspecialchars($user->User_id, ENT_QUOTES, 'UTF-8'); ?>">delete</a></td>
+                <td><a href="<?php echo URL . 'users/deleteUser/' . htmlspecialchars($user->User_id, ENT_QUOTES, 'UTF-8'); ?>">delete</a></td>
             </tr>
         <?php } ?>
         </tbody>
