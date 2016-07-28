@@ -3,7 +3,7 @@
     
     <div class="box">
         <h3>Search an item (book, furniture, laptop... etc)<h3>
-        <form action="<?php echo URL; ?>products/searchproducts" method="GET">
+        <form action="<?php echo URL; ?>products/searchproducts" method="POST">
             <label>Item Name: </label>
             <input type="text" name="searchinput" value="" required />
             <select type = "text" name="category">
