@@ -26,7 +26,7 @@
                      <div class=" " style="float:left;"> <?php if (isset($product->Postdate)) echo htmlspecialchars($product->Postdate, ENT_QUOTES, 'UTF-8'); ?></div></br></br>
                      <div style="text-align:center; width:100%;"><a type="button" class="btn btn-primary btn-md " href="<?php echo URL; ?>item/index" >View item detail</a></div>
                 </div>
-            <?php } ?>
+            <?php  ?>
           </div>
       </div>
 </div><br>
