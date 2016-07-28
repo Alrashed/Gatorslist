@@ -147,6 +147,7 @@ class Dao {
             }
         }
 
+<<<<<<< HEAD
         else if ($target == "allHighProducts") {
             $keyword = array_shift($parameters);
 	    
@@ -230,8 +231,12 @@ class Dao {
             return $query->fetchAll();
         }   
         
+	else if ($target == "ProductsByCategory") {
+            $keyword = array_shift( $parameters );
+=======
         else if ($target == "ProductsByCategory") {
             $keyword = $parameters[":searchinput"];
+>>>>>>> milestone3
             $category =  $parameters[":category"];
             $sql = "SELECT * FROM product p1 WHERE p1.Category_Id = (SELECT pc.Category_id FROM productCategory pc WHERE pc.Category_name = '".$category."') AND (p1.Title LIKE '%".$keyword."%'OR p1.Description LIKE '%".$keyword."%')";
 
