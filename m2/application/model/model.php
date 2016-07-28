@@ -74,6 +74,90 @@ class Model
         }
         
     }
+    
+    public function getAllSortedProducts($searchinput, $category, $sorttype)
+    {   	
+	  if($category == "") {
+            
+	  	$parameters = [
+                	":searchinput" => $searchinput,
+            	];
+	
+           	if ($sorttype == "highprice") 
+            		return $this->dao->get($parameters, "allHighProducts");
+	    
+	    	else if($sorttype == "lowprice")
+	    		return $this->dao->get($parameters, "allLowProducts");
+	
+	    	else if($sorttype == "date") 
+	    		return $this->dao->get($parameters, "allNewestProducts");
+	  }
+	   
+	else {
+	     $parameters = [
+                ":searchinput" => $searchinput,
+		":category" => $category,
+             ];
+        
+             if ($sorttype == "highprice") 
+             		return $this->dao->get($parameters, "allHighProducts");
+
+             else if($sorttype == "lowprice")
+             		return $this->dao->get($parameters, "allLowProducts");
+                
+            
+             else if($sorttype == "date") 
+             		return $this->dao->get($parameters, "allNewestProducts");
+	    }
+		
+    }
+
+    public function getAllFilteredProducts($searchinput,$category, $filtertype,$var1, $var2 = "constant")
+    {
+	if ($category == "") {
+	    	if ($filtertype == "price"){ 
+           		$parameters = [
+                		":searchinput" => $searchinput,
+				":minprice" => $var1,
+				":maxprice" => $var2,
+	    		];
+
+	    		return $this->dao->get($parameters, "allFilterPriceProducts");
+		}	
+		
+		else if ($filtertype == "condition") {
+			$parameters = [
+				":searchinput" => $searchinput,
+				":itemcondition" => $var1,
+			];
+			return $this->dao->get($parameters, "allFilterConditionProducts");
+		}
+	}
+
+	else {
+		if ($filtertype == "price"){ 
+                        $parameters = [
+                                ":searchinput" => $searchinput,
+				":category" => $category,
+                                ":minprice" => $var1,
+                                ":maxprice" => $var2,
+                        ];
+                        
+                        return $this->dao->get($parameters, "allFilterPriceProducts");
+                }       
+                
+                else if ($filtertype == "condition") {
+                        $parameters = [
+                                ":searchinput" => $searchinput,
+				":category" => $category,
+                                ":itemcondition" => $var1,
+                        ];
+                        return $this->dao->get($parameters, "allFilterConditionProducts");
+                }
+
+	}
+   }
+
 
     //item controller
     // add product with images
