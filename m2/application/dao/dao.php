@@ -53,7 +53,6 @@ class Dao {
             }
         }
         else if($target == "item"){
-            echo"dao good";
             $seller_id = $parameters[":seller_id"];
             $title = $parameters[":title"];
             $description = $parameters[":description"];
@@ -75,7 +74,6 @@ class Dao {
 
                     $sql = "INSERT INTO product (Seller_id, Title, Description, Price, ItemCondition, Postdate, Category_Id,Image_id)
                     VALUES ('".$seller_id."','".$title."' , '".$description."', '".$price."', '".$condition."','".$postdate."' , '".$category_Id."','".$this->db->lastInsertId()."')";
-                    echo $sql;
                     $query = $this->db->prepare($sql);
                     try {
                         if ($query->execute()) {
@@ -249,7 +247,7 @@ class Dao {
         else if ($target == "ProductsByCategory") {
             $keyword = $parameters[":searchinput"];
             $category =  $parameters[":category"];
-            $sql = "SELECT * FROM product p1 WHERE p1.Category_Id = (SELECT pc.Category_id FROM productCategory pc WHERE pc.Category_name = '".$category."') AND (p1.Title LIKE '%".$keyword."%'OR p1.Description LIKE '%".$keyword."%')";
+            $sql = "SELECT i.Image_blob1,p1.Title,p1.ItemCondition, p1.Description, p1.Price, p1.Postdate, p1.Product_id FROM product p1,image i WHERE i.Image_id = p1. Image_id AND p1.Category_Id = (SELECT pc.Category_id FROM productCategory pc WHERE pc.Category_name = '".$category."') AND (p1.Title LIKE '%".$keyword."%'OR p1.Description LIKE '%".$keyword."%')";
 
             $query = $this->db->prepare($sql);
             try {
