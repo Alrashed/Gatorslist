@@ -37,7 +37,7 @@
                          <div class=" " style="float:left; margin-left: 16%"> : {Retrieve price}</div></br>
                          <div class=" " style="float:left">Date Upload : </div>
                          <div class=" " style="float:left; margin-left: 1%"> {Retrieve date uploaded}</div></br></br>
-                         <div style="text-align:center; width:100%"><button type="button" class="btn btn-primary btn-md ">View item detail</button></div>
+                         <div style="text-align:center; width:100%"><a type="button" class="btn btn-primary btn-md " href="<?php echo URL; ?>item/index" >View item detail</a></div>
                     </div>
                     
                 </div>
@@ -50,7 +50,7 @@
                          <div class=" " style="float:left; margin-left: 16%"> : {Retrieve price}</div></br>
                          <div class=" " style="float:left">Date Upload : </div>
                          <div class=" " style="float:left; margin-left: 1%"> {Retrieve date uploaded}</div></br></br>
-                         <div style="text-align:center; width:100%"><button type="button" class="btn btn-primary btn-md ">View item detail</button></div>
+                         <div style="text-align:center; width:100%"><a type="button" class="btn btn-primary btn-md " href="<?php echo URL; ?>item/index" >View item detail</a></div>
                     </div>
             
                 </div>
@@ -63,7 +63,7 @@
                          <div class=" " style="float:left; margin-left: 16%"> : {Retrieve price}</div></br>
                          <div class=" " style="float:left">Date Upload : </div>
                          <div class=" " style="float:left; margin-left: 1%"> {Retrieve date uploaded}</div></br></br>
-                         <div style="text-align:center; width:100%"><button type="button" class="btn btn-primary btn-md ">View item detail</button></div>
+                         <div style="text-align:center; width:100%"><a type="button" class="btn btn-primary btn-md " href="<?php echo URL; ?>item/index" >View item detail</a></div>
                     </div>
                 </div>
            </div>
@@ -77,7 +77,7 @@
                      <div class=" " style="float:left; margin-left: 16%"> : {Retrieve price}</div></br>
                      <div class=" " style="float:left">Date Upload : </div>
                      <div class=" " style="float:left; margin-left: 1%"> {Retrieve date uploaded}</div></br></br>
-                     <div style="text-align:center; width:100%"><button type="button" class="btn btn-primary btn-md ">View item detail</button></div>
+                     <div style="text-align:center; width:100%"><a type="button" class="btn btn-primary btn-md " href="<?php echo URL; ?>item/index" >View item detail</a></div>
                 </div>
                 
             </div>
@@ -90,7 +90,7 @@
                      <div class=" " style="float:left; margin-left: 16%"> : {Retrieve price}</div></br>
                      <div class=" " style="float:left">Date Upload : </div>
                      <div class=" " style="float:left; margin-left: 1%"> {Retrieve date uploaded}</div></br></br>
-                     <div style="text-align:center; width:100%"><button type="button" class="btn btn-primary btn-md ">View item detail</button></div>
+                     <div style="text-align:center; width:100%"><a type="button" class="btn btn-primary btn-md " href="<?php echo URL; ?>item/index" >View item detail</a></div>
                 </div>
         
             </div>
@@ -103,9 +103,7 @@
                      <div class=" " style="float:left; margin-left: 16%"> : {Retrieve price}</div></br>
                      <div class=" " style="float:left">Date Upload : </div>
                      <div class=" " style="float:left; margin-left: 1%"> {Retrieve date uploaded}</div></br></br>
-                     <div style="text-align:center; width:100%">
-                        <button type="button" class="btn btn-primary btn-md ">View item detail</button>
-                     </div>
+                     <div style="text-align:center; width:100%"><a type="button" class="btn btn-primary btn-md " href="<?php echo URL; ?>item/index" >View item detail</a></div>
                 </div>
             </div>
           </div>

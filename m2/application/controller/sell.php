@@ -1,4 +1,10 @@
 <?php
+if(!isset($_SESSION)) {
+    session_start();
+}
+?>
+
+<?php
 include 'resize.php';
 /**
  * Class item
@@ -52,12 +58,12 @@ class Sell extends Controller
         }
 
             $date = date("Y-m-d H:i:s");
-            //frontend need to pass the cookie here 
-            $seller_id = "16";// example
-            echo"model good";
+            $seller_id =  $_SESSION['CurrentUser'];
+//            echo $seller_id;
+//            echo"model good";
             $this->model->createItem($seller_id,$_POST["Title"], $_POST["Description"], $_POST["Price"], $_POST["Condition"],$date, $_POST["Category_Id"],$image1,$image2,$image3,$image4);
 
-                header('location: ' . URL . 'sell/index');
+//                header('location: ' . URL . 'sell/index');
         
         
     }
