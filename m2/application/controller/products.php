@@ -26,9 +26,9 @@ class Products extends Controller
     public function searchProducts()
     {
         // if we have POST data to create a new product entry
-        if (isset($_GET["submit_search_product"])) {
+        if (isset($_POST["submit_search_product"])) {
             // do getAllProducts() in model/model.php
-	$products = $this->model->getAllProducts($_GET["searchinput"], $_GET["category"]);
+	        $products = $this->model->getAllProducts($_POST["searchinput"], $_POST["category"]);
 	}
 	
         else if (isset($_GET["highprice"])) {
@@ -55,7 +55,6 @@ class Products extends Controller
 	$filtertype = "condition";
         $products = $this->model->getAllFilteredProducts($_GET["searchinput"], $_GET["category"], $filtertype, $_GET["itemcondition"]);	
         }
-
 
         // where to go after product has been added
         require APP . 'view/_templates/header.php';
