@@ -27,6 +27,7 @@
                      <div style="text-align:center; width:100%;"><a type="button" class="btn btn-primary btn-md " href="<?php echo URL; ?>item/index" >View item detail</a></div>
                 </div>
             <?php ?>
+
           </div>
       </div>
 </div><br>
