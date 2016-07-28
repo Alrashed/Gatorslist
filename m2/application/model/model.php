@@ -144,7 +144,7 @@ class Model
                         ];
                         
                         return $this->dao->get($parameters, "allFilterPriceProducts");
-                }       
+        }       
                 
                 else if ($filtertype == "condition") {
                         $parameters = [
@@ -154,7 +154,6 @@ class Model
                         ];
                         return $this->dao->get($parameters, "allFilterConditionProducts");
                 }
-
 	}
    }
 
@@ -163,7 +162,6 @@ class Model
     // add product with images
     public function createItem($seller_id, $title, $description, $price, $condition, $date, $category_Id,$image1,$image2, $image3,$image4) 
     {
-
         $parameters = [
             ":seller_id" => $seller_id,
             ":title" => $title,

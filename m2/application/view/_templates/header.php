@@ -31,7 +31,7 @@ if (!isset($_SESSION)) {
                 <a class="navbar-brand" style="font-weight:700; font-size:20px" href="#">Gatorslist</a>
             </div>
             
-          <?php if (isset($_SESSION['CurrentUser'])) : ?>
+          <?php if (isset($_SESSION['loggedInUser_id'])) : ?>
             
             <ul class="nav navbar-nav">
                 <li><a href="<?php echo URL; ?>home/index">Home</a></li>
@@ -39,7 +39,7 @@ if (!isset($_SESSION)) {
                 <li><a href="<?php echo URL; ?>products/index">Product Listing</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="<?php echo URL; ?>register/index"><span class="glyphicon glyphicon-user"></span> Logged in as useremail@mail.sfsu.edu</a></li>
+                <li><a href="<?php echo URL; ?>"><span class="glyphicon glyphicon-user"></span> Logged in as <?php echo htmlspecialchars($_SESSION['Email']); ?></a></li>
                 <li><a href="<?php echo URL; ?>logout/destroySession"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
             </ul>
             
@@ -59,7 +59,7 @@ if (!isset($_SESSION)) {
             
         </div>
         
-      <?php if (isset($_SESSION['CurrentUser'])) : ?>
+      <?php if (isset($_SESSION['loggedInUser_id'])) : ?>
                         
       <?php endif; ?>
         

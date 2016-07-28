@@ -43,7 +43,8 @@ class Login extends Controller
             $users=$this->model->loginUser($_GET["email"],  $_GET["password"]);
             
             if (($users->Email) == ($_GET["email"])) {
-                $_SESSION['CurrentUser'] = $users->User_id;  // create session for user             
+                $_SESSION['loggedInUser_id'] = $users->User_id;
+                $_SESSION['Email'] = $users->Email;            
                 header('location: ' . URL . 'home');
             } 
         }

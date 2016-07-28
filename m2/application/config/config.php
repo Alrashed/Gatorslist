@@ -52,7 +52,7 @@ define('URL', URL_PROTOCOL . URL_DOMAIN . URL_SUB_FOLDER);
  */
 define('DB_TYPE', 'mysql');
 define('DB_HOST', '127.0.0.1');
-define('DB_NAME', 'student_alrashed');
-define('DB_USER', 'alrashed');
-define('DB_PASS', 'alrashedmysql432');
+define('DB_NAME', 'sug1601');
+define('DB_USER', 'sug1601');
+define('DB_PASS', 'sfsu$u16swe');
 define('DB_CHARSET', 'utf8');
