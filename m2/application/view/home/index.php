@@ -30,7 +30,8 @@
         <div class="panel-heading">Recently Added Items</div>
             <div class="row">
                 <div class="col-sm-4">
-                    <div class="panel-body"><img src="http://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image"></div>
+                    <div class="panel-body"><a href="<?php echo URL; ?>item/index"><img src="http://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image"></a>
+                    </div>
                     <div class="panel-body meta-style" style="float:left; margin-top: -5%; width:100%">
                          <div class=" " style="float:left">Item name</div>
                          <div class=" " style="float:left; margin-left: 5%"> : {Retrieve name in db}</div></br>
@@ -46,7 +47,8 @@
                     
                 </div>
                 <div class="col-sm-4">
-                    <div class="panel-body"><img src="http://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image"></div>
+                    <div class="panel-body"><a href="<?php echo URL; ?>item/index"><img src="http://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image"></a>
+                    </div>
                     <div class="panel-body meta-style" style="float:left; margin-top: -5%; width:100%">
                          <div class=" " style="float:left">Item name</div>
                          <div class=" " style="float:left; margin-left: 5%"> : {Retrieve name in db}</div></br>
@@ -62,7 +64,8 @@
             
                 </div>
                 <div class="col-sm-4">
-                    <div class="panel-body"><img src="http://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image"></div>
+                    <div class="panel-body"><a href="<?php echo URL; ?>item/index"><img src="http://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image"></a>
+                    </div>
                     <div class="panel-body meta-style" style="float:left; margin-top: -5%; width:100%">
                          <div class=" " style="float:left">Item name</div>
                          <div class=" " style="float:left; margin-left: 5%"> : {Retrieve name in db}</div></br>
@@ -79,7 +82,8 @@
            </div>
            <div class="row">
             <div class="col-sm-4">
-                <div class="panel-body"><img src="http://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image"></div>
+                <div class="panel-body"><a href="<?php echo URL; ?>item/index"><img src="http://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image"></a>
+                    </div>
                 <div class="panel-body meta-style" style="float:left; margin-top: -5%; width:100%">
                      <div class=" " style="float:left">Item name</div>
                      <div class=" " style="float:left; margin-left: 5%"> : {Retrieve name in db}</div></br>
@@ -95,7 +99,8 @@
                 
             </div>
             <div class="col-sm-4">
-                <div class="panel-body"><img src="http://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image"></div>
+                <div class="panel-body"><a href="<?php echo URL; ?>item/index"><img src="http://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image"></a>
+                    </div>
                 <div class="panel-body meta-style" style="float:left; margin-top: -5%; width:100%">
                      <div class=" " style="float:left">Item name</div>
                      <div class=" " style="float:left; margin-left: 5%"> : {Retrieve name in db}</div></br>
@@ -111,7 +116,8 @@
         
             </div>
             <div class="col-sm-4">
-                <div class="panel-body"><img src="http://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image"></div>
+                <div class="panel-body"><a href="<?php echo URL; ?>item/index"><img src="http://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image"></a>
+                    </div>
                 <div class="panel-body meta-style" style="float:left; margin-top: -5%; width:100%">
                      <div class=" " style="float:left">Item name</div>
                      <div class=" " style="float:left; margin-left: 5%"> : {Retrieve name in db}</div></br>
