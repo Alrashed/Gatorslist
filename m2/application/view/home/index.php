@@ -1,12 +1,12 @@
-<div class="text-center ">
+<div class="text-center welcome">
   <h1>Welcome to Gatorslist!</h1>
   <h1><small>Here you can purchase a variety of items sold by your fellow SFSU students.</small></h1>
 </div>
 
-<div class="margin-left-350">
+<div class="margin-left-25" style="background:#FEFEFE">
   <form action="<?php echo URL; ?>products/searchproducts" method="POST">
       <div class="float-left">
-        <input id ="search_field" class="form-control input-attributes float-left" type="text" name="searchinput" value="" placeholder="Search for book, furniture, laptop, etc" required />
+       
           <div class="margin-right-1 float-left">
             <select name="category" class="form-control">
                 <option value="">All Categories</option>
@@ -18,7 +18,8 @@
                 <option value="other">Other</option>
             </select>
           </div>
-        <div class="float-left">
+          <input id ="search_field" class="form-control input-attributes float-left" type="text" name="searchinput" value="" placeholder="Search for book, furniture, laptop, etc" required />
+          <div class="float-left">
           <input class="btn btn-default" type="submit" name="submit_search_product" value="Search" />
         </div>
       </div><!-- /input-group -->
@@ -37,7 +38,10 @@
                          <div class=" " style="float:left; margin-left: 16%"> : {Retrieve price}</div></br>
                          <div class=" " style="float:left">Date Upload : </div>
                          <div class=" " style="float:left; margin-left: 1%"> {Retrieve date uploaded}</div></br></br>
-                         <div style="text-align:center; width:100%"><a type="button" class="btn btn-primary btn-md " href="<?php echo URL; ?>item/index" >View item detail</a></div>
+                         <div class="row col-lg-offset-2">		                         
+                         <div class="col-lg-offset-0" style="float:left;"><form action="<?php echo URL; ?>item/index"><button class="view-item-button" >View Item</button></div></form>		
+                         <div class="col-lg-offset-0" style="float:left" id="contact"><form action="<?php echo URL; ?>item/index"><button class="contact-seller-button"  >Contact Seller</button></div></form>		
+                         </div>
                     </div>
                     
                 </div>
@@ -50,7 +54,10 @@
                          <div class=" " style="float:left; margin-left: 16%"> : {Retrieve price}</div></br>
                          <div class=" " style="float:left">Date Upload : </div>
                          <div class=" " style="float:left; margin-left: 1%"> {Retrieve date uploaded}</div></br></br>
-                         <div style="text-align:center; width:100%"><a type="button" class="btn btn-primary btn-md " href="<?php echo URL; ?>item/index" >View item detail</a></div>
+                         <div class="row col-lg-offset-2">		                         
+                         <div class="col-lg-offset-0" style="float:left;"><form action="<?php echo URL; ?>item/index"><button class="view-item-button" >View Item</button></div></form>		
+                         <div class="col-lg-offset-0" style="float:left" id="contact"><form action="<?php echo URL; ?>item/index"><button class="contact-seller-button"  >Contact Seller</button></div></form>		
+                         </div>
                     </div>
             
                 </div>
@@ -63,7 +70,10 @@
                          <div class=" " style="float:left; margin-left: 16%"> : {Retrieve price}</div></br>
                          <div class=" " style="float:left">Date Upload : </div>
                          <div class=" " style="float:left; margin-left: 1%"> {Retrieve date uploaded}</div></br></br>
-                         <div style="text-align:center; width:100%"><a type="button" class="btn btn-primary btn-md " href="<?php echo URL; ?>item/index" >View item detail</a></div>
+                         <div class="row col-lg-offset-2">		                         
+                         <div class="col-lg-offset-0" style="float:left;"><form action="<?php echo URL; ?>item/index"><button class="view-item-button" >View Item</button></div></form>		
+                         <div class="col-lg-offset-0" style="float:left" id="contact"><form action="<?php echo URL; ?>item/index"><button class="contact-seller-button"  >Contact Seller</button></div></form>		
+                         </div>
                     </div>
                 </div>
            </div>
@@ -77,7 +87,10 @@
                      <div class=" " style="float:left; margin-left: 16%"> : {Retrieve price}</div></br>
                      <div class=" " style="float:left">Date Upload : </div>
                      <div class=" " style="float:left; margin-left: 1%"> {Retrieve date uploaded}</div></br></br>
-                     <div style="text-align:center; width:100%"><a type="button" class="btn btn-primary btn-md " href="<?php echo URL; ?>item/index" >View item detail</a></div>
+                     <div class="row col-lg-offset-2">		                         
+                     <div class="col-lg-offset-0" style="float:left;"><form action="<?php echo URL; ?>item/index"><button class="view-item-button" >View Item</button></div></form>		
+                     <div class="col-lg-offset-0" style="float:left" id="contact"><form action="<?php echo URL; ?>item/index"><button class="contact-seller-button"  >Contact Seller</button></div></form>		
+                     </div>
                 </div>
                 
             </div>
@@ -90,7 +103,10 @@
                      <div class=" " style="float:left; margin-left: 16%"> : {Retrieve price}</div></br>
                      <div class=" " style="float:left">Date Upload : </div>
                      <div class=" " style="float:left; margin-left: 1%"> {Retrieve date uploaded}</div></br></br>
-                     <div style="text-align:center; width:100%"><a type="button" class="btn btn-primary btn-md " href="<?php echo URL; ?>item/index" >View item detail</a></div>
+                     <div class="row col-lg-offset-2">		                         
+                         <div class="col-lg-offset-0" style="float:left;"><form action="<?php echo URL; ?>item/index"><button class="view-item-button" >View Item</button></div></form>		
+                         <div class="col-lg-offset-0" style="float:left" id="contact"><form action="<?php echo URL; ?>item/index"><button class="contact-seller-button"  >Contact Seller</button></div></form>		
+                     </div>
                 </div>
         
             </div>
@@ -103,7 +119,10 @@
                      <div class=" " style="float:left; margin-left: 16%"> : {Retrieve price}</div></br>
                      <div class=" " style="float:left">Date Upload : </div>
                      <div class=" " style="float:left; margin-left: 1%"> {Retrieve date uploaded}</div></br></br>
-                     <div style="text-align:center; width:100%"><a type="button" class="btn btn-primary btn-md " href="<?php echo URL; ?>item/index" >View item detail</a></div>
+                     <div class="row col-lg-offset-2">		                         
+                         <div class="col-lg-offset-0" style="float:left;"><form action="<?php echo URL; ?>item/index"><button class="view-item-button" >View Item</button></div></form>		
+                         <div class="col-lg-offset-0" style="float:left" id="contact"><form action="<?php echo URL; ?>item/index"><button class="contact-seller-button"  >Contact Seller</button></div></form>		
+                     </div>
                 </div>
             </div>
           </div>

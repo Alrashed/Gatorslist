@@ -10,5 +10,10 @@
 
     <!-- our JavaScript -->
     <script src="<?php echo URL; ?>js/application.js"></script>
+    <div class="panel panel-info" style="margin-top:5vh">
+      <div class="panel-footer " id="footer" style="">
+           <a >About</a>
+           <a style="margin-left:20%">Contact Us</a>
+	</div>
 </body>
 </html>
