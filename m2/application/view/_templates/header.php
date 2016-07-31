@@ -28,15 +28,13 @@ if (!isset($_SESSION)) {
     <nav class="navbar navbar-default navbar-fixed-top ">
         <div class="container-fluid " style="font-weight:600; font-size:16px; margin-left:10%; margin-right:10%">
             <div class="navbar-header">
-                <a class="navbar-brand" style="font-weight:700; font-size:20px" href="#">Gatorslist</a>
+                <a class="navbar-brand" style="font-weight:700; font-size:20px" href="<?php echo URL; ?>home/index">Gatorslist</a>
             </div>
             
           <?php if (isset($_SESSION['loggedInUser_id'])) : ?>
             
             <ul class="nav navbar-nav">
-                <li><a href="<?php echo URL; ?>home/index">Home</a></li>
                 <li><a href="<?php echo URL; ?>sell/index">Sell Your Items</a></li>
-                <li><a href="<?php echo URL; ?>products/index">Product Listing</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="<?php echo URL; ?>"><span class="glyphicon glyphicon-user"></span> Logged in as <?php echo htmlspecialchars($_SESSION['Email']); ?></a></li>
@@ -46,9 +44,7 @@ if (!isset($_SESSION)) {
           <?php else : ?>
             
             <ul class="nav navbar-nav">
-                <li><a href="<?php echo URL; ?>home/index">Home</a></li>
-                <li><a href="<?php echo URL; ?>login/index">Sell Your Items</a></li>
-                <li><a href="<?php echo URL; ?>products/index">Product Listing</a></li>
+                <li><a href="<?php echo URL; ?>sell/index">Sell Your Items</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="<?php echo URL; ?>users/index"><span class="glyphicon glyphicon-user"></span> Register</a></li>
@@ -65,6 +61,6 @@ if (!isset($_SESSION)) {
         
     </nav>
     <!-- logo -->
-    <div class="logo title-top-margin">
+    <div class="logo title-top-margin col-lg-12">
         Gatorslist
     </div>
