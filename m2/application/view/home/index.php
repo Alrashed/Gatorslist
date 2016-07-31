@@ -1,6 +1,6 @@
 <div class="text-center welcome">
   <h1>Welcome to Gatorslist!</h1>
-  <h1><small>Here you can purchase a variety of items sold by your fellow SFSU students.</small></h1>
+  <h1><small>Here you can purchase a variety of items or sell your own items amongst your fellow SFSU students!</small></h1>
 </div>
 
 <div class="margin-left-25" style="background:#FEFEFE">
