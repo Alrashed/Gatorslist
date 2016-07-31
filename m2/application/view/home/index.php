@@ -3,7 +3,7 @@
   <h1><small>Here you can purchase a variety of items or sell your own items amongst your fellow SFSU students!</small></h1>
 </div>
 
-<div class="margin-left-33" style="background:#FEFEFE">
+<div class="margin-left-25" style="background:#FEFEFE">
   <form action="<?php echo URL; ?>products/searchproducts" method="POST">
       <div class="float-left">
        
