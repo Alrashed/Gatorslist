@@ -21,8 +21,10 @@ body {
     margin-top:3%;
     box-shadow: 1px 1px 10px grey;
 }
+
+
 .welcome {
-    padding-top: 45vh;
+    padding-top: 20%;
     background:#FDFDFD
 }
 img:hover  {
