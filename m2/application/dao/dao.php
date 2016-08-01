@@ -147,10 +147,26 @@ class Dao {
        }
 
         else if ($target == "allProducts") {
-            $keyword = array_shift($parameters);
+           $keyword = array_shift($parameters);
             $sql = "SELECT i.Image_blob1,p.Title,p.ItemCondition, p.Description, p.Price, p.Postdate, p.Product_id FROM product p, image i  WHERE (i.Image_id = p. Image_id AND p.Title LIKE '%" . $keyword . "%') or (i.Image_id = p. Image_id AND Description LIKE '%." . $keyword . "%')";
             $query = $this->db->prepare($sql);
             try {
+                if ($query->execute()) {
+                    return $query->fetchAll();
+                } else {
+                    return false;
+                }
+            } catch (PDOException $e) {
+                echo $e->getMessage();
+            }
+        }
+
+        else if ($target == "allHomeProducts") {
+            $category = $parameters[":category"];
+	    $sql = "SELECT i.Image_blob1,p1.Title,p1.ItemCondition, p1.Description, p1.Price, p1.Postdate, p1.Product_id FROM product p1,image i WHERE i.Image_id = p1. Image_id AND p1.Category_Id = (SELECT pc.Category_id FROM productCategory pc WHERE pc.Category_name = '".$category."') ORDER BY Postdate DESC LIMIT 1";
+            $query = $this->db->prepare($sql);
+
+	    try {
                 if ($query->execute()) {
                     return $query->fetchAll();
                 } else {
