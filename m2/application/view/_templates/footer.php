@@ -15,5 +15,11 @@
            <a >About</a>
            <a style="margin-left:20%">Contact Us</a>
 	</div>
+
+      <footer class="footer">
+      <div class="container">
+        <p class="text-muted">SFSU Software Engineering Project, Summer 2016. For Demonstration Only</p>
+      </div>
+    </footer>
 </body>
 </html>
