@@ -14,7 +14,7 @@
                          <div class=" " style="float:left; margin-left: 1%"> {Retrieve date uploaded}</div></br></br>
                          <div class="row col-lg-offset-2">                               
                          <div class="col-lg-offset-0" style="float:left;"><form action="<?php echo URL; ?>item/index"><button class="view-item-button" >View Item</button></div></form>     
-                         <div class="col-lg-offset-0" style="float:left" id="contact"><form action="<?php echo URL; ?>confirm/index"><button class="contact-seller-button">Buy Now</button></div></form>
+                         <div class="col-lg-offset-0 " style="float:left" id="contact"><form action="<?php echo URL; ?>confirm/index"><button class="contact-seller-button" >Buy Now</button></div></form>
                            </div>
                     </div>
                 </div>
