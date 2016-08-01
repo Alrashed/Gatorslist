@@ -21,12 +21,18 @@ body {
     box-shadow: 1px 1px 10px grey;
 }
 .shadow {
-    box-shadow: 1px 1px 10px grey;
+    box-shadow: 0 1px 2px -2px gray;
 }
 .welcome {
     margin-left: 10%;
     margin-right: 10%;
     background:#FDFDFD
+}
+#hover-this-tab a:hover{
+    background: #c6c6c6;
+}
+#hover-this-tab span:hover{
+    background: #c6c6c6;
 }
 img:hover  {
     box-shadow: 1px 1px 10px grey;
@@ -239,4 +245,8 @@ img:hover  {
     margin-bottom:-4vh;
     padding-top:4vh;
     padding-bottom:auto;
+}
+.fixed-size {
+    width:304px;
+    height:228px;
 }

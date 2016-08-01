@@ -1,8 +1,8 @@
 
 
 <div class="" style="width:80%; margin-left:10%; margin-top:1%">
-     <div class="panel panel-default">
-        <div class="panel-heading">Recently Added Items</div>
+     <div class="panel panel-default" style="background:#f7f7f7">
+        <div class="panel-heading" style="background:#d0d0d0">Recently Added Items</div>
             <div class="row">
                 <div class="col-sm-4">
                     <div class="panel-body"><a href="<?php echo URL; ?>item/index"><img src="http://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image"></a>
