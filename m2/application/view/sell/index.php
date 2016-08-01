@@ -1,13 +1,13 @@
-<div class="container" style="border:none; margin-left:5%; margin-right:5%">
+<div class="container" style="">
     <!-- register form -->
     <div class="box">
-        <div class=" col-sm-8 col-lg-offset-2" >
+        <div class="col-lg-6 col-lg-offset-3" style="margin-top:1%" >
         	<!-- Panel container -->
             <div class="panel panel-default ">
             	<!-- panel head-->
             	<div class="panel-heading" style="text-align:center; font-weight:800; font-size:20px">Sell your item</div>
 				<!-- panel body -->                
-                <form class="panel-body col-lg-offset-0" style="padding-right:5%;padding-left:5%;font-size: 16px;background-color: #87CEFA"  role="form" action="<?php echo URL; ?>sell/createitem" method="POST" enctype="multipart/form-data">
+                <form class="panel-body col-lg-offset-0" style="font-size: 16px;background-color: #87CEFA"  role="form" action="<?php echo URL; ?>sell/createitem" method="POST" enctype="multipart/form-data">
                       
                       <div class="form-group form-inline">
                           <div class="form-group" >
@@ -16,10 +16,10 @@
                               <input type="text" class="form-control input-md" name='Title' id="item_title" style="font-size:14px" placeholder="Enter item name">
                             </div>
                           </div>
-                          <div class="form-group" style="margin-left:30%">  
+                          <div class="form-group" style="margin-left:20%">  
                             <label class="" for="price" >Price: </label>
                             <div class="">
-                              <input type="text" class="form-control input-md " name='Price' id="item_price" style="font-size:14px" placeholder="$$$">
+                              <input type="number" class="form-control input-md " name='Price' id="item_price" style="font-size:14px" placeholder="">
                             </div>
                            </div>
                       </div>

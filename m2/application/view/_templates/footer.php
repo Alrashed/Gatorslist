@@ -10,5 +10,11 @@
 
     <!-- our JavaScript -->
     <script src="<?php echo URL; ?>js/application.js"></script>
+    
+      <footer class="footer">
+      <div class="container text-center">
+        <p class="text-muted">SFSU Software Engineering Project, Summer 2016. For Demonstration Only</p>
+      </div>
+    </footer>
 </body>
 </html>

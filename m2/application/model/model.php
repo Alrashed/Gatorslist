@@ -203,7 +203,7 @@ class Model
         $parameters = [
             ":product_id" => $product_id,
         ];
-        $this->dao->get($parameters, "itemDetail");
+        return $this->dao->get($parameters, "itemDetail");
     }
 
     public function getItem($seller_id)
@@ -211,7 +211,7 @@ class Model
         $parameters = [
             ":seller_id" => $seller_id,
         ];
-        $this->dao->get($parameters, "userItems");
+        return $this->dao->get($parameters, "userItems");
     }
 
     //order controller
@@ -244,6 +244,15 @@ class Model
         $parameters = [
             ":order_id" => $order_id,
         ];
-        $this->dao->get($parameters, "order");
+        return $this->dao->get($parameters, "order");
     }
+
+    public function getProductCartgory()
+    {
+        $parameters = [
+           
+        ];
+        return $this->dao->get($parameters, "productCartgory");
+    }
+    
 }

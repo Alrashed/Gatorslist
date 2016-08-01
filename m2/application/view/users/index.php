@@ -1,14 +1,14 @@
 
-<div class="container" style="border:none; margin-left:5%; margin-right:5%">
+<div class="container">
     <!-- register form -->
     <div class="box">
-        <div class=" col-sm-6 col-lg-offset-3" >
+        <div class="col-lg-4 col-lg-offset-4" style="margin-top:1%" >
         	<!-- Panel container -->
             <div class="panel panel-default ">
             	<!-- panel head-->
             	<div class="panel-heading" style="text-align:center; font-weight:800; font-size:20px">Create your account</div>
 				<!-- panel body -->                
-                <form class="panel-body col-lg-offset-0 " style="padding-right:15%;padding-left:15%;font-size: 16px;background-color: #87CEFA"  role="form" action="<?php echo URL; ?>users/registeruser" method="POST">
+                <form class="panel-body col-lg-offset-0 " style="font-size: 16px;background-color: #87CEFA"  role="form" action="<?php echo URL; ?>users/registeruser" method="POST">
                       
                       <div class="form-group">
                         <label class="" for="email">Email:</label>
@@ -48,8 +48,8 @@
                         </div>
                       </div>
                       <div class="form-group"> 
-                        <div class="">
-                          <button type="submit" class="btn btn-danger " name= "submit" value='submit' id="submit">Sign Up</button>
+                        <div class="col-lg-4 col-lg-offset-4">
+                          <button type="submit" class="btn btn-success " name= "submit" value='submit' id="submit">Sign Up</button>
                         </div>
                       </div>
               </form>

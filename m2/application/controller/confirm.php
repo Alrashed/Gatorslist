@@ -1,14 +1,14 @@
 <?php
 
 /**
- * Class Home
+ * Class confirm
  *
  * Please note:
  * Don't use the same name for class and method, as this might trigger an (unintended) __construct of the class.
  * This is really weird behaviour, but documented here: http://php.net/manual/en/language.oop5.decon.php
  *
  */
-class Item extends Controller
+class Confirm extends Controller
 {
     /**
      * PAGE: index
@@ -18,16 +18,16 @@ class Item extends Controller
     {
         // load views
         require APP . 'view/_templates/header.php';
-        require APP . 'view/item/index.php';
+        require APP . 'view/confirm/index.php';
         require APP . 'view/_templates/footer.php';
     }
+
 
     public function showItem($product_id)
     {
         // if we have an id of a product that should be edited
         if (isset($product_id)) {
             echo $product_id;
-            echo "good";
             // do getProduct() in model.php
             $productDetail = $this->model->getItemDetail($product_id);
 
@@ -37,12 +37,14 @@ class Item extends Controller
 
             // load views. within the views we can echo out $customer easily
             require APP . 'view/_templates/header.php';
-            require APP . 'view/item/index.php';
+            require APP . 'view/confirm/index.php';
             require APP . 'view/_templates/footer.php';
         } else {
-            
+
             // redirect user to products index page (as we don't have a customer_id)
 //            header('location: ' . URL . 'item/index');
         }
     }
+
+    
 }
