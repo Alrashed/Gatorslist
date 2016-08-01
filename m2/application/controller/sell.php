@@ -59,23 +59,18 @@ class Sell extends Controller
 
             $date = date("Y-m-d H:i:s");
             $seller_id =  $_SESSION['loggedInUser_id'];
-//            echo $seller_id;
-//            echo"model good";
             $this->model->createItem($seller_id,$_POST["Title"], $_POST["Description"], $_POST["Price"], $_POST["Condition"],$date, $_POST["Category_Id"],$image1,$image2,$image3,$image4);
 
-//                header('location: ' . URL . 'sell/index');
+            header('location: ' . URL . 'sell/index');
         
         
     }
 
     public function ResetPrice($product_id, $newprice)
     {
-        //check the userid
-        
-        
         if (isset($product_id)) {
-            // do deleteUser() in model/model.php
-            $this->model->editItem($product_id,$newprice);
+            $seller_id =  $_SESSION['loggedInUser_id'];
+            $this->model->editItem($product_id, $newprice);
         }
 
         // where to go after user has been deleted
@@ -98,12 +93,12 @@ class Sell extends Controller
 
     public function getItem($product_id)
     {
-        // check the userid
-
+      
         // if we have an id of a user that should be deleted
         if (isset($product_id)) {
+            $seller_id =  $_SESSION['loggedInUser_id'];
             // do deleteUser() in model/model.php
-            $this->model->getItem($product_id);
+            $this->model->getItem($product_id, $seller_id);
         }
 
         // where to go after user has been deleted
