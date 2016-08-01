@@ -6,7 +6,7 @@
                     <?php foreach ($newestBook as $product) { ?>
                     <div class="panel-body"><a href="<?php echo URL . 'item/showitem/' . htmlspecialchars($product->Product_id, ENT_QUOTES, 'UTF-8'); ?>"><img  <?php if (isset($product->Image_blob1) && $product->Image_blob1 != "")
                                                         echo 'src="data:image/jpeg;base64,'.base64_encode($product->Image_blob1).'" height="150" width="150"';
-                                                        else echo 'src="http://placehold.it/150x80?text=IMAGE" ' ?>class="img-responsive " style="100%" alt="Image"></a></div>
+                                                        else echo 'src="http://placehold.it/150x80?text=IMAGE" ' ?>class="img-responsive " style="width:304px;height:228px;" alt="Image"></a></div>
 		    <div class="panel-body meta-style" style="float:left; margin-top: -5%; width:100%">
                          <div class=" " style="float:left">Item name </div>
                          <div class=" " style="float:left; margin-left: 5%"> : <?php if (isset($product->Title)) echo htmlspecialchars($product->Title, ENT_QUOTES, 'UTF-8'); ?></div></br>
@@ -25,7 +25,7 @@
 		    <?php foreach ($newestFurniture as $product) { ?>
                     <div class="panel-body"><a href="<?php echo URL . 'item/showitem/' . htmlspecialchars($product->Product_id, ENT_QUOTES, 'UTF-8'); ?>"><img  <?php if (isset($product->Image_blob1) && $product->Image_blob1 != "")
                                                         echo 'src="data:image/jpeg;base64,'.base64_encode($product->Image_blob1).'" height="150" width="150"';
-                                                        else echo 'src="http://placehold.it/150x80?text=IMAGE" ' ?>class="img-responsive " style="100%" alt="Image"></a></div>
+                                                        else echo 'src="http://placehold.it/150x80?text=IMAGE" ' ?>class="img-responsive " style="width:304px;height:228px;" alt="Image"></a></div>
 		    <div class="panel-body meta-style" style="float:left; margin-top: -5%; width:100%">
 			 <div class=" " style="float:left">Item name </div>
                          <div class=" " style="float:left; margin-left: 5%"> : <?php if (isset($product->Title)) echo htmlspecialchars($product->Title, ENT_QUOTES, 'UTF-8'); ?></div></br>
@@ -44,7 +44,7 @@
 			 <?php foreach ($newestElectronics as $product) { ?>
                          <div class="panel-body"><a href="<?php echo URL . 'item/showitem/' . htmlspecialchars($product->Product_id, ENT_QUOTES, 'UTF-8'); ?>"><img  <?php if (isset($product->Image_blob1) && $product->Image_blob1 != "")
                                                         echo 'src="data:image/jpeg;base64,'.base64_encode($product->Image_blob1).'" height="150" width="150"';
-                                                        else echo 'src="http://placehold.it/150x80?text=IMAGE" ' ?>class="img-responsive " style="100%" alt="Image"></a></div>
+                                                        else echo 'src="http://placehold.it/150x80?text=IMAGE" ' ?>class="img-responsive " style="width:304px;height:228px;" alt="Image"></a></div>
 			 <div class="panel-body meta-style" style="float:left; margin-top: -5%; width:100%">
                          <div class=" " style="float:left">Item name </div>
                          <div class=" " style="float:left; margin-left: 5%"> : <?php if (isset($product->Title)) echo htmlspecialchars($product->Title, ENT_QUOTES, 'UTF-8'); ?></div></br>
@@ -66,7 +66,7 @@
 		    <?php foreach ($newestClothing as $product) { ?>
                     <div class="panel-body"><a href="<?php echo URL . 'item/showitem/' . htmlspecialchars($product->Product_id, ENT_QUOTES, 'UTF-8'); ?>"><img  <?php if (isset($product->Image_blob1) && $product->Image_blob1 != "")
                                                         echo 'src="data:image/jpeg;base64,'.base64_encode($product->Image_blob1).'" height="150" width="150"';
-                                                        else echo 'src="http://placehold.it/150x80?text=IMAGE" ' ?>class="img-responsive " style="100%" alt="Image"></a></div>
+                                                        else echo 'src="http://placehold.it/150x80?text=IMAGE" ' ?>class="img-responsive " style="width:304px;height:228px;" alt="Image"></a></div>
 		    <div class="panel-body meta-style" style="float:left; margin-top: -5%; width:100%">
                          <div class=" " style="float:left">Item name </div>
                          <div class=" " style="float:left; margin-left: 5%"> : <?php if (isset($product->Title)) echo htmlspecialchars($product->Title, ENT_QUOTES, 'UTF-8'); ?></div></br>
@@ -85,7 +85,7 @@
                     <?php foreach ($newestOfficeSupply as $product) { ?>
                     <div class="panel-body"><a href="<?php echo URL . 'item/showitem/' . htmlspecialchars($product->Product_id, ENT_QUOTES, 'UTF-8'); ?>"><img  <?php if (isset($product->Image_blob1) && $product->Image_blob1 != "")
                                                         echo 'src="data:image/jpeg;base64,'.base64_encode($product->Image_blob1).'" height="150" width="150"';
-                                                        else echo 'src="http://placehold.it/150x80?text=IMAGE" ' ?>class="img-responsive " style="100%" alt="Image"></a></div>
+                                                        else echo 'src="http://placehold.it/150x80?text=IMAGE" ' ?>class="img-responsive " style="width:304px;height:228px;" alt="Image"></a></div>
 		    <div class="panel-body meta-style" style="float:left; margin-top: -5%; width:100%">
                          <div class=" " style="float:left">Item name </div>
                          <div class=" " style="float:left; margin-left: 5%"> : <?php if (isset($product->Title)) echo htmlspecialchars($product->Title, ENT_QUOTES, 'UTF-8'); ?></div></br>
@@ -104,7 +104,7 @@
                    <?php foreach ($newestOther as $product) { ?>
                    <div class="panel-body"><a href="<?php echo URL . 'item/showitem/' . htmlspecialchars($product->Product_id, ENT_QUOTES, 'UTF-8'); ?>"><img  <?php if (isset($product->Image_blob1) && $product->Image_blob1 != "")
                                                         echo 'src="data:image/jpeg;base64,'.base64_encode($product->Image_blob1).'" height="150" width="150"';
-                                                        else echo 'src="http://placehold.it/150x80?text=IMAGE" ' ?>class="img-responsive " style="100%" alt="Image"></a></div> 
+                                                        else echo 'src="http://placehold.it/150x80?text=IMAGE" ' ?>class="img-responsive " style="width:304px;height:228px;" alt="Image"></a></div> 
 		   <div class="panel-body meta-style" style="float:left; margin-top: -5%; width:100%">
                          <div class=" " style="float:left">Item name </div>
                          <div class=" " style="float:left; margin-left: 5%"> : <?php if (isset($product->Title)) echo htmlspecialchars($product->Title, ENT_QUOTES, 'UTF-8'); ?></div></br>
