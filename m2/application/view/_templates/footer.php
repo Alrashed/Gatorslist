@@ -10,10 +10,11 @@
 
     <!-- our JavaScript -->
     <script src="<?php echo URL; ?>js/application.js"></script>
-    <div class="panel panel-info" style="margin-top:5vh">
-      <div class="panel-footer " id="footer" style="">
-           <a >About</a>
-           <a style="margin-left:20%">Contact Us</a>
-	</div>
+    
+      <footer class="footer">
+      <div class="container text-center">
+        <p class="text-muted">SFSU Software Engineering Project, Summer 2016. For Demonstration Only</p>
+      </div>
+    </footer>
 </body>
 </html>

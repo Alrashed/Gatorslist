@@ -53,8 +53,8 @@ if (!isset($_SESSION)) {
             <ul class="nav navbar-nav" id="hover-this-tab">
                 <li><a href="<?php echo URL; ?>sell/index">Sell Your Items</a></li>
             </ul>
-            <ul class="nav navbar-nav navbar-right hover-this-tab">
-                <li><a href="<?php echo URL; ?>users/index"><span class="glyphicon glyphicon-user"></span> Register</a></li>
+            <ul class="nav navbar-nav navbar-right ">
+                <li class="hover-this-tab"><a href="<?php echo URL; ?>users/index"><span class="glyphicon glyphicon-user"></span> Register</a></li>
                 <li><a href="<?php echo URL; ?>login/index"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
             </ul>
             
