@@ -86,9 +86,9 @@ class Model
     
     public function getAllSortedProducts($searchinput, $category, $sorttype)
     {   	
-	  if($category == "") {
+	    if($category == "") {
             
-	  	$parameters = [
+	  	    $parameters = [
                 	":searchinput" => $searchinput,
             	];
 	
@@ -100,7 +100,7 @@ class Model
 	
 	    	else if($sorttype == "date") 
 	    		return $this->dao->get($parameters, "allNewestProducts");
-	  }
+	    }
 	   
 	else {
 	     $parameters = [
@@ -163,7 +163,7 @@ class Model
                         ];
                         return $this->dao->get($parameters, "allFilterConditionProducts");
                 }
-	}
+	    }
    }
 
 
@@ -207,12 +207,20 @@ class Model
     }
 
     //get an item with full description include image
-    public function getItem($product_id) 
+    public function getItemDetail($product_id) 
     {
         $parameters = [
             ":product_id" => $product_id,
         ];
-        $this->dao->get($parameters, "item");
+        return $this->dao->get($parameters, "itemDetail");
+    }
+
+    public function getItem($seller_id)
+    {
+        $parameters = [
+            ":seller_id" => $seller_id,
+        ];
+        return $this->dao->get($parameters, "userItems");
     }
 
     //order controller
@@ -245,6 +253,15 @@ class Model
         $parameters = [
             ":order_id" => $order_id,
         ];
-        $this->dao->get($parameters, "order");
+        return $this->dao->get($parameters, "order");
     }
+
+    public function getProductCartgory()
+    {
+        $parameters = [
+           
+        ];
+        return $this->dao->get($parameters, "productCartgory");
+    }
+    
 }

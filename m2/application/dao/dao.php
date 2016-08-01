@@ -130,7 +130,7 @@ class Dao {
             return $query->fetchAll();
         }
         
-        if ($target == "user") {
+        else if ($target == "user") {
            $email = $parameters[":email"];
            $password = $parameters[":password"];
            $sql = "SELECT User_id, Email FROM user WHERE (Email = '".$email."') AND (Password = '".$password."')";
@@ -180,82 +180,73 @@ class Dao {
         else if ($target == "allHighProducts") {
             $keyword = array_shift($parameters);
 	    
-	    if(isset($parameters[":category"])) {
-	    	$category = $parameters[":category"];
-	    	$sql = "SELECT * FROM product p1 WHERE (p1.Category_Id = (SELECT pc.Category_id FROM productCategory pc WHERE pc.Category_name = '".$category."')) AND (Title LIKE '%" . $keyword . "%' or Description LIKE '%." . $keyword . "%') ORDER BY Price DESC";
-            }
-
-	    else 
-		$sql = "SELECT * FROM product WHERE Title LIKE '%" . $keyword . "%' or Description LIKE '%." . $keyword . "%' ORDER BY Price DESC";  
+	        if(isset($parameters[":category"])) {
+	    	    $category = $parameters[":category"];
+	    	    $sql = "SELECT * FROM product p1 WHERE (p1.Category_Id = (SELECT pc.Category_id FROM productCategory pc WHERE pc.Category_name = '".$category."')) AND (Title LIKE '%" . $keyword . "%' or Description LIKE '%." . $keyword . "%') ORDER BY Price DESC";
+            } else 
+		    $sql = "SELECT * FROM product WHERE Title LIKE '%" . $keyword . "%' or Description LIKE '%." . $keyword . "%' ORDER BY Price DESC";  
 	  
-	    $query = $this->db->prepare($sql);
+	        $query = $this->db->prepare($sql);
             $query->execute();
             return $query->fetchAll();	
-	}
+	    }
 	
-	else if ($target == "allLowProducts") {
+	    else if ($target == "allLowProducts") {
             $keyword = array_shift($parameters);
 	    
-	    if(isset($parameters[":category"])) {
+	        if(isset($parameters[":category"])) {
                 $category = $parameters[":category"];
                 $sql = "SELECT * FROM product p1 WHERE (p1.Category_Id = (SELECT pc.Category_id FROM productCategory pc WHERE pc.Category_name = '".$category."')) AND (Title LIKE '%" . $keyword . "%' or Description LIKE '%." . $keyword . "%') ORDER BY Price ASC";
+            } else {
+                $sql = "SELECT * FROM product WHERE Title LIKE '%" . $keyword . "%' or Description LIKE '%." . $keyword . "%' ORDER BY Price ASC";
             }
-
-            else 
-                $sql = "SELECT * FROM product WHERE Title LIKE '%" . $keyword . "%' or Description LIKE '%." . $keyword . "%' ORDER BY Price ASC";  
-
-	    $query = $this->db->prepare($sql);
-            $query->execute();
-            return $query->fetchAll();
+                $query = $this->db->prepare($sql);
+                $query->execute();
+                return $query->fetchAll();
+           
         }
 
         else if ($target == "allNewestProducts") {
 	    $keyword = array_shift($parameters);
 
-  	    if(isset($parameters[":category"])) {
+  	        if(isset($parameters[":category"])) {
                 $category = $parameters[":category"];
                 $sql = "SELECT * FROM product p1 WHERE (p1.Category_Id = (SELECT pc.Category_id FROM productCategory pc WHERE pc.Category_name = '".$category."')) AND (Title LIKE '%" . $keyword . "%' or Description LIKE '%." . $keyword . "%') ORDER BY Postdate DESC";
+            } else {
+                $sql = "SELECT * FROM product WHERE Title LIKE '%" . $keyword . "%' or Description LIKE '%." . $keyword . "%' ORDER BY Postdate DESC";
             }
-
-            else 
-                $sql = "SELECT * FROM product WHERE Title LIKE '%" . $keyword . "%' or Description LIKE '%." . $keyword . "%' ORDER BY Postdate DESC";  
-          
-       	    $query = $this->db->prepare($sql);
-            $query->execute();
-            return $query->fetchAll();
+                $query = $this->db->prepare($sql);
+                $query->execute();
+                return $query->fetchAll();
         }
        
-	else if ($target == "allFilterPriceProducts") {
-	    $minprice = $parameters[":minprice"];
-	    $maxprice = $parameters[":maxprice"];
+	    else if ($target == "allFilterPriceProducts") {
+            $minprice = $parameters[":minprice"];
+	        $maxprice = $parameters[":maxprice"];
             $searchinput = $parameters[":searchinput"];
-	    if(isset($parameters[":category"])) {
-		$category = $parameters[":category"];
-	    	$sql = "SELECT * FROM product p1 WHERE (p1.Category_Id = (SELECT pc.Category_id FROM productCategory pc WHERE pc.Category_name = '".$category."')) AND (Price BETWEEN $minprice AND $maxprice ) AND (Title LIKE '%" . $searchinput . "%' or Description LIKE '%." . $searchinput . "%')";
-            }
-
-	    else {
+	        if(isset($parameters[":category"])) {
+		        $category = $parameters[":category"];
+	    	    $sql = "SELECT * FROM product p1 WHERE (p1.Category_Id = (SELECT pc.Category_id FROM productCategory pc WHERE pc.Category_name = '".$category."')) AND (Price BETWEEN $minprice AND $maxprice ) AND (Title LIKE '%" . $searchinput . "%' or Description LIKE '%." . $searchinput . "%')";
+            } else {
 	    	$sql = "SELECT * FROM product WHERE (Price BETWEEN $minprice AND $maxprice ) AND (Title LIKE '%" . $searchinput . "%' or Description LIKE '%." . $searchinput . "%')";
-	    }
-	    $query = $this->db->prepare($sql);
+            }
+	        $query = $this->db->prepare($sql);
             $query->execute();
             return $query->fetchAll();
         }
         
-	else if ($target == "allFilterConditionProducts") {
+	    else if ($target == "allFilterConditionProducts") {
             $itemcondition = $parameters[":itemcondition"];
             $searchinput = $parameters[":searchinput"];
             
-	    if(isset($parameters[":category"])) {
+	        if(isset($parameters[":category"])) {
                 $category = $parameters[":category"];
-		$sql = "SELECT * FROM product p1 WHERE (p1.Category_Id = (SELECT pc.Category_id FROM productCategory pc WHERE pc.Category_name = '".$category."')) AND (ItemCondition = '".$itemcondition."') AND (Title LIKE '%" . $searchinput . "%' or Description LIKE '%." . $searchinput . "%')";
-	    }	    
-	    
-	    else {
-	    $sql = "SELECT * FROM product WHERE (ItemCondition = '".$itemcondition."') AND (Title LIKE '%" . $searchinput . "%' or Description LIKE '%." . $searchinput . "%')";
-	    }
+		        $sql = "SELECT * FROM product p1 WHERE (p1.Category_Id = (SELECT pc.Category_id FROM productCategory pc WHERE pc.Category_name = '".$category."')) AND (ItemCondition = '".$itemcondition."') AND (Title LIKE '%" . $searchinput . "%' or Description LIKE '%." . $searchinput . "%')";
+	        } else {
+	            $sql = "SELECT * FROM product WHERE (ItemCondition = '".$itemcondition."') AND (Title LIKE '%" . $searchinput . "%' or Description LIKE '%." . $searchinput . "%')";
+	        }
 
-	    $query = $this->db->prepare($sql);
+	        $query = $this->db->prepare($sql);
             $query->execute();
             return $query->fetchAll();
         }   
@@ -276,9 +267,29 @@ class Dao {
                 echo $e->getMessage();
             }
         }
-        else if ($target == "item") {
+        
+        else if ($target == "itemDetail") {
             $pid = $parameters[":product_id"];
-            $sql ="SELECT i.Image_blob1, p.Seller_id, p.Title, p.Description, p.Price, p.ItemCondition, p.Postdate, p.Product_id FROM product p,image i  WHERE p.Image_id = i.Image_id AND p.product_id = '".$pid."' ";
+            $sql ="SELECT i.Image_blob1, p.Seller_id, p.Title, p.Description, p.Price, p.ItemCondition, p.Postdate, p.Product_id FROM product p,image i  WHERE p.Image_id = i.Image_id AND p.Product_id = ".$pid." ";
+            echo $sql;
+            $query = $this->db->prepare($sql);
+            try {
+                if ($query->execute()) {
+                    $result = $query->fetch();
+                    echo $result->Title;
+                    return $result;
+                } else {
+                    return false;
+                }
+            } catch(PDOException $e) {
+                echo $e->getMessage();
+            }
+        }
+
+        else if ($target == "userItems") {
+//            $pid = $parameters[":product_id"];
+            $id = $parameters[":seller_id"];
+            $sql ="SELECT i.Image_blob1, p.Seller_id, p.Title, p.Description, p.Price, p.ItemCondition, p.Postdate, p.Product_id FROM product p,image i  WHERE p.Image_id = i.Image_id AND p.Seller_id = '".$id."' ";
             $query = $this->db->prepare($sql);
             try {
                 if ($query->execute()) {
@@ -290,6 +301,7 @@ class Dao {
                 echo $e->getMessage();
             }
         }
+
         else if ($target == "order") {
             $order_id = $parameters[":order_id"];
             $sql ="SELECT *FROM order WHERE Order_id = '".$order_id."' ";
@@ -303,6 +315,13 @@ class Dao {
             } catch(PDOException $e) {
                 echo $e->getMessage();
             }
+        }
+
+        if ($target == "productCartgory") {
+            $sql = "SELECT Category_name FROM productCartgory";
+            $query = $this->db->prepare($sql);
+            $query->execute();
+            return $query->fetchAll();
         }
     }
 

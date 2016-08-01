@@ -1,4 +1,9 @@
 <?php
+if(!isset($_SESSION)) {
+    session_start();
+}
+?>
+<?php
 
 /**
  * Class checkout
@@ -20,5 +25,24 @@ class Checkout extends Controller
         require APP . 'view/_templates/header.php';
         require APP . 'view/checkout/index.php';
         require APP . 'view/_templates/footer.php';
+    }
+
+    public function purchase($product_id)
+    {
+        echo $product_id;
+        echo"in purchase function";
+        
+        $buyer_id =  $_SESSION['loggedInUser_id'];
+        $date = date("Y-m-d H:i:s");
+        $status = "In proces";
+
+        echo"good";
+        if (isset($_POST["submit"])) {
+
+
+            $this->model->createOrder($product_id, $buyer_id, $date,$status);
+        }
+        // where to go after user has been added
+//        header('location: ' . URL . 'confirm/thankyou');
     }
 }
