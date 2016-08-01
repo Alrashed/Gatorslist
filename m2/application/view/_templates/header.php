@@ -24,8 +24,15 @@ if (!isset($_SESSION)) {
     
 </head>
 <body>
-	<!--Nav Bar-->
-    <nav class="navbar navbar-default navbar-fixed-top ">
+
+    <!-- logo -->
+    <header class="masthead">
+    <div class="logo title-top-margin navbar-static-top">
+        Gatorslist
+    </div>
+    </header>
+    <!--Nav Bar-->
+    <nav class="navbar navbar-default navbar-static-top">
         <div class="container-fluid " style="font-weight:600; font-size:16px; margin-left:10%; margin-right:10%">
             <div class="navbar-header">
                 <a class="navbar-brand" style="font-weight:700; font-size:20px" href="<?php echo URL; ?>home/index">Gatorslist</a>
@@ -60,7 +67,3 @@ if (!isset($_SESSION)) {
       <?php endif; ?>
         
     </nav>
-    <!-- logo -->
-    <div class="logo title-top-margin col-lg-12">
-        Gatorslist
-    </div>
