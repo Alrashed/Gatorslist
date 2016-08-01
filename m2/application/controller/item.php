@@ -27,7 +27,7 @@ class Item extends Controller
         // if we have an id of a product that should be edited
         if (isset($product_id)) {
             echo $product_id;
-            echo "good";
+//            echo "good";
             // do getProduct() in model.php
             $productDetail = $this->model->getItemDetail($product_id);
 
