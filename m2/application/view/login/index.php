@@ -1,7 +1,7 @@
 <div class="container" >
     <!-- register form -->
     <div class="box">
-        <div class="col-lg-4 col-lg-offset-4" style="margin-top:5%" >
+        <div class="col-lg-4 col-lg-offset-4" style="margin-top:1%" >
         	<!-- Panel container -->
             <div class="panel panel-default ">
             	<!-- panel head-->
