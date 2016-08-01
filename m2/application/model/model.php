@@ -74,6 +74,15 @@ class Model
         }
         
     }
+
+    public function getAllHomeProducts($category)
+    {
+            $parameters = [
+                ":category" => $category,
+            ];
+            return $this->dao->get($parameters, "allHomeProducts");
+
+    }
     
     public function getAllSortedProducts($searchinput, $category, $sorttype)
     {   	
