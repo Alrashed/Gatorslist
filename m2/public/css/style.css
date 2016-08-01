@@ -6,7 +6,7 @@ body {
     border: 2px solid #73AD21;
 }
 .logo {
-    font-size: 100px;
+    font-size: 120px;
     font-weight: bolder;
     letter-spacing: 5px;
     text-align: center;
@@ -17,15 +17,11 @@ body {
 }
 .title-top-margin {
     background: #E6E6E6; 
-    padding: 2%;
     box-shadow: 1px 1px 10px grey;
 }
-.shadow {
-    box-shadow: 1px 1px 10px grey;
-}
+
+
 .welcome {
-    margin-left: 10%;
-    margin-right: 10%;
     background:#FDFDFD
 }
 img:hover  {
@@ -141,7 +137,7 @@ img:hover  {
     border-color: 1px solid red;
 }
 .margin-left-25 {
-    margin-left: 25%;
+    margin-left: 33%;
 }
 .placeholder {
     font-size: 12px;
@@ -239,25 +235,4 @@ img:hover  {
     margin-bottom:-4vh;
     padding-top:4vh;
     padding-bottom:auto;
-}
-
-.vertical-alignment-helper {
-    display:table;
-    height: 100%;
-    width: 100%;
-    pointer-events:none; /* This makes sure that we can still click outside of the modal to close it */
-}
-.vertical-align-center {
-    /* To center vertically */
-    display: table-cell;
-    vertical-align: middle;
-    pointer-events:none;
-}
-.modal-content {
-    /* Bootstrap sets the size of the modal in the modal-dialog class, we need to inherit it */
-    width:inherit;
-    height:inherit;
-    /* To center horizontally */
-    margin: 0 auto;
-    pointer-events: all;
 }
