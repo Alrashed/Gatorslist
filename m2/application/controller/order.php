@@ -1,4 +1,10 @@
 <?php
+if(!isset($_SESSION)) {
+    session_start();
+}
+?>
+
+<?php
 /**
  * Created by PhpStorm.
  * User: guoyiruan
@@ -27,7 +33,7 @@ class Order extends Controller
      */
     public function purchase($product_id)
     {
-        $buyer_id = "13";//get buyer's id
+        $buyer_id =  $_SESSION['loggedInUser_id'];
         $date = date("Y-m-d H:i:s");
         $status = "In proces";
         

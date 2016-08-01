@@ -8,6 +8,7 @@
             <input type="text" name="searchinput" value="" required />
             <select type = "text" name="category">
                 <option value="">All Categories</option>
+                
                 <option value="book">Books</option>
                 <option value="furniture">Furniture</option>
                 <option value="electronics">Electronics</option>

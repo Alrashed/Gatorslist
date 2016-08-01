@@ -57,7 +57,7 @@
     <input class="form-control" type="number" value="" id="securitycode">
   </div>
 </div>
-  <p><a class="btn btn-primary btn-lg" href="#" role="button">Place Order</a></p>
+  <p><a class="btn btn-primary btn-lg" href="<?php echo URL. 'confirm/purchase/'. htmlspecialchars($productDetail->Product_id, ENT_QUOTES, 'UTF-8'); ?>" role="button">Place Order</a></p>
   <p>Next page should say thank you for your order and redirect to the contact page.</p>
   </div>
 </div>
