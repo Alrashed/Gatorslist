@@ -74,7 +74,7 @@ class Sell extends Controller
         }
 
         // where to go after user has been deleted
-//        header('location: ' . URL . 'item/index');
+//        header('location: ' . URL . 'sell/index');
     }
 
     public function deleteItem($product_id)
@@ -88,21 +88,19 @@ class Sell extends Controller
         }
 
         // where to go after user has been deleted
-        header('location: ' . URL . 'item/index');
+//        header('location: ' . URL . 'sell/index');
     }
 
-    public function getItem($product_id)
+    public function getItem()
     {
       
-        // if we have an id of a user that should be deleted
-        if (isset($product_id)) {
-            $seller_id =  $_SESSION['loggedInUser_id'];
-            // do deleteUser() in model/model.php
-            $this->model->getItem($product_id, $seller_id);
-        }
-
+        // get all items from user
+        $seller_id =  $_SESSION['loggedInUser_id'];
+            
+        $this->model->getItem($seller_id);
+        
         // where to go after user has been deleted
-        header('location: ' . URL . 'item/index');
+//        header('location: ' . URL . 'item/index');
     }
     
 }

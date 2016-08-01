@@ -252,9 +252,28 @@ class Dao {
             }
         }
         
-        else if ($target == "item") {
+        else if ($target == "itemDetail") {
             $pid = $parameters[":product_id"];
-            $sql ="SELECT i.Image_blob1, p.Seller_id, p.Title, p.Description, p.Price, p.ItemCondition, p.Postdate, p.Product_id FROM product p,image i  WHERE p.Image_id = i.Image_id AND p.product_id = '".$pid."' ";
+            $sql ="SELECT i.Image_blob1, p.Seller_id, p.Title, p.Description, p.Price, p.ItemCondition, p.Postdate, p.Product_id FROM product p,image i  WHERE p.Image_id = i.Image_id AND p.Product_id = '".$pid."' ";
+            echo $sql;
+            $query = $this->db->prepare($sql);
+            try {
+                if ($query->execute()) {
+                    echo "query good";
+                    return $query->fetchAll();
+                    
+                } else {
+                    return false;
+                }
+            } catch(PDOException $e) {
+                echo $e->getMessage();
+            }
+        }
+
+        else if ($target == "userItems") {
+//            $pid = $parameters[":product_id"];
+            $id = $parameters[":seller_id"];
+            $sql ="SELECT i.Image_blob1, p.Seller_id, p.Title, p.Description, p.Price, p.ItemCondition, p.Postdate, p.Product_id FROM product p,image i  WHERE p.Image_id = i.Image_id AND p.Seller_id = '".$id."' ";
             $query = $this->db->prepare($sql);
             try {
                 if ($query->execute()) {
@@ -266,6 +285,7 @@ class Dao {
                 echo $e->getMessage();
             }
         }
+
         else if ($target == "order") {
             $order_id = $parameters[":order_id"];
             $sql ="SELECT *FROM order WHERE Order_id = '".$order_id."' ";
