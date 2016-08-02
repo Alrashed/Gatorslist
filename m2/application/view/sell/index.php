@@ -13,13 +13,13 @@
                           <div class="form-group" >
                             <label class="" for="item title" >Item title:</label>
                             <div class="">
-                              <input type="text" class="form-control input-md" name='Title' id="item_title" style="font-size:14px" placeholder="Enter item name">
+                              <input type="text" class="form-control input-md" name='Title' id="item_title" style="font-size:14px" maxlength="50" placeholder="Enter item name">
                             </div>
                           </div>
                           <div class="form-group" style="margin-left:20%">  
                             <label class="" for="price" >Price: </label>
                             <div class="">
-                              <input type="number" class="form-control input-md " name='Price' id="item_price" style="font-size:14px" placeholder="">
+                              <input type="number" class="form-control input-md " name='Price' id="item_price" style="font-size:14px" maxlength="1" placeholder="">
                             </div>
                            </div>
                       </div>
@@ -49,7 +49,7 @@
                           </div> 
                       <div class="form-group">
                           <label class="" for="condition">Description: </label>
-                          <textarea class="form-control" rows="5"  name='Description' id="description" placeholder="Describe your item here..."></textarea>
+                          <textarea class="form-control" rows="5"  name='Description' id="description" maxlength="1000" placeholder="Describe your item here..."></textarea>
                       </div>
 
                     <div class="form-group">

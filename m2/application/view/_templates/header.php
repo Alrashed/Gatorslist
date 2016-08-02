@@ -86,7 +86,7 @@ if (!isset($_SESSION)) {
                             <option value="other">Other</option>
                         </select>
                       </div>
-                      <input id ="search_field" class="form-control input-attributes float-left " type="text" name="searchinput" value="" placeholder="Search for book, furniture, laptop, etc" required />
+                      <input id ="search_field" class="form-control input-attributes float-left " type="text" name="searchinput" value="" maxlength="50" placeholder="Search for book, furniture, laptop, etc" required />
                       <div class="float-left">
                       <input class="btn btn-default" type="submit" name="submit_search_product" value="Search" />
                     </div>
