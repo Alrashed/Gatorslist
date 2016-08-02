@@ -48,7 +48,7 @@ img:hover  {
     font-size: 14px;
     margin: 4px 2px;
     cursor: pointer;
-    background-color: white;
+    background-color: #67A2D4;
     color: black;
     border: 1px solid #767676;
     border-right: 3px solid #767676;
@@ -75,7 +75,7 @@ img:hover  {
     font-size: 14px;
     margin: 4px 2px;
     cursor: pointer;
-    background-color: white;
+    background-color: #F2CC69;
     color: black;
     border: 1px solid #767676;
     border-right: 3px solid #767676;

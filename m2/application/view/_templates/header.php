@@ -71,7 +71,7 @@ if (!isset($_SESSION)) {
     <div class="text-center welcome">
       <h2><small>Here you can purchase a variety of items or sell your own items amongst your fellow SFSU students!</small></h2>
     </div>
-    <div class="container">
+    <div class="container" style="margin-bottom:2%">
         <div class="row">
             <div class="col-lg-6 col-lg-offset-3" style="background:#FEFEFE;">
                 <form action="<?php echo URL; ?>products/searchproducts" method="POST">      
@@ -94,4 +94,4 @@ if (!isset($_SESSION)) {
                 </form> 
         </div>
     </div>
-</div></br></br>
+</div>
