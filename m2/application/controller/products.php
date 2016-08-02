@@ -63,17 +63,19 @@ class Products extends Controller
 
     }
 
-    public function getProductCartgory()
+    public function getProductCategory()
     {
 
-        $category = $this->model->getProductCartgory();
-
+        $categories = $this->model->getProductCategory();
+        foreach ($categories as $category) {
+            echo $category->Category_name;
+        }
 
 
         // where to go after product has been added
-        require APP . 'view/_templates/header.php';
-        require APP . 'view/products/product.php';
-        require APP . 'view/_templates/footer.php';
+//        require APP . 'view/_templates/header.php';
+//        require APP . 'view/products/index.php';
+//        require APP . 'view/_templates/footer.php';
 
     }
 

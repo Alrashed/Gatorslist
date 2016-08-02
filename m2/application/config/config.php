@@ -50,9 +50,10 @@ define('URL', URL_PROTOCOL . URL_DOMAIN . URL_SUB_FOLDER);
  * Configuration for: Database
  * This is the place where you define your database credentials, database type etc.
  */
+//sfsu$u16swe
 define('DB_TYPE', 'mysql');
 define('DB_HOST', '127.0.0.1');
 define('DB_NAME', 'su16g01');
-define('DB_USER', 'su16g01');
-define('DB_PASS', 'sfsu$u16swe');
+define('DB_USER', 'root');
+define('DB_PASS', 'uandme');
 define('DB_CHARSET', 'utf8');
