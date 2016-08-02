@@ -17,6 +17,7 @@ class Products extends Controller
      */
     public function index()
     {
+
        // load views
         require APP . 'view/_templates/header.php';
         require APP . 'view/products/index.php';
@@ -25,6 +26,8 @@ class Products extends Controller
 
     public function searchProducts()
     {
+        $categories = $this->model->getProductCategory();
+
         // if we have POST data to create a new product entry
         if (isset($_POST["submit_search_product"])) {
             // do getAllProducts() in model/model.php

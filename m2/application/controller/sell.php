@@ -28,6 +28,7 @@ class Sell extends Controller
 //        $users = $this->model->getAllUsers();
 
         // load views. within the views we can echo out $users
+        $categories = $this->model->getProductCategory();
 
         if (isset($_SESSION['loggedInUser_id'])) {
 
@@ -48,6 +49,7 @@ class Sell extends Controller
      */
     public function createItem()
     {
+        $categories = $this->model->getProductCategory();
 //        if($_SESSION['loggedInUser_id'] != null ) {
             $image1 = file_get_contents($_FILES["fileToUpload"]["tmp_name"]);
 
@@ -109,7 +111,7 @@ class Sell extends Controller
 
     public function getItem()
     {
-      
+        
         // get all items from user
         $seller_id =  $_SESSION['loggedInUser_id'];
             

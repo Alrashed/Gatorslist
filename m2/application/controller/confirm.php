@@ -23,7 +23,7 @@ class Confirm extends Controller
     public function index()
     {
         // load views
-
+        $categories = $this->model->getProductCategory();
         if (isset($_SESSION['loggedInUser_id'])) {
 
             require APP . 'view/_templates/header.php';
@@ -42,6 +42,7 @@ class Confirm extends Controller
 
     public function showItem($product_id)
     {
+        $categories = $this->model->getProductCategory();
         if (isset($_SESSION['loggedInUser_id'])) {
 
             if (isset($product_id)) {
@@ -69,6 +70,7 @@ class Confirm extends Controller
 
     public function reConfirm($product_id)
     {
+        $categories = $this->model->getProductCategory();
         // if we have an id of a product that should be edited
         if (isset($product_id)) {
 //            echo $product_id;

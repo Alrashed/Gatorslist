@@ -22,6 +22,7 @@ class Checkout extends Controller
      */
     public function index()
     {
+        $categories = $this->model->getProductCategory();
         // load views
         if (isset($_SESSION['loggedInUser_id'])) {
 
@@ -40,18 +41,14 @@ class Checkout extends Controller
 
     public function purchase($product_id)
     {
-        echo $product_id;
-//        echo"in purchase function";
+        $categories = $this->model->getProductCategory();
         
         $buyer_id =  $_SESSION['loggedInUser_id'];
-//        echo $buyer_id;
+
         $date = date("Y-m-d H:i:s");
         $status = "In process";
-        echo"good";
+
         $this->model->createOrder($product_id, $buyer_id, $date,$status);
-
-        echo"finished";
-
 
         require APP . 'view/_templates/header.php';
         require APP . 'view/checkout/thankyou.php';

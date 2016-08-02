@@ -24,6 +24,7 @@ class Item extends Controller
 
     public function showItem($product_id)
     {
+        $categories = $this->model->getProductCategory();
         // if we have an id of a product that should be edited
         if (isset($product_id)) {
             // do getProduct() in model.php
