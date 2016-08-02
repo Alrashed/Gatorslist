@@ -48,7 +48,7 @@ img:hover  {
     font-size: 14px;
     margin: 4px 2px;
     cursor: pointer;
-    background-color: white;
+    background-color: #67A2D4;
     color: black;
     border: 1px solid #767676;
     border-right: 3px solid #767676;
@@ -75,7 +75,7 @@ img:hover  {
     font-size: 14px;
     margin: 4px 2px;
     cursor: pointer;
-    background-color: white;
+    background-color: #F2CC69;
     color: black;
     border: 1px solid #767676;
     border-right: 3px solid #767676;
@@ -258,10 +258,32 @@ img:hover  {
 }
 
 .btn-xlarge {
-    padding: 18px 50px;
+    padding: 30px 60px;
     font-size: 22px; //change this to your desired size
     line-height: normal;
     -webkit-border-radius: 8px;
        -moz-border-radius: 8px;
             border-radius: 8px;
+}
+
+h1 {
+  font-weight: bold;
+}
+
+h2 {
+  font-weight: bold;
+  font-size: 50px;
+}
+
+h3 {
+  font-size: 40px;
+  font-weight: bold;
+}
+
+h4 {
+    font-size:30px;
+}
+
+h5 {
+    font-size:28px;
 }

@@ -71,19 +71,24 @@ if (!isset($_SESSION)) {
     <div class="text-center welcome">
       <h2><small>Here you can purchase a variety of items or sell your own items amongst your fellow SFSU students!</small></h2>
     </div>
-    <div class="container">
+    <div class="container" style="margin-bottom:2%">
         <div class="row">
             <div class="col-lg-6 col-lg-offset-3" style="background:#FEFEFE;">
                 <form action="<?php echo URL; ?>products/searchproducts" method="POST">      
                       <div class="margin-right-1 float-left">
-                        <select name="category" class="form-control">
+                        <select  name="category" class="form-control">
                             <option value="">All Categories</option>
-                            <option value="book">Books</option>
-                            <option value="furniture">Furniture</option>
-                            <option value="electronics">Electronics</option>
-                            <option value="clothing">Clothing</option>
-                            <option value="office suppies">Office Supplies</option>
-                            <option value="other">Other</option>
+                            
+                            <?php foreach ($categories as $category) { ?>
+                                <option value= "<?php if (isset($category->Category_name)) echo htmlspecialchars($category->Category_name, ENT_QUOTES, 'UTF-8'); ?>"><?php if (isset($category->Category_name)) echo htmlspecialchars($category->Category_name, ENT_QUOTES, 'UTF-8'); ?></option>
+
+                            <?php } ?>
+<!--                            <option value="book">Books</option>-->
+<!--                            <option value="furniture">Furniture</option>-->
+<!--                            <option value="electronics">Electronics</option>-->
+<!--                            <option value="clothing">Clothing</option>-->
+<!--                            <option value="office suppies">Office Supplies</option>-->
+<!--                            <option value="other">Other</option>-->
                         </select>
                       </div>
                       <input id ="search_field" class="form-control input-attributes float-left " type="text" name="searchinput" value="" maxlength="50" placeholder="Search for book, furniture, laptop, etc" required />
@@ -94,4 +99,4 @@ if (!isset($_SESSION)) {
                 </form> 
         </div>
     </div>
-</div></br></br>
+</div>

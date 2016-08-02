@@ -17,6 +17,8 @@ class Thanks extends Controller
     public function index()
     {
         // load views
+        $categories = $this->model->getProductCategory();
+        
         require APP . 'view/_templates/header.php';
         require APP . 'view/confirm/thankyou.php';
         require APP . 'view/_templates/footer.php';

@@ -1,5 +1,11 @@
 <?php
+if(!isset($_SESSION)) {
+    session_start();
+}
 
+?>
+
+<?php
 /**
  * Class confirm
  *
@@ -17,17 +23,57 @@ class Confirm extends Controller
     public function index()
     {
         // load views
-        require APP . 'view/_templates/header.php';
-        require APP . 'view/confirm/index.php';
-        require APP . 'view/_templates/footer.php';
+        $categories = $this->model->getProductCategory();
+        if (isset($_SESSION['loggedInUser_id'])) {
+
+            require APP . 'view/_templates/header.php';
+            require APP . 'view/confirm/index.php';
+            require APP . 'view/_templates/footer.php';
+
+        }else {
+
+            require APP . 'view/_templates/header.php';
+            require APP . 'view/users/index.php';
+            require APP . 'view/_templates/footer.php';
+        }
+        
     }
 
 
     public function showItem($product_id)
     {
+        $categories = $this->model->getProductCategory();
+        if (isset($_SESSION['loggedInUser_id'])) {
+
+            if (isset($product_id)) {
+                // do getProduct() in model.php
+                $productDetail = $this->model->getItemDetail($product_id);
+
+                // in a real application we would also check if this db entry exists and therefore show the result or
+                // redirect the user to an error page or similar
+
+                // load views.
+                require APP . 'view/_templates/header.php';
+                require APP . 'view/confirm/index.php';
+                require APP . 'view/_templates/footer.php';
+
+            }
+
+        }else {
+
+            require APP . 'view/_templates/header.php';
+            require APP . 'view/users/index.php';
+            require APP . 'view/_templates/footer.php';
+        }
+
+    }
+
+    public function reConfirm($product_id)
+    {
+        $categories = $this->model->getProductCategory();
         // if we have an id of a product that should be edited
         if (isset($product_id)) {
-            echo $product_id;
+//            echo $product_id;
             // do getProduct() in model.php
             $productDetail = $this->model->getItemDetail($product_id);
 
@@ -37,7 +83,7 @@ class Confirm extends Controller
 
             // load views. within the views we can echo out $customer easily
             require APP . 'view/_templates/header.php';
-            require APP . 'view/confirm/index.php';
+            require APP . 'view/checkout/index.php';
             require APP . 'view/_templates/footer.php';
         } else {
 
@@ -45,6 +91,5 @@ class Confirm extends Controller
 //            header('location: ' . URL . 'item/index');
         }
     }
-
     
 }

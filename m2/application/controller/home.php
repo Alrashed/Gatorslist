@@ -17,12 +17,14 @@ class Home extends Controller
     public function index()
     {
 
-	$newestBook = $this->model->getAllHomeProducts("book");
-	$newestFurniture = $this->model->getAllHomeProducts("furniture");
-	$newestElectronics = $this->model->getAllHomeProducts("electronics");
-	$newestClothing = $this->model->getAllHomeProducts("clothing");
-	$newestOfficeSupply = $this->model->getAllHomeProducts("office suppies");
-	$newestOther = $this->model->getAllHomeProducts("other");
+	    $newestBook = $this->model->getAllHomeProducts("book");
+	    $newestFurniture = $this->model->getAllHomeProducts("furniture");
+	    $newestElectronics = $this->model->getAllHomeProducts("electronics");
+	    $newestClothing = $this->model->getAllHomeProducts("clothing");
+	    $newestOfficeSupply = $this->model->getAllHomeProducts("office suppies");
+	    $newestOther = $this->model->getAllHomeProducts("other");
+        $categories = $this->model->getProductCategory();
+        
         // load views
         require APP . 'view/_templates/header.php';
         require APP . 'view/home/index.php';
