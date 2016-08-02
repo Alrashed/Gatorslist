@@ -17,6 +17,7 @@ class Contact extends Controller
     public function index()
     {
         // load views
+        $categories = $this->model->getProductCategory();
         require APP . 'view/_templates/header.php';
         require APP . 'view/contact/index.php';
         require APP . 'view/_templates/footer.php';

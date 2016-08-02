@@ -24,14 +24,12 @@ class Item extends Controller
 
     public function showItem($product_id)
     {
+        $categories = $this->model->getProductCategory();
         // if we have an id of a product that should be edited
         if (isset($product_id)) {
-            echo $product_id;
-//            echo "good";
             // do getProduct() in model.php
             $productDetail = $this->model->getItemDetail($product_id);
-
-//            echo $productDetail->Title;
+            
             // in a real application we would also check if this db entry exists and therefore show the result or
             // redirect the user to an error page or similar
 

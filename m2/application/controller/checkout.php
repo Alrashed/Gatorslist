@@ -3,6 +3,7 @@ if(!isset($_SESSION)) {
     session_start();
 }
 ?>
+
 <?php
 
 /**
@@ -21,28 +22,39 @@ class Checkout extends Controller
      */
     public function index()
     {
+        $categories = $this->model->getProductCategory();
         // load views
-        require APP . 'view/_templates/header.php';
-        require APP . 'view/checkout/index.php';
-        require APP . 'view/_templates/footer.php';
+        if (isset($_SESSION['loggedInUser_id'])) {
+
+            require APP . 'view/_templates/header.php';
+            require APP . 'view/checkout/index.php';
+            require APP . 'view/_templates/footer.php';
+
+        }else {
+
+            require APP . 'view/_templates/header.php';
+            require APP . 'view/users/index.php';
+            require APP . 'view/_templates/footer.php';
+        }
+
     }
 
     public function purchase($product_id)
     {
-        echo $product_id;
-        echo"in purchase function";
+        $categories = $this->model->getProductCategory();
         
         $buyer_id =  $_SESSION['loggedInUser_id'];
+
         $date = date("Y-m-d H:i:s");
-        $status = "In proces";
+        $status = "In process";
 
-        echo"good";
-        if (isset($_POST["submit"])) {
+        $this->model->createOrder($product_id, $buyer_id, $date,$status);
 
-
-            $this->model->createOrder($product_id, $buyer_id, $date,$status);
-        }
+        require APP . 'view/_templates/header.php';
+        require APP . 'view/checkout/thankyou.php';
+        require APP . 'view/_templates/footer.php';
         // where to go after user has been added
-//        header('location: ' . URL . 'confirm/thankyou');
+//        header('location: ' . URL . 'confirm/thankyou.php');
     }
+    
 }

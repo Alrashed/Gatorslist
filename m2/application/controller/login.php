@@ -25,7 +25,7 @@ class Login extends Controller
     {
         // getting all users
         $users = $this->model->getAllUsers();
-
+        $categories = $this->model->getProductCategory();
         // load views. within the views we can echo out $users
         require APP . 'view/_templates/header.php';
         require APP . 'view/login/index.php';
@@ -33,6 +33,8 @@ class Login extends Controller
     }
 
     public function loginUser() {
+
+        $categories = $this->model->getProductCategory();
         
         if (isset($_GET["loginuser"])) {
 //            $email = $_POST["email"];

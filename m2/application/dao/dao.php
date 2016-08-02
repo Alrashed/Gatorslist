@@ -97,20 +97,23 @@ class Dao {
             $product_id = $parameters[":product_id"];
             $buyer_id = $parameters[":buyer_id"];
             $date = $parameters[":date"];
-            $detail = $parameters[":detail"];
             $status = $parameters[":status"];
 
             $sql = "SELECT Price FROM product WHERE Product_id = '".$product_id."' ";
+//            echo $sql;
             $query = $this->db->prepare($sql);
             $query->execute();
-            $price = $query->fetchAll();
-//            echo $price[0];
-            
-            $sql1 ="INSERT INTO order (Product_id, Buyer_id, OrderDate, Detail,Price, Status) VALUES('".$product_id."', '".$buyer_id."', '".$date."', '".$detail."','".$price[0]."' '".$status."')";
+            $result = $query->fetch();
+            $price = $result->Price;
+//            echo $price;
+
+            $sql1 ="INSERT INTO confirmation (Product_id, Buyer_id, OrderDate,Price, Status) VALUES('".$product_id."', '".$buyer_id."', '".$date."','".$price."', '".$status."')";
+//            echo $sql1;
+
             $query = $this->db->prepare($sql1);
             try {
                 if ($query->execute()) {
-                    return $query->fetchAll();
+                    return true;
                 } else {
                     return false;
                 }
@@ -271,12 +274,12 @@ class Dao {
         else if ($target == "itemDetail") {
             $pid = $parameters[":product_id"];
             $sql ="SELECT i.Image_blob1, p.Seller_id, p.Title, p.Description, p.Price, p.ItemCondition, p.Postdate, p.Product_id FROM product p,image i  WHERE p.Image_id = i.Image_id AND p.Product_id = ".$pid." ";
-            echo $sql;
+//            echo $sql;
             $query = $this->db->prepare($sql);
             try {
                 if ($query->execute()) {
                     $result = $query->fetch();
-                    echo $result->Title;
+//                    echo $result->Title;
                     return $result;
                 } else {
                     return false;
@@ -304,7 +307,7 @@ class Dao {
 
         else if ($target == "order") {
             $order_id = $parameters[":order_id"];
-            $sql ="SELECT *FROM order WHERE Order_id = '".$order_id."' ";
+            $sql ="SELECT *FROM confirmation WHERE Order_id = '".$order_id."' ";
             $query = $this->db->prepare($sql);
             try {
                 if ($query->execute()) {
@@ -317,8 +320,8 @@ class Dao {
             }
         }
 
-        if ($target == "productCartgory") {
-            $sql = "SELECT Category_name FROM productCartgory";
+        else if ($target == "productCategory") {
+            $sql = "SELECT * FROM productCategory;";
             $query = $this->db->prepare($sql);
             $query->execute();
             return $query->fetchAll();
@@ -343,7 +346,7 @@ class Dao {
         else if ($target == "editStatus") {
             $order_id =  $parameters[":order_id"];
             $status =  $parameters[":status"];
-            $sql = "UPDATE order SET Status = '".$status."' WHERE Order_id = '".$order_id. "'";
+            $sql = "UPDATE confirmation SET Status = '".$status."' WHERE Order_id = '".$order_id. "'";
             try {
                 if ($sql->execute()) {
                     return true;

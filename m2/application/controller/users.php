@@ -19,6 +19,7 @@ class Users extends Controller
     {
         // getting all users
         $users = $this->model->getAllUsers();
+        $categories = $this->model->getProductCategory();
 
         // load views. within the views we can echo out $users
         require APP . 'view/_templates/header.php';
@@ -33,6 +34,7 @@ class Users extends Controller
     public function registerUser()
     {
         // if we have POST data to create a new user entry
+        $categories = $this->model->getProductCategory();
         if (isset($_POST["submit"])) {
 
             // do createUser() in model/model.php
