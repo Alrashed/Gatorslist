@@ -24,8 +24,12 @@ class Login extends Controller
     public function index()
     {
         // getting all users
-        $users = $this->model->getAllUsers();
+//        $users = $this->model->getAllUsers();
         $categories = $this->model->getProductCategory();
+
+//        $user = $this->model->getUserInfo($_SESSION['loggedInUser_id']);
+//        $userproducts = $this->model->getUserProdcuts($_SESSION['loggedInUser_id']);
+        
         // load views. within the views we can echo out $users
         require APP . 'view/_templates/header.php';
         require APP . 'view/login/index.php';
@@ -43,11 +47,15 @@ class Login extends Controller
 //            $saltedpassword = md5($salt . $password);
             
             $users=$this->model->loginUser($_GET["email"],  $_GET["password"]);
-            
+
             if (($users->Email) == ($_GET["email"])) {
                 $_SESSION['loggedInUser_id'] = $users->User_id;
-                $_SESSION['Email'] = $users->Email;            
+                $_SESSION['Email'] = $users->Email;
                 header('location: ' . URL . 'home');
+
+//                require APP . 'view/_templates/header.php';
+//                require APP . 'view/useraccount/index.php';
+//                require APP . 'view/_templates/footer.php';
             } 
         }
     }

@@ -44,7 +44,8 @@ if (!isset($_SESSION)) {
                 <li><a href="<?php echo URL; ?>sell/index">Sell Your Items</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="<?php echo URL; ?>"><span class="glyphicon glyphicon-user"></span> Logged in as <?php echo htmlspecialchars($_SESSION['Email']); ?></a></li>
+<!--                <li><a href="--><?php //echo URL; ?><!--useraccount/index""><span class="glyphicon glyphicon-user"></span> Logged in as --><?php //echo htmlspecialchars($_SESSION['Email']); ?><!--</a></li>-->
+                <li><a href="<?php echo URL; ?>useraccount/index""><span class="glyphicon glyphicon-user"></span> Logged in as <?php echo htmlspecialchars($_SESSION['Email']); ?></a></li>
                 <li><a href="<?php echo URL; ?>logout/destroySession"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
             </ul>
             

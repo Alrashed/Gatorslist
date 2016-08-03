@@ -147,7 +147,38 @@ class Dao {
            } catch (PDOException $e) {
                echo $e->getMessage();
            }
-       }
+        }
+
+        else if ($target == "userInfo") {
+            $user_id = $parameters[":user_id"];
+            $sql = "SELECT Firstname, Lastname, Email FROM user WHERE User_id = '".$user_id."' ";
+            $query = $this->db->prepare($sql);
+            try {
+                if ($query->execute()) {
+                    return $query->fetchAll();
+                } else {
+                    return false;
+                }
+            } catch (PDOException $e) {
+                echo $e->getMessage();
+            }
+        }
+
+        else if ($target == "userProducts") {
+            $user_id = $parameters[":user_id"];
+            $sql = "SELECT i.Image_blob1,p.Title,p.ItemCondition, p.Description, p.Price, p.Postdate, p.Product_id FROM product p, image i  WHERE i.Image_id = p. Image_id AND p. Seller_id = '".$user_id."' ";
+            $query = $this->db->prepare($sql);
+            try {
+                if ($query->execute()) {
+                    $result = $query->fetchAll();
+                    return $result;
+                } else {
+                    return false;
+                }
+            } catch (PDOException $e) {
+                echo $e->getMessage();
+            }
+        }
 
         else if ($target == "allProducts") {
            $keyword = array_shift($parameters);
@@ -231,7 +262,7 @@ class Dao {
 		        $category = $parameters[":category"];
 	    	    $sql = "SELECT * FROM product p1 WHERE (p1.Category_Id = (SELECT pc.Category_id FROM productCategory pc WHERE pc.Category_name = '".$category."')) AND (Price BETWEEN $minprice AND $maxprice ) AND (Title LIKE '%" . $searchinput . "%' or Description LIKE '%." . $searchinput . "%')";
             } else {
-	    	$sql = "SELECT * FROM product WHERE (Price BETWEEN $minprice AND $maxprice ) AND (Title LIKE '%" . $searchinput . "%' or Description LIKE '%." . $searchinput . "%')";
+	    	    $sql = "SELECT * FROM product WHERE (Price BETWEEN $minprice AND $maxprice ) AND (Title LIKE '%" . $searchinput . "%' or Description LIKE '%." . $searchinput . "%')";
             }
 	        $query = $this->db->prepare($sql);
             $query->execute();
