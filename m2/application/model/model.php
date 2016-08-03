@@ -46,6 +46,22 @@ class Model
         
     }
 
+    public function getUserInfo($user_id)
+    {
+        $parameters = [
+            ":user_id" => $user_id,
+        ];
+        return $this->dao->get($parameters, "userInfo");
+    }
+
+    public function getUserProdcuts($user_id)
+    {
+        $parameters = [
+            ":user_id" => $user_id,
+        ];
+        return $this->dao->get($parameters, "userProducts");
+    }
+    
     //delete user
     public function deleteUser($user_id)
     {
