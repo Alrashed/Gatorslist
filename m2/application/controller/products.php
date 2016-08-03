@@ -29,9 +29,9 @@ class Products extends Controller
         $categories = $this->model->getProductCategory();
 
         // if we have POST data to create a new product entry
-        if (isset($_POST["submit_search_product"])) {
+        if (isset($_GET["submit_search_product"])) {
             // do getAllProducts() in model/model.php
-	        $products = $this->model->getAllProducts($_POST["searchinput"], $_POST["category"]);
+	        $products = $this->model->getAllProducts($_GET["searchinput"], $_GET["category"]);
 	    }
 	
         else if (isset($_GET["highprice"])) {

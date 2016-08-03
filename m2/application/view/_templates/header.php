@@ -74,7 +74,7 @@ if (!isset($_SESSION)) {
     <div class="container" style="margin-bottom:2%">
         <div class="row">
             <div class="col-lg-6 col-lg-offset-3" style="background:#FEFEFE;">
-                <form action="<?php echo URL; ?>products/searchproducts" method="POST">      
+                <form action="<?php echo URL; ?>products/searchproducts" method="GET">    
                       <div class="margin-right-1 float-left">
                         <select  name="category" class="form-control">
                             <option value="">All Categories</option>
@@ -91,7 +91,7 @@ if (!isset($_SESSION)) {
 <!--                            <option value="other">Other</option>-->
                         </select>
                       </div>
-                      <input id ="search_field" class="form-control input-attributes float-left " type="text" name="searchinput" value="" maxlength="50" placeholder="Search for book, furniture, laptop, etc" required />
+                      <input id ="search_field" class="form-control input-attributes float-left " type="text" name="searchinput" value="" maxlength="50" placeholder="Search for book, furniture, laptop, etc" />
                       <div class="float-left">
                       <input class="btn btn-default" type="submit" name="submit_search_product" value="Search" />
                     </div>
