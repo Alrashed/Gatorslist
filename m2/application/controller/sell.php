@@ -84,15 +84,15 @@ class Sell extends Controller
         
     }
 
-    public function ResetPrice($product_id, $newprice)
+    public function resetPrice($product_id, $newprice)
     {
         if (isset($product_id)) {
-            $seller_id =  $_SESSION['loggedInUser_id'];
+//            $seller_id =  $_SESSION['loggedInUser_id'];
             $this->model->editItem($product_id, $newprice);
         }
 
         // where to go after user has been deleted
-//        header('location: ' . URL . 'sell/index');
+//            header('location: ' . URL . 'user/index');;
     }
 
     public function deleteItem($product_id)
@@ -106,7 +106,7 @@ class Sell extends Controller
         }
 
         // where to go after user has been deleted
-//        header('location: ' . URL . 'sell/index');
+//            header('location: ' . URL . 'user/index');
     }
 
     public function getItem()
