@@ -2,6 +2,7 @@
 if(!isset($_SESSION)) {
     session_start();
 }
+
 ?>
 
 <?php
@@ -27,9 +28,20 @@ class Sell extends Controller
 //        $users = $this->model->getAllUsers();
 
         // load views. within the views we can echo out $users
-        require APP . 'view/_templates/header.php';
-        require APP . 'view/sell/index.php';
-        require APP . 'view/_templates/footer.php';
+        $categories = $this->model->getProductCategory();
+
+        if (isset($_SESSION['loggedInUser_id'])) {
+
+            require APP . 'view/_templates/header.php';
+            require APP . 'view/sell/index.php';
+            require APP . 'view/_templates/footer.php';
+            
+        }else {
+
+            require APP . 'view/_templates/header.php';
+            require APP . 'view/users/index.php';
+            require APP . 'view/_templates/footer.php';
+        }
     }
 
     /**
@@ -37,31 +49,37 @@ class Sell extends Controller
      */
     public function createItem()
     {
-        $image1 = file_get_contents($_FILES["fileToUpload"]["tmp_name"]);
+        $categories = $this->model->getProductCategory();
+//        if($_SESSION['loggedInUser_id'] != null ) {
+            $image1 = file_get_contents($_FILES["fileToUpload"]["tmp_name"]);
 
-        if(($_FILES['fileToUpload2']['tmp_name']) != ""){
-            $image2 = file_get_contents($_FILES['fileToUpload2']['tmp_name']);
-        }else{
-            $image2 = NULL;
-        }
-        
-        if(($_FILES['fileToUpload3']['tmp_name']) != ""){
-            $image3 = file_get_contents($_FILES['fileToUpload3']['tmp_name']);
-        }else{
-            $image3 = NULL;
-        }
-        
-        if(($_FILES['fileToUpload4']['tmp_name']) != ""){
-            $image4 = file_get_contents($_FILES['fileToUpload4']['tmp_name']);
-        }else{
-            $image4 = NULL;
-        }
+            if(($_FILES['fileToUpload2']['tmp_name']) != ""){
+                $image2 = file_get_contents($_FILES['fileToUpload2']['tmp_name']);
+            }else{
+                $image2 = NULL;
+            }
+
+            if(($_FILES['fileToUpload3']['tmp_name']) != ""){
+                $image3 = file_get_contents($_FILES['fileToUpload3']['tmp_name']);
+            }else{
+                $image3 = NULL;
+            }
+
+            if(($_FILES['fileToUpload4']['tmp_name']) != ""){
+                $image4 = file_get_contents($_FILES['fileToUpload4']['tmp_name']);
+            }else{
+                $image4 = NULL;
+            }
 
             $date = date("Y-m-d H:i:s");
             $seller_id =  $_SESSION['loggedInUser_id'];
             $this->model->createItem($seller_id,$_POST["Title"], $_POST["Description"], $_POST["Price"], $_POST["Condition"],$date, $_POST["Category_Id"],$image1,$image2,$image3,$image4);
 
             header('location: ' . URL . 'sell/index');
+//        } else {
+//            header('location: ' . URL . 'user/index');
+//        }
+        
         
         
     }
@@ -93,7 +111,7 @@ class Sell extends Controller
 
     public function getItem()
     {
-      
+        
         // get all items from user
         $seller_id =  $_SESSION['loggedInUser_id'];
             

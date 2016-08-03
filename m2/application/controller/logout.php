@@ -18,6 +18,9 @@ class Logout extends Controller {
      * This method handles what happens when you move to http://../logout/index
      */
     public function index() {
+
+        $categories = $this->model->getProductCategory();
+        
         require APP . 'view/_templates/header.php';
         require APP . 'view/logout/index.php';
         require APP . 'view/_templates/footer.php';

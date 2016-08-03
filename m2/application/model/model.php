@@ -225,14 +225,13 @@ class Model
 
     //order controller
     //purchase function, create an order, change order status to in process
-    public function createOrder($product_id, $buyer_id, $date, $detail, $status) 
+    public function createOrder($product_id, $buyer_id, $date, $status) 
     {
         $parameters = [
             ":product_id" => $product_id,
             ":buyer_id" => $buyer_id,
             ":date" => $date,
             ":status" => $status,
-            ":detail" => $detail,
         ];
         $this->dao->create($parameters, "order");
     }
@@ -256,12 +255,12 @@ class Model
         return $this->dao->get($parameters, "order");
     }
 
-    public function getProductCartgory()
+    public function getProductCategory()
     {
         $parameters = [
            
         ];
-        return $this->dao->get($parameters, "productCartgory");
+        return $this->dao->get($parameters, "productCategory");
     }
     
 }
