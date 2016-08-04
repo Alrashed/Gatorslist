@@ -58,7 +58,7 @@
   </div>
 </div>
 <!--    <h2>Item Title:  --><?php //if (isset($productDetail->Product_id)) echo htmlspecialchars($productDetail->Product_id, ENT_QUOTES, 'UTF-8'); ?>
-  <p><a class="btn btn-primary btn-lg" href="<?php echo URL. 'checkout/purchase/'. htmlspecialchars($productDetail->Product_id, ENT_QUOTES, 'UTF-8'); ?>" role="button">Place Order</a></p>
+  <p><a class="btn btn-warning btn-lg" href="<?php echo URL. 'checkout/purchase/'. htmlspecialchars($productDetail->Product_id, ENT_QUOTES, 'UTF-8'); ?>" role="button">Place Order</a></p>
   <p>Next page should say thank you for your order and redirect to the contact page.</p>
   </div>
 </div>

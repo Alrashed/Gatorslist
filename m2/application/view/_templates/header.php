@@ -24,6 +24,11 @@ if (!isset($_SESSION)) {
     
 </head>
 <body>
+      <footer class="footer">
+      <div class="container text-center">
+        <p style="color: #FFCC33">SFSU Software Engineering Project, Summer 2016. For Demonstration Only</p>
+      </div>
+    </footer>
 
     <!-- logo -->
     <header class="masthead">
@@ -45,7 +50,7 @@ if (!isset($_SESSION)) {
             </ul>
             <ul class="nav navbar-nav navbar-right">
 <!--                <li><a href="--><?php //echo URL; ?><!--useraccount/index""><span class="glyphicon glyphicon-user"></span> Logged in as --><?php //echo htmlspecialchars($_SESSION['Email']); ?><!--</a></li>-->
-                <li><a href="<?php echo URL; ?>useraccount/index""><span class="glyphicon glyphicon-user"></span> Logged in as <?php echo htmlspecialchars($_SESSION['Email']); ?></a></li>
+                <li><a href="<?php echo URL; ?>useraccount/index"> <span class="glyphicon glyphicon-user"></span> Logged in as <?php echo htmlspecialchars($_SESSION['Email']); ?></a></li>
                 <li><a href="<?php echo URL; ?>logout/destroySession"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
             </ul>
             
@@ -70,11 +75,11 @@ if (!isset($_SESSION)) {
         
     </nav>
     <div class="text-center welcome">
-      <h2><small>Here you can purchase a variety of items or sell your own items amongst your fellow SFSU students!</small></h2>
+      <h2><small style="color:#FFCC33">Here you can purchase a variety of items or sell your own items amongst your fellow SFSU students!</small></h2>
     </div>
     <div class="container" style="margin-bottom:2%">
         <div class="row">
-            <div class="col-lg-6 col-lg-offset-3" style="background:#FEFEFE;">
+            <div class="col-lg-6 col-lg-offset-3" style="background:#330033;">
                 <form action="<?php echo URL; ?>products/searchproducts" method="POST">      
                       <div class="margin-right-1 float-left">
                         <select  name="category" class="form-control">
@@ -92,7 +97,7 @@ if (!isset($_SESSION)) {
 <!--                            <option value="other">Other</option>-->
                         </select>
                       </div>
-                      <input id ="search_field" class="form-control input-attributes float-left " type="text" name="searchinput" value="" placeholder="Search for book, furniture, laptop, etc" required />
+                      <input id ="search_field" class="form-control input-attributes float-left " type="text" name="searchinput" value="" placeholder="Search for book, furniture, laptop, etc" />
                       <div class="float-left">
                       <input class="btn btn-default" type="submit" name="submit_search_product" value="Search" />
                     </div>
