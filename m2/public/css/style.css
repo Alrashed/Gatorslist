@@ -23,7 +23,7 @@ body {
     box-shadow: 1px 1px 10px grey;
 }
 .shadow {
-    box-shadow: 0 2px 3px -2px gray;
+    box-shadow: 0 4px 10px -2px gray;
 }
 .welcome {
     margin-left: 10%;
@@ -90,7 +90,11 @@ img:hover  {
     margin-top: 6px;
     margin-left: 4px;
 }
-
+.buy-button-border {
+    border: 1px solid #767676;
+    border-right: 3.5px solid #767676;
+    border-bottom: 3.5px solid #767676;
+}
 .contact-seller-button:hover {
     box-shadow: 0 6px 8px 0 rgba(0,0,0,0.24),0 2px 5px 0 rgba(0,0,0,0.19);
 }
