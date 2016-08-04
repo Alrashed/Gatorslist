@@ -24,6 +24,11 @@ if (!isset($_SESSION)) {
     
 </head>
 <body>
+      <footer class="footer">
+      <div class="container text-center">
+        <p class="text-muted">SFSU Software Engineering Project, Summer 2016. For Demonstration Only</p>
+      </div>
+    </footer>
 
     <!-- logo -->
     <header class="masthead">
