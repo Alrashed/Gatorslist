@@ -75,11 +75,11 @@ if (!isset($_SESSION)) {
         
     </nav>
     <div class="text-center welcome">
-      <h2><small>Here you can purchase a variety of items or sell your own items amongst your fellow SFSU students!</small></h2>
+      <h2><small style="color:#FFCC33">Here you can purchase a variety of items or sell your own items amongst your fellow SFSU students!</small></h2>
     </div>
     <div class="container" style="margin-bottom:2%">
         <div class="row">
-            <div class="col-lg-6 col-lg-offset-3" style="background:#FEFEFE;">
+            <div class="col-lg-6 col-lg-offset-3" style="background:#330033;">
                 <form action="<?php echo URL; ?>products/searchproducts" method="POST">      
                       <div class="margin-right-1 float-left">
                         <select  name="category" class="form-control">
