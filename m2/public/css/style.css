@@ -1,7 +1,7 @@
 body {
     font-family: Arial;
     font-size: 14px;
-    background-color: #fcfcfc;
+    background-color: #330033;
 }
 .border {
     border: 2px solid #73AD21;
@@ -11,13 +11,14 @@ body {
     font-weight: bolder;
     letter-spacing: 5px;
     text-align: center;
+    color: #FFCC33;
 }
 .logo .number {
     color: #222;
     opacity: 0.1;
 }
 .title-top-margin {
-    background: #E6E6E6; 
+    background: #330033; 
     padding: 2%;
     box-shadow: 1px 1px 10px grey;
 }

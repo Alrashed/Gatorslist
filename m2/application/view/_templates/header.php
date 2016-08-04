@@ -26,7 +26,7 @@ if (!isset($_SESSION)) {
 <body>
       <footer class="footer">
       <div class="container text-center">
-        <p class="text-muted">SFSU Software Engineering Project, Summer 2016. For Demonstration Only</p>
+        <p style="color: #FFCC33">SFSU Software Engineering Project, Summer 2016. For Demonstration Only</p>
       </div>
     </footer>
 
@@ -50,7 +50,7 @@ if (!isset($_SESSION)) {
             </ul>
             <ul class="nav navbar-nav navbar-right">
 <!--                <li><a href="--><?php //echo URL; ?><!--useraccount/index""><span class="glyphicon glyphicon-user"></span> Logged in as --><?php //echo htmlspecialchars($_SESSION['Email']); ?><!--</a></li>-->
-                <li><a href="<?php echo URL; ?>useraccount/index""><span class="glyphicon glyphicon-user"></span> Logged in as <?php echo htmlspecialchars($_SESSION['Email']); ?></a></li>
+                <li><a href="<?php echo URL; ?>useraccount/index"> <span class="glyphicon glyphicon-user"></span> Logged in as <?php echo htmlspecialchars($_SESSION['Email']); ?></a></li>
                 <li><a href="<?php echo URL; ?>logout/destroySession"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
             </ul>
             
