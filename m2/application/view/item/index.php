@@ -16,7 +16,7 @@
 </div>
 
 <div class="row text-center">
-  <a class="btn btn-primary btn-xlarge" href="<?php echo URL.'confirm/showitem/'. htmlspecialchars($productDetail->Product_id, ENT_QUOTES, 'UTF-8'); ?>" role="button">BUY</a>
+  <a class="btn btn-warning btn-xlarge" href="<?php echo URL.'confirm/showitem/'. htmlspecialchars($productDetail->Product_id, ENT_QUOTES, 'UTF-8'); ?>" role="button">BUY</a>
   </div>
 </div>
 

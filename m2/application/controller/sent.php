@@ -1,14 +1,14 @@
 <?php
 
 /**
- * Class contact
+ * Class sent
  *
  * Please note:
  * Don't use the same name for class and method, as this might trigger an (unintended) __construct of the class.
  * This is really weird behaviour, but documented here: http://php.net/manual/en/language.oop5.decon.php
  *
  */
-class Contact extends Controller
+class Sent extends Controller
 {
     /**
      * PAGE: index
@@ -16,16 +16,6 @@ class Contact extends Controller
      */
     public function index()
     {
-        // load views
-        $categories = $this->model->getProductCategory();
-        require APP . 'view/_templates/header.php';
-        require APP . 'view/contact/index.php';
-        require APP . 'view/_templates/footer.php';
-    }
-
-        public function sent()
-    {
-        // load views
         require APP . 'view/_templates/header.php';
         require APP . 'view/contact/sent.php';
         require APP . 'view/_templates/footer.php';
