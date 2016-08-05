@@ -8,8 +8,7 @@
             	<!-- panel head-->
             	<div class="panel-heading" style="text-align:center; font-weight:800; font-size:20px">Create your account</div>
 				<!-- panel body -->                
-                <form class="panel-body col-lg-offset-0 " style="font-size: 16px;background-color: #87CEFA"  role="form" action="<?php echo URL; ?>users/registeruser" method="POST">
-                      
+                <form class="panel-body col-lg-offset-0 " style="font-size: 16px;background-color: #87CEFA"  name="user" role="form" action="<?php echo URL; ?>users/registeruser" onsubmit="return validateForm();" method="POST">
                       <div class="form-group">
                         <label class="" for="email">Email:</label>
                         <div class="">
