@@ -108,7 +108,6 @@ class Dao {
 //            echo $price;
 
             $sql1 ="INSERT INTO confirmation (Product_id, Buyer_id, OrderDate,Price, Status) VALUES('".$product_id."', '".$buyer_id."', '".$date."','".$price."', '".$status."')";
-//            echo $sql1;
 
             $query = $this->db->prepare($sql1);
             try {
@@ -197,7 +196,7 @@ class Dao {
 
         else if ($target == "allHomeProducts") {
             $category = $parameters[":category"];
-	    $sql = "SELECT i.Image_blob1,p1.Title,p1.ItemCondition, p1.Description, p1.Price, p1.Postdate, p1.Product_id FROM product p1,image i WHERE i.Image_id = p1. Image_id AND p1.Category_Id = (SELECT pc.Category_id FROM productCategory pc WHERE pc.Category_name = '".$category."') ORDER BY Postdate DESC LIMIT 1";
+	        $sql = "SELECT i.Image_blob1,p1.Title,p1.ItemCondition, p1.Description, p1.Price, p1.Postdate, p1.Product_id FROM product p1,image i WHERE i.Image_id = p1. Image_id AND p1.Category_Id = (SELECT pc.Category_id FROM productCategory pc WHERE pc.Category_name = '".$category."') ORDER BY Postdate DESC LIMIT 1";
             $query = $this->db->prepare($sql);
 
 	    try {
@@ -303,7 +302,7 @@ class Dao {
         
         else if ($target == "itemDetail") {
             $pid = $parameters[":product_id"];
-            $sql ="SELECT i.Image_blob1, p.Seller_id, p.Title, p.Description, p.Price, p.ItemCondition, p.Postdate, p.Product_id FROM product p,image i  WHERE p.Image_id = i.Image_id AND p.Product_id = ".$pid." ";
+            $sql ="SELECT i.Image_blob1, i.Image_blob2, i.Image_blob3, i.Image_blob4, u.Firstname, p.Seller_id, p.Title, p.Description, p.Price, p.ItemCondition, p.Postdate, p.Product_id, p.Category_Id, p.ItemCondition FROM product p,image i, user u  WHERE p.Image_id = i.Image_id AND p.Product_id = ".$pid." AND u.User_id = p.Seller_id ";
 //            echo $sql;
             $query = $this->db->prepare($sql);
             try {
@@ -359,19 +358,51 @@ class Dao {
     }
 
     public function update($parameters, $target) {
-        if ($target == "resetPrice") {
-            $pid =  $parameters[":product_id"];
-            $newprice =  $parameters[":newprice"];
-            $sql = "UPDATE product SET Price = '".$newprice."' WHERE Product_id = '".$pid. "' ";
+        if ($target == "item") {
+            $pid = $parameters[":product_id"];
+            $title = $parameters[":title"];
+            $description = $parameters[":description"];
+            $price = $parameters[":price"];
+            $condition = $parameters[":condition"];
+            $postdate = $parameters[":date"];
+            $category_Id =  $parameters[":category_Id"];
+            $image1 =  $parameters[":image1"];
+            $image2 =  $parameters[":image2"];
+            $image3 =  $parameters[":image3"];
+            $image4 =  $parameters[":image4"];
+
+            $sql = "UPDATE product SET Price = '".$price."', Title = '".$title."' , Description = '".$description."' , ItemCondition = '".$condition."' , Postdate = '".$postdate."', Category_Id = '".$category_Id."'WHERE Product_id = '".$pid. "'";
+            $query = $this->db->prepare($sql);
             try {
-                if ($sql->execute()) {
-                    return true;
+                if ($query->execute()) {
+                
                 } else {
                     return false;
                 }
             } catch (PDOException $e) {
                 echo $e->getMessage();
             }
+
+            $sql = "SELECT Image_id FROM product WHERE Product_id = '".$pid."' ";
+            $query = $this->db->prepare($sql);
+            $query->execute();
+            $result = $query->fetch();
+            $imageID = $result->Image_id;
+
+            $sql1 = "UPDATE image SET Image_blob1 = :image1 ,Image_blob2 = :image2,Image_blob3 = :image3,Image_blob4 = :image4 WHERE Image_id = '".$imageID."'";
+            $query1 = $this->db->prepare($sql1);
+            $parameters1 = array(':image1' => $image1, ':image2' => $image2, ':image3' => $image3, ':image4' => $image4 );
+
+            try {
+                if ($query1->execute($parameters1)) {
+                    return true;
+                } else {
+                    return false;
+                }
+            } catch(PDOException $e) {
+                echo $e->getMessage();
+            }
+
         }
         else if ($target == "editStatus") {
             $order_id =  $parameters[":order_id"];

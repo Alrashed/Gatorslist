@@ -1,5 +1,6 @@
+@import url(http://fonts.googleapis.com/css?family=Raleway);
 body {
-    font-family: Arial;
+    font-family: Raleway, sans-serif;
     font-size: 14px;
     background-color: #330033;
 }
@@ -101,8 +102,10 @@ img:hover  {
 .margin-top-20 {
     margin-top: 20%;
 }
-.navigation {
-    margin-left: 33px;
+.navig{
+    font-family: Raleway, sans-serif;
+    background-color: #5DB2DE;
+    font-color: #000000;
 }
 .navigation a {
     display: inline-block;
@@ -292,3 +295,32 @@ h4 {
 h5 {
     font-size:28px;
 }
+
+.first-column {
+    background-color: #B3B3B3;
+}
+
+#selling-item a:active{
+    color: #222;
+    background: #F1F1F1;
+}
+#selling-item a:hover{
+    color: #222;
+    background: #B3B3B3;
+}
+#acount-profile a::selection{
+    color: #222;
+    background: #F1F1F1;
+}
+#acount-profile a:hover{
+    color: #222;
+    background: #B3B3B3;
+}
+  .affix {
+      top: 0;
+      width: 100%;
+  }
+
+  .affix + .container-fluid {
+      padding-top: 70px;
+  }

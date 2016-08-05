@@ -34,9 +34,43 @@ class Useraccount extends Controller
             require APP . 'view/_templates/header.php';
             require APP . 'view/useraccount/index.php';
             require APP . 'view/_templates/footer.php';
+        
+    }
 
+    public function editItem($product_id)
+    {
+        $categories = $this->model->getProductCategory();
+
+        if (isset($product_id)) {
+            $product = $this->model->getItemDetail($product_id);
+            $productionCategory = $product->Category_Id;
+            $condition = $product->ItemCondition;
+            $description = $product->Description;
+            $img1 = $product->Image_blob1;
+            $img2 = $product->Image_blob2;
+            $img3 = $product->Image_blob3;
+            $img4 = $product->Image_blob4;
+            $_SESSION['product_id'] = $product_id;
+            
+        }
         
-        
+        require APP . 'view/_templates/header.php';
+        require APP . 'view/useraccount/edit.php';
+        require APP . 'view/_templates/footer.php';
+    }
+
+    public function deleteItem($product_id)
+    {
+        // check the the userid if the userid == seller's id in DB execute, else return
+
+        // if we have an id of a user that should be deleted
+        if (isset($product_id)) {
+            // do deleteUser() in model/model.php
+            $this->model->deleteItem($product_id);
+        }
+
+        // where to go after user has been deleted
+            header('location: ' . URL . 'useraccount/index');
     }
     
 }

@@ -46,9 +46,9 @@ class Products extends Controller
 
         else if (isset($_GET["date"])) {
 	        $sorttype = "date";
-		echo $_GET["highprice"];
-		if (isset(ech$_GET["minprice"];
-		echo $_GET["itemcondition"];
+//		echo $_GET["highprice"];
+//		if (isset(ech$_GET["minprice"];
+//		echo $_GET["itemcondition"];
             $products = $this->model->getAllSortedProducts($_GET["searchinput"], $_GET["category"], $sorttype);
         }
 
@@ -61,7 +61,7 @@ class Products extends Controller
 	        $filtertype = "condition";
             $products = $this->model->getAllFilteredProducts($_GET["searchinput"], $_GET["category"], $filtertype, $_GET["itemcondition"]);	
         }
-
+        
         // where to go after product has been added
         require APP . 'view/_templates/header.php';
         require APP . 'view/products/product.php';

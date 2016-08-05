@@ -3,7 +3,13 @@
   <div class="col-xs-6 float-left">
     <a href="#" class="thumbnail">
       <img <?php if (isset($productDetail->Image_blob1) && $productDetail->Image_blob1 != "")
-              echo 'src="data:image/jpeg;base64,'.base64_encode($productDetail->Image_blob1).'" height="800" width="600"';?> >
+        echo 'src="data:image/jpeg;base64,'.base64_encode($productDetail->Image_blob1).'" height="800" width="600"';?> >
+      <img <?php if (isset($productDetail->Image_blob2) && $productDetail->Image_blob2 != "")
+        echo 'src="data:image/jpeg;base64,'.base64_encode($productDetail->Image_blob2).'" height="800" width="600"';?> >
+      <img <?php if (isset($productDetail->Image_blob3) && $productDetail->Image_blob3 != "")
+        echo 'src="data:image/jpeg;base64,'.base64_encode($productDetail->Image_blob3).'" height="800" width="600"';?> >
+      <img <?php if (isset($productDetail->Image_blob4) && $productDetail->Image_blob4 != "")
+        echo 'src="data:image/jpeg;base64,'.base64_encode($productDetail->Image_blob4).'" height="800" width="600"';?> >
     </a>
   </div>
   <div class="col-xs-6 float-left">
@@ -21,5 +27,4 @@
 
 
 </div>
-
 

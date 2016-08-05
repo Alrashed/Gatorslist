@@ -8,12 +8,6 @@
 
 <div class="" style="width:80%; margin-left:10%">
      <div class="panel panel-default" style="background:#f7f7f7">
-     <!--`   <h6 class="panel-heading" style="background:#d0d0d0">Search Results</h6>
-<div class="btn-group pull-right">
-        <a href="#" class="btn btn-default btn-sm">## Lock</a>
-        <a href="#" class="btn btn-default btn-sm">## Delete</a>
-        <a href="#" class="btn btn-default btn-sm">## Move</a>
-      </div>-->
       	<div class="panel-heading clearfix" style="background:#d0d0d0">
       		<h5 class="panel-title pull-left" style="padding-top: 7.5px;"><b>Search Results</b></h5>
       		<div class="btn-group pull-right">
@@ -41,6 +35,11 @@
     </div>
             <div class="row">
                 <?php foreach ($products as $product) { ?>
+<!--        <div class="panel-heading" style="background:#d0d0d0">Search Results:         Number of results:<?php echo count($products) ?>  </div>
+            <div class="row">
+                <?php foreach ($products as $product) { ?>
+                <tr>-->
+
                 <div class="col-sm-4">
                     <div class="panel-body"><a href="<?php echo URL. 'item/showitem/' . htmlspecialchars($product->Product_id, ENT_QUOTES, 'UTF-8'); ?>"><img  <?php if (isset($product->Image_blob1) && $product->Image_blob1 != "")
                                                         echo 'src="data:image/jpeg;base64,'.base64_encode($product->Image_blob1).'" height="150" width="150"';

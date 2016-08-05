@@ -11,7 +11,7 @@
                          <div class=" " style="float:left">Item name </div>
                          <div class=" " style="float:left; margin-left: 5%"> : <?php if (isset($product->Title)) echo htmlspecialchars($product->Title, ENT_QUOTES, 'UTF-8'); ?></div></br>
                          <div class=" " style="float:left">Price  </div>
-                         <div class=" " style="float:left; margin-left: 16%">  : <?php if (isset($product->Price)) echo htmlspecialchars($product->Price, ENT_QUOTES, 'UTF-8'); ?></div></br>
+                         <div class=" " style="float:left; margin-left: 16%">  : $<?php if (isset($product->Price)) echo htmlspecialchars($product->Price, ENT_QUOTES, 'UTF-8'); ?></div></br>
                          <div class=" " style="float:left">Date Upload : </div>
                          <div class=" " style="float:left; margin-left: 1%"> <?php if (isset($product->Postdate)) echo htmlspecialchars($product->Postdate, ENT_QUOTES, 'UTF-8'); ?></div></br></br>
                          <div class="row col-lg-offset-2">                               
@@ -31,7 +31,7 @@
 			 <div class=" " style="float:left">Item name </div>
                          <div class=" " style="float:left; margin-left: 5%"> : <?php if (isset($product->Title)) echo htmlspecialchars($product->Title, ENT_QUOTES, 'UTF-8'); ?></div></br>
                          <div class=" " style="float:left">Price  </div>
-                         <div class=" " style="float:left; margin-left: 16%">  : <?php if (isset($product->Price)) echo htmlspecialchars($product->Price, ENT_QUOTES, 'UTF-8'); ?></div></br>
+                         <div class=" " style="float:left; margin-left: 16%">  : $<?php if (isset($product->Price)) echo htmlspecialchars($product->Price, ENT_QUOTES, 'UTF-8'); ?></div></br>
                          <div class=" " style="float:left">Date Upload : </div>
                          <div class=" " style="float:left; margin-left: 1%"> <?php if (isset($product->Postdate)) echo htmlspecialchars($product->Postdate, ENT_QUOTES, 'UTF-8'); ?></div></br></br>
 			 <div class="row col-lg-offset-2">                               
@@ -50,7 +50,7 @@
                          <div class=" " style="float:left">Item name </div>
                          <div class=" " style="float:left; margin-left: 5%"> : <?php if (isset($product->Title)) echo htmlspecialchars($product->Title, ENT_QUOTES, 'UTF-8'); ?></div></br>
                          <div class=" " style="float:left">Price  </div>
-                         <div class=" " style="float:left; margin-left: 16%">  : <?php if (isset($product->Price)) echo htmlspecialchars($product->Price, ENT_QUOTES, 'UTF-8'); ?></div></br>
+                         <div class=" " style="float:left; margin-left: 16%">  : $<?php if (isset($product->Price)) echo htmlspecialchars($product->Price, ENT_QUOTES, 'UTF-8'); ?></div></br>
                          <div class=" " style="float:left">Date Upload : </div>
                          <div class=" " style="float:left; margin-left: 1%"> <?php if (isset($product->Postdate)) echo htmlspecialchars($product->Postdate, ENT_QUOTES, 'UTF-8'); ?></div></br></br>
                          <div class="row col-lg-offset-2">
@@ -72,7 +72,7 @@
                          <div class=" " style="float:left">Item name </div>
                          <div class=" " style="float:left; margin-left: 5%"> : <?php if (isset($product->Title)) echo htmlspecialchars($product->Title, ENT_QUOTES, 'UTF-8'); ?></div></br>
                          <div class=" " style="float:left">Price  </div>
-                         <div class=" " style="float:left; margin-left: 16%">  : <?php if (isset($product->Price)) echo htmlspecialchars($product->Price, ENT_QUOTES, 'UTF-8'); ?></div></br>
+                         <div class=" " style="float:left; margin-left: 16%">  : $<?php if (isset($product->Price)) echo htmlspecialchars($product->Price, ENT_QUOTES, 'UTF-8'); ?></div></br>
                          <div class=" " style="float:left">Date Upload : </div>
                          <div class=" " style="float:left; margin-left: 1%"> <?php if (isset($product->Postdate)) echo htmlspecialchars($product->Postdate, ENT_QUOTES, 'UTF-8'); ?></div></br></br>
                          <div class="row col-lg-offset-2">
@@ -91,7 +91,7 @@
                          <div class=" " style="float:left">Item name </div>
                          <div class=" " style="float:left; margin-left: 5%"> : <?php if (isset($product->Title)) echo htmlspecialchars($product->Title, ENT_QUOTES, 'UTF-8'); ?></div></br>
                          <div class=" " style="float:left">Price  </div>
-                         <div class=" " style="float:left; margin-left: 16%">  : <?php if (isset($product->Price)) echo htmlspecialchars($product->Price, ENT_QUOTES, 'UTF-8'); ?></div></br>
+                         <div class=" " style="float:left; margin-left: 16%">  : $<?php if (isset($product->Price)) echo htmlspecialchars($product->Price, ENT_QUOTES, 'UTF-8'); ?></div></br>
                          <div class=" " style="float:left">Date Upload : </div>
                          <div class=" " style="float:left; margin-left: 1%"> <?php if (isset($product->Postdate)) echo htmlspecialchars($product->Postdate, ENT_QUOTES, 'UTF-8'); ?></div></br></br>
                          <div class="row col-lg-offset-2">
@@ -110,7 +110,7 @@
                          <div class=" " style="float:left">Item name </div>
                          <div class=" " style="float:left; margin-left: 5%"> : <?php if (isset($product->Title)) echo htmlspecialchars($product->Title, ENT_QUOTES, 'UTF-8'); ?></div></br>
                          <div class=" " style="float:left">Price  </div>
-                         <div class=" " style="float:left; margin-left: 16%">  : <?php if (isset($product->Price)) echo htmlspecialchars($product->Price, ENT_QUOTES, 'UTF-8'); ?></div></br>
+                         <div class=" " style="float:left; margin-left: 16%">  : $<?php if (isset($product->Price)) echo htmlspecialchars($product->Price, ENT_QUOTES, 'UTF-8'); ?></div></br>
                          <div class=" " style="float:left">Date Upload : </div>
                          <div class=" " style="float:left; margin-left: 1%"> <?php if (isset($product->Postdate)) echo htmlspecialchars($product->Postdate, ENT_QUOTES, 'UTF-8'); ?></div></br></br>
                          <div class="row col-lg-offset-2">

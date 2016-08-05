@@ -37,10 +37,10 @@ if (!isset($_SESSION)) {
     </div>
     </header>
     <!--Nav Bar-->
-    <nav class="navbar navbar-default navbar-static-top shadow">
-        <div class="container-fluid " style="font-weight:600; font-size:16px; margin-left:10%; margin-right:10%">
+    <nav class="navbar navbar-default navbar-static-top shadow" data-spy="affix" data-offset-top="197">
+        <div class="container-fluid " style="font-weight:600; font-size:16px; margin-left:10%; margin-right:10%; ">
             <div class="navbar-header">
-                <a class="navbar-brand" style="font-weight:700; font-size:20px" href="<?php echo URL; ?>home/index">Gatorslist</a>
+                <a class="navbar-brand" style="font-weight:700; font-size:22px;font-color:#3562A5;" href="<?php echo URL; ?>home/index">Gatorslist</a>
             </div>
             
           <?php if (isset($_SESSION['loggedInUser_id'])) : ?>
