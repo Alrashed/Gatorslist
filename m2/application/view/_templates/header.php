@@ -37,8 +37,8 @@ if (!isset($_SESSION)) {
     </div>
     </header>
     <!--Nav Bar-->
-    <nav class="navbar navbar-default navbar-static-top shadow">
-        <div class="container-fluid " style="font-weight:600; font-size:16px; margin-left:10%; margin-right:10%">
+    <nav class="navbar navbar-default navbar-static-top shadow" data-spy="affix" data-offset-top="197" style="background-color:#dedede">
+        <div class="container-fluid " style="font-weight:900; font-size:16px; margin-left:10%; margin-right:10%">
             <div class="navbar-header">
                 <a class="navbar-brand" style="font-weight:700; font-size:20px" href="<?php echo URL; ?>home/index">Gatorslist</a>
             </div>
@@ -61,7 +61,7 @@ if (!isset($_SESSION)) {
             </ul>
             <ul class="nav navbar-nav navbar-right ">
                 <li class="hover-this-tab"><a href="<?php echo URL; ?>users/index"><span class="glyphicon glyphicon-user"></span> Register</a></li>
-                <li><a name="login-section" href="<?php echo URL; ?>login/index"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                <li><a href="<?php echo URL; ?>login/index"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
             </ul>
             
           <?php endif; ?>
