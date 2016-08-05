@@ -56,7 +56,16 @@
   <div class="col-xs-2">
     <input class="form-control" type="number" value="" id="securitycode">
   </div>
-</div>
+  </div>
+<h2>Contact the seller to arrange a meeting:</h2>
+<form>
+    <label for="exampleTextarea">Message to "Seller"</label>
+    <textarea class="form-control" id="exampleTextarea" rows="3"></textarea>
+</form>
+
+<br>
+
+
 <!--    <h2>Item Title:  --><?php //if (isset($productDetail->Product_id)) echo htmlspecialchars($productDetail->Product_id, ENT_QUOTES, 'UTF-8'); ?>
   <p><a class="btn btn-warning btn-lg" href="<?php echo URL. 'checkout/purchase/'. htmlspecialchars($productDetail->Product_id, ENT_QUOTES, 'UTF-8'); ?>" role="button">Place Order</a></p>
   <p>Next page should say thank you for your order and redirect to the contact page.</p>
