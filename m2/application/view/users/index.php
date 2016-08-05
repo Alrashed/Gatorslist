@@ -47,6 +47,7 @@
                           </div>
                         </div>
                       </div>
+                      <a href="<?php echo URL; ?>login/index">Already registered? Click here to login.</a>
                       <div class="form-group"> 
                         <div class="col-lg-4 col-lg-offset-4">
                           <button type="submit" class="btn btn-success " name= "submit" value='submit' id="submit">Sign Up</button>
