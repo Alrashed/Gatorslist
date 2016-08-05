@@ -204,13 +204,23 @@ class Model
     }
 
     //edit product price
-    public function editItem($product_id, $newprice) 
+    public function editItem($product_id, $title, $description, $price, $condition, $date, $category_Id,$image1,$image2, $image3,$image4) 
     {
         $parameters = [
             ":product_id" => $product_id,
-            ":newprice" => $newprice,
+            ":title" => $title,
+            ":description" => $description,
+            ":price" => $price,
+            ":condition" => $condition,
+            ":date" =>$date,
+            ":category_Id" =>$category_Id,
+            ":image1" => $image1,
+            ":image2" => $image2,
+            ":image3" => $image3,
+            ":image4" => $image4,
         ];
-        $this->dao->update($parameters, "resetprice");
+        
+        $this->dao->update($parameters, "item");
     }
 
     //delete a product

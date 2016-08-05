@@ -1,19 +1,11 @@
 
 <div class="" style="width:80%; margin-left:10%">
      <div class="panel panel-default" style="background:#f7f7f7">
-        <div class="panel-heading" style="background:#d0d0d0">Search Results</div>
+        <div class="panel-heading" style="background:#d0d0d0">Search Results:         Number of results:<?php echo count($products) ?>  </div>
             <div class="row">
                 <?php foreach ($products as $product) { ?>
                 <tr>
-<!--                    <td>--><?php //if (isset($product->Title)) echo htmlspecialchars($product->Title, ENT_QUOTES, 'UTF-8'); ?><!--</td>-->
-<!---->
-<!--                    <td>--><?php //if (isset($product->Description)) echo htmlspecialchars($product->Description, ENT_QUOTES, 'UTF-8'); ?><!--</td>-->
-<!---->
-<!--                    <td>--><?php //if (isset($product->Price)) echo htmlspecialchars($product->Price, ENT_QUOTES, 'UTF-8'); ?><!--</td>-->
-<!---->
-<!--                    <td>--><?php //if (isset($product->ItemCondition)) echo htmlspecialchars($product->ItemCondition, ENT_QUOTES, 'UTF-8'); ?><!--</td>-->
-<!---->
-<!--                    <td>--><?php //if (isset($product->Postdate)) echo htmlspecialchars($product->Postdate, ENT_QUOTES, 'UTF-8'); ?><!--</td>-->
+
                 <div class="col-sm-4">
                     <div class="panel-body"><a href="<?php echo URL. 'item/showitem/' . htmlspecialchars($product->Product_id, ENT_QUOTES, 'UTF-8'); ?>"><img  <?php if (isset($product->Image_blob1) && $product->Image_blob1 != "")
                                                         echo 'src="data:image/jpeg;base64,'.base64_encode($product->Image_blob1).'" height="150" width="150"';

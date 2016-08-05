@@ -50,63 +50,64 @@ class Sell extends Controller
     public function createItem()
     {
         $categories = $this->model->getProductCategory();
-//        if($_SESSION['loggedInUser_id'] != null ) {
-            $image1 = file_get_contents($_FILES["fileToUpload"]["tmp_name"]);
-
-            if(($_FILES['fileToUpload2']['tmp_name']) != ""){
-                $image2 = file_get_contents($_FILES['fileToUpload2']['tmp_name']);
-            }else{
-                $image2 = NULL;
-            }
-
-            if(($_FILES['fileToUpload3']['tmp_name']) != ""){
-                $image3 = file_get_contents($_FILES['fileToUpload3']['tmp_name']);
-            }else{
-                $image3 = NULL;
-            }
-
-            if(($_FILES['fileToUpload4']['tmp_name']) != ""){
-                $image4 = file_get_contents($_FILES['fileToUpload4']['tmp_name']);
-            }else{
-                $image4 = NULL;
-            }
-
-            $date = date("Y-m-d H:i:s");
-            $seller_id =  $_SESSION['loggedInUser_id'];
-            $this->model->createItem($seller_id,$_POST["Title"], $_POST["Description"], $_POST["Price"], $_POST["Condition"],$date, $_POST["Category_Id"],$image1,$image2,$image3,$image4);
-
-            header('location: ' . URL . 'sell/index');
-//        } else {
-//            header('location: ' . URL . 'user/index');
-//        }
         
-        
-        
-    }
+        $image1 = file_get_contents($_FILES["fileToUpload"]["tmp_name"]);
 
-    public function resetPrice($product_id, $newprice)
-    {
-        if (isset($product_id)) {
-//            $seller_id =  $_SESSION['loggedInUser_id'];
-            $this->model->editItem($product_id, $newprice);
+        if(($_FILES['fileToUpload2']['tmp_name']) != ""){
+            $image2 = file_get_contents($_FILES['fileToUpload2']['tmp_name']);
+        }else{
+            $image2 = NULL;
         }
 
-        // where to go after user has been deleted
-//            header('location: ' . URL . 'user/index');;
-    }
-
-    public function deleteItem($product_id)
-    {
-        // check the the userid if the userid == seller's id in DB execute, else return
-
-        // if we have an id of a user that should be deleted
-        if (isset($product_id)) {
-            // do deleteUser() in model/model.php
-            $this->model->deleteItem($product_id);
+        if(($_FILES['fileToUpload3']['tmp_name']) != ""){
+            $image3 = file_get_contents($_FILES['fileToUpload3']['tmp_name']);
+        }else{
+            $image3 = NULL;
         }
 
+        if(($_FILES['fileToUpload4']['tmp_name']) != ""){
+            $image4 = file_get_contents($_FILES['fileToUpload4']['tmp_name']);
+        }else{
+            $image4 = NULL;
+        }
+
+        $date = date("Y-m-d");
+        $seller_id =  $_SESSION['loggedInUser_id'];
+        $this->model->createItem($seller_id,$_POST["Title"], $_POST["Description"], $_POST["Price"], $_POST["Condition"],$date, $_POST["Category_Id"],$image1,$image2,$image3,$image4);
+
+        header('location: ' . URL . 'sell/index');
+    }
+
+    public function editItem()
+    {
+        $image1 = file_get_contents($_FILES["fileToUpload"]["tmp_name"]);
+
+        if(($_FILES['fileToUpload2']['tmp_name']) != ""){
+            $image2 = file_get_contents($_FILES['fileToUpload2']['tmp_name']);
+        }else{
+            $image2 = NULL;
+        }
+
+        if(($_FILES['fileToUpload3']['tmp_name']) != ""){
+            $image3 = file_get_contents($_FILES['fileToUpload3']['tmp_name']);
+        }else{
+            $image3 = NULL;
+        }
+
+        if(($_FILES['fileToUpload4']['tmp_name']) != ""){
+            $image4 = file_get_contents($_FILES['fileToUpload4']['tmp_name']);
+        }else{
+            $image4 = NULL;
+        }
+
+        $date = date("Y-m-d");
+        $product_id =$_SESSION['product_id'];
+//        $seller_id =  $_SESSION['loggedInUser_id'];
+        $this->model->editItem($product_id,$_POST["Title"], $_POST["Description"], $_POST["Price"], $_POST["Condition"],$date, $_POST["Category_Id"],$image1,$image2,$image3,$image4);
+
         // where to go after user has been deleted
-//            header('location: ' . URL . 'user/index');
+         header('location: ' . URL . 'useraccount/index');
+
     }
 
     public function getItem()

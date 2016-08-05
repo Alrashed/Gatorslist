@@ -24,13 +24,15 @@
                             <td>ItemCondition</td>
                             <td>Description</td>
                             <td>Price</td>
+                            <td>EDIT</td>
+                            <td>DELETE</td>
 
                         </tr>
                         </thead>
                         <tbody>
                         <?php foreach ($userproducts as $userproduct) { ?>
                             <tr>
-                                <td><?php if (isset($userproduct->Image_blob1)) echo htmlspecialchars($userproduct->Image_blob1, ENT_QUOTES, 'UTF-8'); ?></td>
+                                <td><img <?php if (isset($userproduct->Image_blob1) && $userproduct->Image_blob1 != "") echo 'src="data:image/jpeg;base64,'.base64_encode($userproduct->Image_blob1).'" height="50" width="50"';?> ></td>
 
                                 <td><?php if (isset($userproduct->Title)) echo htmlspecialchars($userproduct->Title, ENT_QUOTES, 'UTF-8'); ?></td>
 
@@ -39,6 +41,10 @@
                                 <td><?php if (isset($userproduct->Description)) echo htmlspecialchars($userproduct->Description, ENT_QUOTES, 'UTF-8'); ?></td>
 
                                 <td><?php if (isset($userproduct->Price)) echo htmlspecialchars($userproduct->Price, ENT_QUOTES, 'UTF-8'); ?></td>
+
+                                <td><a href="<?php echo URL . 'useraccount/editItem/' . htmlspecialchars($userproduct->Product_id, ENT_QUOTES, 'UTF-8'); ?>">EDIT</a></td>
+
+                                <td><a href="<?php echo URL . 'useraccount/deleteItem/' . htmlspecialchars($userproduct->Product_id, ENT_QUOTES, 'UTF-8'); ?>">DELETE</a></td>
                                 
                             </tr>
                         <?php } ?>
