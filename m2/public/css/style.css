@@ -292,3 +292,24 @@ h4 {
 h5 {
     font-size:28px;
 }
+
+.first-column {
+    background-color: #B3B3B3;
+}
+
+#selling-item a:active{
+    color: #222;
+    background: #F1F1F1;
+}
+#selling-item a:hover{
+    color: #222;
+    background: #B3B3B3;
+}
+#acount-profile a:active{
+    color: #222;
+    background: #F1F1F1;
+}
+#acount-profile a:hover{
+    color: #222;
+    background: #B3B3B3;
+}

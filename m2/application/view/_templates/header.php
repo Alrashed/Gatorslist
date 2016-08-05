@@ -61,7 +61,7 @@ if (!isset($_SESSION)) {
             </ul>
             <ul class="nav navbar-nav navbar-right ">
                 <li class="hover-this-tab"><a href="<?php echo URL; ?>users/index"><span class="glyphicon glyphicon-user"></span> Register</a></li>
-                <li><a href="<?php echo URL; ?>login/index"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                <li><a name="login-section" href="<?php echo URL; ?>login/index"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
             </ul>
             
           <?php endif; ?>
