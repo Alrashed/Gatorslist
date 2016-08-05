@@ -46,6 +46,9 @@ class Products extends Controller
 
         else if (isset($_GET["date"])) {
 	        $sorttype = "date";
+		echo $_GET["highprice"];
+		if (isset(ech$_GET["minprice"];
+		echo $_GET["itemcondition"];
             $products = $this->model->getAllSortedProducts($_GET["searchinput"], $_GET["category"], $sorttype);
         }
 
