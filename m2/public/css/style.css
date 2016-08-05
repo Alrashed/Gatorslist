@@ -189,7 +189,7 @@ img:hover  {
 }
 #item_price{
     background-size: 15px 16px;
-    background-image: url('../public/img/money.png');
+    background-image: url('../public/img/money1.png');
     background-position: 5px 10px; 
     background-repeat: no-repeat;
     padding-left: 12%;
@@ -324,3 +324,16 @@ h5 {
   .affix + .container-fluid {
       padding-top: 70px;
   }
+  td {
+    width: 17%;
+  }
+  td.img {
+    width: 10%;
+  }
+  table {
+    margin-top: 2px;
+    background-color: #f8f8f8;
+}
+#table-image {
+    width: 10%;
+}

@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" style="margin-bottom: 50px;">
     <div class="box">
         <div class="col-lg-8 col-lg-offset-2" style="margin-top:1%;" >
             <div class="panel-heading" style="text-align:center;color:#ffdf80;"><h2>Account overview</h2></div>
@@ -15,24 +15,23 @@
                     	<h5 class="col-lg-3 col-lg-offset-1 float-left"><i>Email </i></h5><h5>: <?php if (isset($user[0]->Email)) echo htmlspecialchars($user[0]->Email, ENT_QUOTES, 'UTF-8'); ?></h5></br>
                     </div>
                 </div>
-                <div id="menu1" class="tab-pane fade">
+                <div id="menu1" class="tab-pane fade" style="background-color:#B3B3B3; margin-bottom:50px">
                     <table>
-                        <div class="well" ><h3>Selling Items</h3></div>
-                        <thead style="background-color: #ddd; font-weight: bold;">
+                        <thead style="background: linear-gradient(grey,white,white,white,grey); font-weight: bold;height: 15px">
                         <tr>
                             <td>Image</td>
                             <td>Title</td>
                             <td>ItemCondition</td>
                             <td>Description</td>
                             <td>Price</td>
-                            <td>Edit</td>
-
+                            <td>Edit<b style="float:right;margin-right:25%">|</b> </td>
+                            <td>Delete</td>
                         </tr>
                         </thead>
                         <tbody>
                         <?php foreach ($userproducts as $userproduct) { ?>
                             <tr>
-                                <td><img <?php if (isset($userproduct->Image_blob1) && $userproduct->Image_blob1 != "") echo 'src="data:image/jpeg;base64,'.base64_encode($userproduct->Image_blob1).'" height="50" width="50"';?> ></td>
+                                <td id="table-image" ><img style="padding:5px;" <?php if (isset($userproduct->Image_blob1) && $userproduct->Image_blob1 != "") echo 'src="data:image/jpeg;base64,'.base64_encode($userproduct->Image_blob1).'" height="50" width="50"';?> ></td>
 
                                 <td><?php if (isset($userproduct->Title)) echo htmlspecialchars($userproduct->Title, ENT_QUOTES, 'UTF-8'); ?></td>
 
@@ -40,7 +39,7 @@
 
                                 <td><?php if (isset($userproduct->Description)) echo htmlspecialchars($userproduct->Description, ENT_QUOTES, 'UTF-8'); ?></td>
 
-                                <td><?php if (isset($userproduct->Price)) echo htmlspecialchars($userproduct->Price, ENT_QUOTES, 'UTF-8'); ?></td>
+                                <td>$<?php if (isset($userproduct->Price)) echo htmlspecialchars($userproduct->Price, ENT_QUOTES, 'UTF-8'); ?></td>
 
                                 <td><a href="<?php echo URL . 'useraccount/editItem/' . htmlspecialchars($userproduct->Product_id, ENT_QUOTES, 'UTF-8'); ?>">EDIT</a></td>
  
@@ -50,8 +49,6 @@
                         <?php } ?>
                         </tbody>
                     </table>
-                    <!--              <h3>Menu 1</h3>-->
-                    <!--              <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>-->
                 </div>
 
             </div>
