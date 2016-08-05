@@ -21,7 +21,17 @@ if (!isset($_SESSION)) {
     <!-- See more here: http://stackoverflow.com/q/2105327/1114320 -->
     <!-- CSS -->
     <link href="<?php echo URL; ?>css/style.css" rel="stylesheet">
-    
+    <script>
+	function validateForm() {
+		var x = document.forms["user"]["email"].value;
+		var atpos = x.indexOf("@mail.sfsu.edu");
+		var dotpos = x.lastIndexOf(".");
+		if (atpos<1 || dotpos<atpos+2 || dotpos+2>=x.length) {
+			alert("Email is invalid! Must end up with SFSU domain: @mail.sfsu.edu");	
+			return false;
+		}
+	}
+	</script>
 </head>
 <body>
       <footer class="footer">
