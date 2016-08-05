@@ -41,7 +41,7 @@ class Users extends Controller
             $this->model->createUser($_POST["email"],  $_POST["password"], $_POST["firstname"], $_POST["lastname"]);
         }
         // where to go after user has been added
-        header('location: ' . URL . 'users/index');
+        header('location: ' . URL . 'login/index');
     }
 
     
