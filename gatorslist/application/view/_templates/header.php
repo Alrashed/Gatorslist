@@ -31,7 +31,20 @@ if (!isset($_SESSION)) {
 			return false;
 		}
 	}
+
+	
+	window.onload=scrollWin;
+
+	function scrollWin() {
+		
+		window.scrollTo(0, document.getElementById("sell-item").scrollHeight + 200);
+		window.scrollTo(0, document.getElementById("login-section").scrollHeight -120);
+		window.scrollTo(0, document.getElementById("register").scrollHeight + 200);
+		window.scrollTo(0, document.getElementById("account-overview").scrollHeight + 300);
+	}
+
 	</script>
+
 </head>
 <body>
       <footer class="footer">
@@ -41,37 +54,37 @@ if (!isset($_SESSION)) {
     </footer>
 
     <!-- logo -->
-    <header class="masthead">
+    <header class="masthead" id="header">
     <div class="logo title-top-margin navbar-static-top">
         Gatorslist
     </div>
     </header>
     <!--Nav Bar-->
-    <nav class="navbar navbar-default navbar-static-top shadow" data-spy="affix" data-offset-top="197">
-        <div class="container-fluid " style="font-weight:600; font-size:16px; margin-left:10%; margin-right:10%; ">
+    <nav class="navbar navbar-static-top shadow" data-spy="affix" data-offset-top="197">
+        <div class="container-fluid " style="font-weight:600; font-size:16px; margin-left:10%; margin-right:10%;">
             <div class="navbar-header">
-                <a class="navbar-brand" style="font-weight:700; font-size:22px;font-color:#3562A5;" href="<?php echo URL; ?>home/index">Gatorslist</a>
+                <a class="navbar-brand grey" style="font-weight:700; font-size:22px;" href="<?php echo URL; ?>home/index">Gatorslist</a>
             </div>
             
           <?php if (isset($_SESSION['loggedInUser_id'])) : ?>
             
-            <ul class="nav navbar-nav" >
-                <li><a href="<?php echo URL; ?>sell/index">Sell Your Items</a></li>
+            <ul class="nav navbar-nav hover-this-tab" id="sell-item" onclick="setTimeout(alertFunc, 3000)">
+                <li><a class="grey" href="<?php echo URL; ?>sell/index">Sell Your Items</a></li>
             </ul>
-            <ul class="nav navbar-nav navbar-right">
+            <ul class="nav navbar-nav navbar-right hover-this-tab">
 <!--                <li><a href="--><?php //echo URL; ?><!--useraccount/index""><span class="glyphicon glyphicon-user"></span> Logged in as --><?php //echo htmlspecialchars($_SESSION['Email']); ?><!--</a></li>-->
-                <li><a href="<?php echo URL; ?>useraccount/index"> <span class="glyphicon glyphicon-user"></span> Logged in as <?php echo htmlspecialchars($_SESSION['Email']); ?></a></li>
-                <li><a href="<?php echo URL; ?>logout/destroySession"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+                <li><a class="grey" href="<?php echo URL; ?>useraccount/index"> <span class="glyphicon glyphicon-user grey"></span> Logged in as <?php echo htmlspecialchars($_SESSION['Email']); ?></a></li>
+                <li><a class="grey" href="<?php echo URL; ?>logout/destroySession"><span class="glyphicon glyphicon-log-in grey"></span> Logout</a></li>
             </ul>
             
           <?php else : ?>
             
-            <ul class="nav navbar-nav" id="hover-this-tab">
-                <li><a href="<?php echo URL; ?>sell/index">Sell Your Items</a></li>
+            <ul class="nav navbar-nav hover-this-tab " id="sell-item" onclick="setTimeout(alertFunc, 3000)">
+                <li><a class="grey" href="<?php echo URL; ?>sell/index">Sell Your Items</a></li>
             </ul>
-            <ul class="nav navbar-nav navbar-right ">
-                <li class="hover-this-tab"><a href="<?php echo URL; ?>users/index"><span class="glyphicon glyphicon-user"></span> Register</a></li>
-                <li><a href="<?php echo URL; ?>login/index"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+            <ul class="nav navbar-nav navbar-right hover-this-tab">
+                <li ><a class="grey" href="<?php echo URL; ?>users/index"><span class="glyphicon glyphicon-user grey"></span> Register</a></li>
+                <li><a class="grey" href="<?php echo URL; ?>login/index"><span class="glyphicon glyphicon-log-in grey"></span> Login</a></li>
             </ul>
             
           <?php endif; ?>

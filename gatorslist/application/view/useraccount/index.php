@@ -1,4 +1,4 @@
-<div class="container" style="margin-bottom: 50px;">
+<div class="container" id="account-overview" style="margin-bottom: 50px;">
     <div class="box">
         <div class="col-lg-8 col-lg-offset-2" style="margin-top:1%;" >
             <div class="panel-heading" style="text-align:center;color:#ffdf80;"><h2>Account overview</h2></div>
