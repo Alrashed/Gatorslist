@@ -1,5 +1,5 @@
 
-<div class="container">
+<div class="container" id="register">
     <!-- register form -->
     <div class="box">
         <div class="col-lg-4 col-lg-offset-4" style="margin-top:1%" >
@@ -89,5 +89,5 @@
 <!--                --><?php //} ?>
 <!--            </tbody>-->
 <!--        </table>-->
-</div>
+
 

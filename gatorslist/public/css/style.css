@@ -3,7 +3,7 @@ body {
     font-family: Raleway, sans-serif;
     font-size: 14px;
     background-color: #330033;
-    margin-bottom:50vh;
+    margin-bottom:20vh;
 }
 .border {
     border: 2px solid #73AD21;
@@ -25,20 +25,26 @@ body {
     box-shadow: 1px 1px 10px grey;
 }
 .shadow {
-    box-shadow: 0 4px 10px -2px gray;
+    box-shadow: 0 3px 10px -2px gray;
+    background: linear-gradient(#f6f6f6, #e6e6e6,#cdcdcd ) ;
+    border:0px;
+    color: #797979;
 }
 .welcome {
     margin-left: 10%;
     margin-right: 10%;
 
 }
-#hover-this-tab a:hover{
-    background: #c6c6c6;
-    color: #020202;
+.grey {
+    color:#333333;
 }
-#hover-this-tab span:hover{
-    background: #c6c6c6;
-    color: #020202;
+.hover-this-tab a:hover{
+    background: #d7d7d7;
+    color: #333333;
+}
+.hover-this-tab span:hover{
+    background: #d7d7d7;
+    color: #333333;
 }
 img:hover  {
     box-shadow: 1px 1px 10px grey;

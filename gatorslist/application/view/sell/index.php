@@ -1,4 +1,5 @@
-<div class="container" style="">
+
+<div class="container" id="sell" onpageshow="scrollWin()">
     <!-- register form -->
     <div class="box">
         <div class="col-lg-6 col-lg-offset-3" style="margin-top:1%" >
