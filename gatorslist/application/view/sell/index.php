@@ -5,7 +5,7 @@
         	<!-- Panel container -->
             <div class="panel panel-default ">
             	<!-- panel head-->
-            	<div class="panel-heading" style="text-align:center; font-weight:800; font-size:20px">Sell your item</div>
+            	<div class="panel-heading" style="text-align:center; font-weight:800; font-size:20px">Enter your item info</div>
 				<!-- panel body -->                
                 <form class="panel-body col-lg-offset-0" style="font-size: 16px;background-color: #87CEFA"  role="form" action="<?php echo URL; ?>sell/createitem" method="POST" enctype="multipart/form-data">
                       
