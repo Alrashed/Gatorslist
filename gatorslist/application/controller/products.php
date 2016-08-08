@@ -32,9 +32,16 @@ class Products extends Controller
         if (isset($_GET["submit_search_product"])) {
             // do getAllProducts() in model/model.php
             $products = $this->model->getAllProducts($_GET["searchinput"], $_GET["category"]);
-        } else if (isset($_GET["highprice"])) {
+        } else if (isset($_GET["sortby"])&&($_GET["sortby"]!="")) {
 
-            $sortType = "highprice";
+	    if($_GET["sortby"]=="Highest Price")
+            	$sortType = "highprice";
+
+	    else if($_GET["sortby"]=="Lowest Price")
+		$sortType = "lowprice";
+	
+	    else if($_GET["sortby"]=="Newly Listed")
+	   	$sortType = "date";	
 
             if (($_GET["itemcondition"] != "") && ($_GET["minprice"] != "")) {
                 $filterType = "both";
@@ -56,7 +63,7 @@ class Products extends Controller
                 $filterInput = "";
                 $products = $this->model->getAllSortedProducts($_GET["searchinput"], $_GET["category"], $sortType, $filterType, $filterInput);
             }
-        } else if (isset($_GET["lowprice"])) {
+        }/* else if (isset($_GET["lowprice"])) {
 
             $sortType = "lowprice";
 
@@ -103,7 +110,7 @@ class Products extends Controller
                 $filterInput = "";
                 $products = $this->model->getAllSortedProducts($_GET["searchinput"], $_GET["category"], $sortType, $filterType, $filterInput);
             }
-        } else if (isset($_GET["submit_filter_price_product"])) {
+        }*/ else if (isset($_GET["submit_filter_price_product"])) {
 
             if ($_GET["itemcondition"] != "") {
                 $filterType = "both";

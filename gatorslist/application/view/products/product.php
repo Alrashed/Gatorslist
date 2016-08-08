@@ -3,7 +3,7 @@
         <div class="panel-heading clearfix" style="background:#d0d0d0">
             <h5 class="panel-title pull-left" style="padding-top: 7.5px;"><b>Search Results
                     : <?php echo count($products) ?>
-                    items <?php if (isset($_GET['highprice'])) echo " > High to Low"; else if (isset($_GET['lowprice'])) echo " > Low to High"; else if (isset($_GET['date'])) echo " > Newly Listed"; ?> <?php if (isset($_GET['minprice']) && ($_GET['minprice'] != "")) {
+                    items <?php if (isset($_GET['sortby'])&&($_GET['sortby']=="Highest Price")) echo " > High to Low"; else if (isset($_GET['sortby'])&&($_GET['sortby']=="Lowest Price")) echo " > Low to High"; else if (isset($_GET['sortby'])&&($_GET['sortby']=="Newly Listed")) echo " > Newly Listed"; ?> <?php if (isset($_GET['minprice']) && ($_GET['minprice'] != "")) {
                         echo " > $";
                         echo htmlspecialchars($_GET['minprice']);
                         echo " - ";
@@ -30,9 +30,7 @@
                     <input type="hidden" name="itemcondition"
                            value="<?php if (isset($_GET['itemcondition'])) echo htmlspecialchars($_GET['itemcondition']); ?>">
 
-                    <input class="btn btn-default btn-sm" type="submit" name="highprice" value="Highest Price"/>
-                    <input type="hidden" name="sortby"
-                           value="<?php if (isset($_GET['highprice'])) echo htmlspecialchars($_GET['highprice']); else if (isset($_GET['lowprice'])) echo htmlspecialchars($_GET['lowprice']); else if (isset($_GET['date'])) echo htmlspecialchars($_GET['date']); ?>">
+                    <input class="btn btn-default btn-sm" type="submit" name="sortby" value="Highest Price"/>
                 </form>
 
                 <form action="<?php echo URL; ?>products/searchproducts" method="GET">
@@ -40,7 +38,6 @@
                            value="<?php echo htmlspecialchars($_GET['searchinput']); ?>">
                     <input type="hidden" name="category"
                            value="<?php echo htmlspecialchars($_GET['category']); ?>">
-
                     <input type="hidden" name="minprice"
                            value="<?php if (isset($_GET['minprice'])) echo htmlspecialchars($_GET['minprice']); ?>">
                     <input type="hidden" name="maxprice"
@@ -48,25 +45,21 @@
                     <input type="hidden" name="itemcondition"
                            value="<?php if (isset($_GET['itemcondition'])) echo htmlspecialchars($_GET['itemcondition']); ?>">
 
-                    <input class="btn btn-default btn-sm" type="submit" name="lowprice" value="Lowest Price"/>
-                    <input type="hidden" name="sortby"
-                           value="<?php if (isset($_GET['highprice'])) echo htmlspecialchars($_GET['highprice']); else if (isset($_GET['lowprice'])) echo htmlspecialchars($_GET['lowprice']); else if (isset($_GET['date'])) echo htmlspecialchars($_GET['date']); ?>">
+                    <input class="btn btn-default btn-sm" type="submit" name="sortby" value="Lowest Price"/>
                 </form>
                 <form action="<?php echo URL; ?>products/searchproducts" method="GET">
                     <input type="hidden" name="searchinput"
                            value="<?php if (isset($_GET['searchinput'])) echo htmlspecialchars($_GET['searchinput']); ?>">
                     <input type="hidden" name="category"
                            value="<?php echo htmlspecialchars($_GET['category']); ?>">
-
                     <input type="hidden" name="minprice"
                            value="<?php if (isset($_GET['minprice'])) echo htmlspecialchars($_GET['minprice']); ?>">
                     <input type="hidden" name="maxprice"
                            value="<?php if (isset($_GET['maxprice'])) echo htmlspecialchars($_GET['maxprice']); ?>">
                     <input type="hidden" name="itemcondition"
                            value="<?php if (isset($_GET['itemcondition'])) echo htmlspecialchars($_GET['itemcondition']); ?>">
-                    <input class="btn btn-default btn-sm" type="submit" name="date" value="Newly Listed"/>
-                    <input type="hidden" name="sortby"
-                           value="<?php if (isset($_GET['highprice'])) echo htmlspecialchars($_GET['highprice']); else if (isset($_GET['lowprice'])) echo htmlspecialchars($_GET['lowprice']); else if (isset($_GET['date'])) echo htmlspecialchars($_GET['date']); ?>">
+                
+		    <input class="btn btn-default btn-sm" type="submit" name="sortby" value="Newly Listed"/>
                 </form>
             </div>
             <div class="col-md-3">
@@ -76,8 +69,8 @@
                            value="<?php echo htmlspecialchars($_GET['searchinput']); ?>">
                     <input type="hidden" name="category"
                            value="<?php echo htmlspecialchars($_GET['category']); ?>">
-                    <input type="hidden" name="sortby"
-                           value="<?php if (isset($_GET['highprice'])) echo htmlspecialchars($_GET['highprice']); else if (isset($_GET['lowprice'])) echo htmlspecialchars($_GET['lowprice']); else if (isset($_GET['date'])) echo htmlspecialchars($_GET['date']); ?>">
+                    <!--<input type="hidden" name="sortby"
+                           value="<?php if (isset($_GET['sortby'])&&($_GET['sortby']=="Highest Price")) echo htmlspecialchars($_GET['sortby']); else if (isset($_GET['sortby'])&&($_GET['sortby']=="Lowest Price")) echo htmlspecialchars($_GET['sortby']); else if (isset($_GET['sortby'])&&($_GET['sortby']=="Newly Listed")) echo htmlspecialchars($_GET['sortby']); ?>"> -->
                     <input type="hidden" name="itemcondition"
                            value="<?php if (isset($_GET['itemcondition'])) echo htmlspecialchars($_GET['itemcondition']); ?>">
                     <input class="form-control" type="text" name="minprice" value="" placeholder="Minimum Price"
@@ -91,9 +84,9 @@
                            value="<?php echo htmlspecialchars($_GET['searchinput']); ?>">
                     <input type="hidden" name="category"
                            value="<?php echo htmlspecialchars($_GET['category']); ?>">
-                    <input type="hidden" name="sortby"
-                           value="<?php if (isset($_GET['highprice'])) echo htmlspecialchars($_GET['highprice']); else if (isset($_GET['lowprice'])) echo htmlspecialchars($_GET['lowprice']); else if (isset($_GET['date'])) echo htmlspecialchars($_GET['date']); ?>">
-                    <input type="hidden" name="minprice"
+                    <!--<input type="hidden" name="sortby"
+                           value="<?php if (isset($_GET['sortby'])&&($_GET['sortby']=="Highest Price")) echo htmlspecialchars($_GET['sortby']); else if (isset($_GET['sortby'])&&($_GET['sortby']=="Lowest Price")) echo htmlspecialchars($_GET['sortby']); else if (isset($_GET['sortby'])&&($_GET['sortby']=="Newly Listed")) echo htmlspecialchars($_GET['sortby']); ?>">-->
+		    <input type="hidden" name="minprice"
                            value="<?php if (isset($_GET['minprice'])) echo htmlspecialchars($_GET['minprice']); ?>">
                     <input type="hidden" name="maxprice"
                            value="<?php if (isset($_GET['maxprice'])) echo htmlspecialchars($_GET['maxprice']); ?>">
