@@ -131,7 +131,7 @@ class Products extends Controller
 
         else if (isset($_GET["submit_filter_price_product"])) {
 
-		if($_GET["itemcondition"]!==""){
+		if($_GET["itemcondition"]!=""){
 			$filtertype = "both";
 			$products = $this->model->getAllFilteredProducts($_GET["searchinput"], $_GET["category"], $filtertype, $_GET["itemcondition"], $_GET["minprice"], $_GET["maxprice"]);
 	    	}	
@@ -144,11 +144,21 @@ class Products extends Controller
 
         else if (isset($_GET["submit_condition_product"])) {
 	       
-                if($_GET["minprice"]!==""){
+		if($_GET["itemcondition"]==""){
+			if($_GET["minprice"]!=""){
+				$filtertype="price";	
+	                        $products = $this->model->getAllFilteredProducts($_GET["searchinput"], $_GET["category"], $filtertype, $_GET["minprice"], $_GET["maxprice"]);
+			}
+			
+			else
+                        	$products = $this->model->getAllProducts($_GET["searchinput"], $_GET["category"]); 
+		}
+		
+                else if($_GET["minprice"]!="" && $_GET["itemcondition"]!=""){
                         $filtertype = "both";
                         $products = $this->model->getAllFilteredProducts($_GET["searchinput"], $_GET["category"], $filtertype, $_GET["itemcondition"], $_GET["minprice"], $_GET["maxprice"]);
-                } 
-	
+                }
+
 		else { 
 		$filtertype = "condition";
             	$products = $this->model->getAllFilteredProducts($_GET["searchinput"], $_GET["category"], $filtertype, $_GET["itemcondition"]);	

@@ -58,8 +58,9 @@
         <div class="col-md-3">
             <h5>Filter by Condition:</h5>
             <select name="itemcondition" class="form-control">
-                        <option>Used</option>
+			<option value="">Any condition</option>
                         <option>New</option>
+                        <option>Used</option>
                     </select>
                     <input type="submit" name="submit_condition_product" value="Submit"></form>
         </div>
