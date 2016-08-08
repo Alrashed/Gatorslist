@@ -33,15 +33,7 @@ if (!isset($_SESSION)) {
 	}
 
 	
-	window.onload=scrollWin;
-
-	function scrollWin() {
-		
-		window.scrollTo(0, document.getElementById("sell-item").scrollHeight + 200);
-		window.scrollTo(0, document.getElementById("login-section").scrollHeight -120);
-		window.scrollTo(0, document.getElementById("register").scrollHeight + 200);
-		window.scrollTo(0, document.getElementById("account-overview").scrollHeight + 300);
-	}
+	
 
 	</script>
 
