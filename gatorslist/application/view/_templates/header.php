@@ -103,7 +103,7 @@ if (!isset($_SESSION)) {
     <div class="container" style="margin-bottom:2%">
         <div class="row">
             <div class="col-lg-6 col-lg-offset-3" style="background:#330033;">
-                <form action="<?php echo URL; ?>products/searchproducts" method="POST">      
+                <form action="<?php echo URL; ?>products/searchproducts" method="GET">      
                       <div class="margin-right-1 float-left">
                         <select  name="category" class="form-control">
                             <option value="">All Categories</option>
