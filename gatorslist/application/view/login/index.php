@@ -11,7 +11,7 @@
                       <div class="form-group">
                         <label class="" for="email">SFSU Email:</label>
                         <div>
-                          <input type="text" name="email" value="" required class="form-control input-lg" id="username_field" style="font-size:16px" placeholder="Enter SFSU email" />
+                          <input type="email" name="email" value="" required class="form-control input-lg" id="username_field" style="font-size:16px" placeholder="Enter SFSU email" />
                         </div>
                       </div>
                       <div class="form-group">
