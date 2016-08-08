@@ -101,8 +101,7 @@ if (!isset($_SESSION)) {
                             <option value="">All Categories</option>
                             
                             <?php foreach ($categories as $category) { ?>
-                                <option value= "<?php if (isset($category->Category_name)) echo htmlspecialchars($category->Category_name, ENT_QUOTES, 'UTF-8'); if($category->Category_name==$_GET['category']) echo ' selected="selected"' ?>" ><?php if (isset($category->Category_name)) echo htmlspecialchars($category->Category_name, ENT_QUOTES, 'UTF-8'); ?></option>
-
+<option value= "<?php if (isset($category->Category_name)) echo htmlspecialchars($category->Category_name, ENT_QUOTES, 'UTF-8'); ?>" <?php if(isset($_GET['category'])&&($_GET['category']==($category->Category_name))) echo 'selected="selected"'; ?>><?php if (isset($category->Category_name)) echo htmlspecialchars($category->Category_name, ENT_QUOTES, 'UTF-8'); ?></option>
                             <?php } ?>
 <!--                            <option value="book">Books</option>-->
 <!--                            <option value="furniture">Furniture</option>-->
