@@ -3,7 +3,7 @@
       	<div class="panel-heading clearfix" style="background:#d0d0d0">
       		<h5 class="panel-title pull-left" style="padding-top: 7.5px;"><b>Search Results (<?php echo count($products) ?> items) > Highest Price > $0-$100 > Used</b></h5>
     </div>
-    <div class="row">
+    <div class="row text-center">
         <div class="col-md-3">
             <h5>Sort by:</h5>
             <form action="<?php echo URL; ?>products/searchproducts" method="GET">
@@ -61,7 +61,7 @@
                     <input type="submit" name="submit_condition_product" value="Submit"></form>
         </div>
         <div class ="col-md-3">
-        <h5>Reset Filter</h5>
+        <h5>Reset Filter:</h5>
         <form action="<?php echo URL; ?>products/searchproducts" method="GET">
                                         <input type="hidden" name="searchinput" value="<?php echo htmlspecialchars($_GET['searchinput']);?>">
                                         <input type="hidden" name="category" value="<?php echo htmlspecialchars($_GET['category']);?>">
