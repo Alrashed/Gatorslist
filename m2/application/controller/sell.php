@@ -24,8 +24,6 @@ class Sell extends Controller
      */
     public function index()
     {
-        // getting all users
-//        $users = $this->model->getAllUsers();
 
         // load views. within the views we can echo out $users
         $categories = $this->model->getProductCategory();
