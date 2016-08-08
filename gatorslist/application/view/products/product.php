@@ -1,7 +1,7 @@
 <div class="" style="width:80%; margin-left:10%">
      <div class="panel panel-default" style="background:#f7f7f7">
       	<div class="panel-heading clearfix" style="background:#d0d0d0">
-      		<h5 class="panel-title pull-left" style="padding-top: 7.5px;"><b>Search Results</b></h5>
+      		<h5 class="panel-title pull-left" style="padding-top: 7.5px;"><b>Search Results (<?php echo count($products) ?> items) > Highest Price > $0-$100 > Used</b></h5>
       		<div class="btn-group pull-right">
 		                <h6 style="background:#d0d0d0;"><b>Sort by</b></h6>
 	
