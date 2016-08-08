@@ -344,3 +344,10 @@ h5 {
 #table-image {
     width: 10%;
 }
+.logout {
+    opacity: 0.8;
+    margin-top:5vh;
+    margin-bottom:10vh;
+    background-color:#cfebfd;
+    border-radius: 10px;
+}
