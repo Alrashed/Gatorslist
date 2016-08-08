@@ -34,74 +34,74 @@ class Products extends Controller
             $products = $this->model->getAllProducts($_GET["searchinput"], $_GET["category"]);
         } else if (isset($_GET["highprice"])) {
 
-            $sorttype = "highprice";
+            $sortType = "highprice";
 
             if (($_GET["itemcondition"] != "") && ($_GET["minprice"] != "")) {
                 $filterType = "both";
                 $filterInput = ($_GET["itemcondition"]);
                 $secondFilterInput = ($_GET["minprice"]);
                 $thirdFilterInput = ($_GET["maxprice"]);
-                $products = $this->model->getAllSortedProducts($_GET["searchinput"], $_GET["category"], $sorttype, $filterType, $filterInput, $secondFilterInput, $thirdFilterInput);
+                $products = $this->model->getAllSortedProducts($_GET["searchinput"], $_GET["category"], $sortType, $filterType, $filterInput, $secondFilterInput, $thirdFilterInput);
             } else if (isset($_GET["itemcondition"]) && ($_GET["itemcondition"] != "")) {
                 $filterInput = ($_GET["itemcondition"]);
                 $filterType = "condition";
-                $products = $this->model->getAllSortedProducts($_GET["searchinput"], $_GET["category"], $sorttype, $filterType, $filterInput);
+                $products = $this->model->getAllSortedProducts($_GET["searchinput"], $_GET["category"], $sortType, $filterType, $filterInput);
             } else if (isset($_GET["minprice"]) && ($_GET["minprice"] != "")) {
                 $filterType = "price";
                 $filterInput = ($_GET["minprice"]);
                 $secondFilterInput = ($_GET["maxprice"]);
-                $products = $this->model->getAllSortedProducts($_GET["searchinput"], $_GET["category"], $sorttype, $filterType, $filterInput, $secondFilterInput);
+                $products = $this->model->getAllSortedProducts($_GET["searchinput"], $_GET["category"], $sortType, $filterType, $filterInput, $secondFilterInput);
             } else {
                 $filterType = "";
                 $filterInput = "";
-                $products = $this->model->getAllSortedProducts($_GET["searchinput"], $_GET["category"], $sorttype, $filterType, $filterInput);
+                $products = $this->model->getAllSortedProducts($_GET["searchinput"], $_GET["category"], $sortType, $filterType, $filterInput);
             }
         } else if (isset($_GET["lowprice"])) {
 
-            $sorttype = "lowprice";
+            $sortType = "lowprice";
 
             if (($_GET["itemcondition"] != "") && ($_GET["minprice"] != "")) {
                 $filterType = "both";
                 $filterInput = ($_GET["itemcondition"]);
                 $secondFilterInput = ($_GET["minprice"]);
                 $thirdFilterInput = ($_GET["maxprice"]);
-                $products = $this->model->getAllSortedProducts($_GET["searchinput"], $_GET["category"], $sorttype, $filterType, $filterInput, $secondFilterInput, $thirdFilterInput);
+                $products = $this->model->getAllSortedProducts($_GET["searchinput"], $_GET["category"], $sortType, $filterType, $filterInput, $secondFilterInput, $thirdFilterInput);
             } else if (isset($_GET["itemcondition"]) && ($_GET["itemcondition"] != "")) {
                 $filterInput = ($_GET["itemcondition"]);
                 $filterType = "condition";
-                $products = $this->model->getAllSortedProducts($_GET["searchinput"], $_GET["category"], $sorttype, $filterType, $filterInput);
+                $products = $this->model->getAllSortedProducts($_GET["searchinput"], $_GET["category"], $sortType, $filterType, $filterInput);
             } else if (isset($_GET["minprice"]) && ($_GET["minprice"] != "")) {
                 $filterType = "price";
                 $filterInput = ($_GET["minprice"]);
                 $secondFilterInput = ($_GET["maxprice"]);
-                $products = $this->model->getAllSortedProducts($_GET["searchinput"], $_GET["category"], $sorttype, $filterType, $filterInput, $secondFilterInput);
+                $products = $this->model->getAllSortedProducts($_GET["searchinput"], $_GET["category"], $sortType, $filterType, $filterInput, $secondFilterInput);
             } else {
                 $filterType = "";
                 $filterInput = "";
-                $products = $this->model->getAllSortedProducts($_GET["searchinput"], $_GET["category"], $sorttype, $filterType, $filterInput);
+                $products = $this->model->getAllSortedProducts($_GET["searchinput"], $_GET["category"], $sortType, $filterType, $filterInput);
             }
         } else if (isset($_GET["date"])) {
-            $sorttype = "date";
+            $sortType = "date";
 
             if (($_GET["itemcondition"] != "") && ($_GET["minprice"] != "")) {
                 $filterType = "both";
                 $filterInput = ($_GET["itemcondition"]);
                 $secondFilterInput = ($_GET["minprice"]);
                 $thirdFilterInput = ($_GET["maxprice"]);
-                $products = $this->model->getAllSortedProducts($_GET["searchinput"], $_GET["category"], $sorttype, $filterType, $filterInput, $secondFilterInput, $thirdFilterInput);
+                $products = $this->model->getAllSortedProducts($_GET["searchinput"], $_GET["category"], $sortType, $filterType, $filterInput, $secondFilterInput, $thirdFilterInput);
             } else if (isset($_GET["itemcondition"]) && ($_GET["itemcondition"] != "")) {
                 $filterInput = ($_GET["itemcondition"]);
                 $filterType = "condition";
-                $products = $this->model->getAllSortedProducts($_GET["searchinput"], $_GET["category"], $sorttype, $filterType, $filterInput);
+                $products = $this->model->getAllSortedProducts($_GET["searchinput"], $_GET["category"], $sortType, $filterType, $filterInput);
             } else if (isset($_GET["minprice"]) && ($_GET["minprice"] != "")) {
                 $filterType = "price";
                 $filterInput = ($_GET["minprice"]);
                 $secondFilterInput = ($_GET["maxprice"]);
-                $products = $this->model->getAllSortedProducts($_GET["searchinput"], $_GET["category"], $sorttype, $filterType, $filterInput, $secondFilterInput);
+                $products = $this->model->getAllSortedProducts($_GET["searchinput"], $_GET["category"], $sortType, $filterType, $filterInput, $secondFilterInput);
             } else {
                 $filterType = "";
                 $filterInput = "";
-                $products = $this->model->getAllSortedProducts($_GET["searchinput"], $_GET["category"], $sorttype, $filterType, $filterInput);
+                $products = $this->model->getAllSortedProducts($_GET["searchinput"], $_GET["category"], $sortType, $filterType, $filterInput);
             }
         } else if (isset($_GET["submit_filter_price_product"])) {
 
