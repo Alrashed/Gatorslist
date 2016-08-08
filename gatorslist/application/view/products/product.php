@@ -1,5 +1,5 @@
 <div class="" style="width:80%; margin-left:10%">
-    <div class="panel panel-default" style="background:#f7f7f7">
+<!--    <div class="panel panel-default" style="background:#f7f7f7">
         <div class="panel-heading clearfix" style="background:#d0d0d0">
             <h5 class="panel-title pull-left" style="padding-top: 7.5px;"><b>Search Results
                     : <?php echo count($products) ?>
@@ -69,8 +69,8 @@
                            value="<?php echo htmlspecialchars($_GET['searchinput']); ?>">
                     <input type="hidden" name="category"
                            value="<?php echo htmlspecialchars($_GET['category']); ?>">
-                    <!--<input type="hidden" name="sortby"
-                           value="<?php if (isset($_GET['sortby'])&&($_GET['sortby']=="Highest Price")) echo htmlspecialchars($_GET['sortby']); else if (isset($_GET['sortby'])&&($_GET['sortby']=="Lowest Price")) echo htmlspecialchars($_GET['sortby']); else if (isset($_GET['sortby'])&&($_GET['sortby']=="Newly Listed")) echo htmlspecialchars($_GET['sortby']); ?>"> -->
+                    <input type="hidden" name="sortby"
+                           value="<?php if (isset($_GET['sortby'])&&($_GET['sortby']=="Highest Price")) echo htmlspecialchars($_GET['sortby']); else if (isset($_GET['sortby'])&&($_GET['sortby']=="Lowest Price")) echo htmlspecialchars($_GET['sortby']); else if (isset($_GET['sortby'])&&($_GET['sortby']=="Newly Listed")) echo htmlspecialchars($_GET['sortby']); ?>"> 
                     <input type="hidden" name="itemcondition"
                            value="<?php if (isset($_GET['itemcondition'])) echo htmlspecialchars($_GET['itemcondition']); ?>">
                     <input class="form-control" type="text" name="minprice" value="" placeholder="Minimum Price"
@@ -84,8 +84,8 @@
                            value="<?php echo htmlspecialchars($_GET['searchinput']); ?>">
                     <input type="hidden" name="category"
                            value="<?php echo htmlspecialchars($_GET['category']); ?>">
-                    <!--<input type="hidden" name="sortby"
-                           value="<?php if (isset($_GET['sortby'])&&($_GET['sortby']=="Highest Price")) echo htmlspecialchars($_GET['sortby']); else if (isset($_GET['sortby'])&&($_GET['sortby']=="Lowest Price")) echo htmlspecialchars($_GET['sortby']); else if (isset($_GET['sortby'])&&($_GET['sortby']=="Newly Listed")) echo htmlspecialchars($_GET['sortby']); ?>">-->
+                    <input type="hidden" name="sortby"
+                           value="<?php if (isset($_GET['sortby'])&&($_GET['sortby']=="Highest Price")) echo htmlspecialchars($_GET['sortby']); else if (isset($_GET['sortby'])&&($_GET['sortby']=="Lowest Price")) echo htmlspecialchars($_GET['sortby']); else if (isset($_GET['sortby'])&&($_GET['sortby']=="Newly Listed")) echo htmlspecialchars($_GET['sortby']); ?>">
 		    <input type="hidden" name="minprice"
                            value="<?php if (isset($_GET['minprice'])) echo htmlspecialchars($_GET['minprice']); ?>">
                     <input type="hidden" name="maxprice"
@@ -107,7 +107,101 @@
                            value="<?php echo htmlspecialchars($_GET['searchinput']); ?>">
                     <input type="hidden" name="category" value="<?php echo htmlspecialchars($_GET['category']); ?>">
                     <br>
-                    <input type="submit" name="reset_filter" value="Reset">
+                    <input type="submit" name="reset_filter" value="Reset"> -->
+     <div class="panel panel-default" style="background:#f7f7f7">
+      	<div class="panel-heading clearfix" style="background:#d0d0d0">
+      		<h5 class="panel-title pull-left" style="padding-top: 7.5px;"><b>Search Results : <?php echo count($products) ?> items <?php if(isset($_GET['highprice'])) echo " > High to Low"; else if(isset($_GET['lowprice'])) echo " > Low to High"; else if(isset($_GET['date'])) echo " > Newly Listed";?> <?php if(isset($_GET['minprice'])&&($_GET['minprice']!="")) { echo " > $"; echo htmlspecialchars($_GET['minprice']); echo " - "; echo "$"; echo htmlspecialchars($_GET['maxprice']);} if(isset($_GET['itemcondition'])&&($_GET['itemcondition']!="")) { echo " > "; echo htmlspecialchars($_GET['itemcondition']); }?> </b></h5>
+    </div>
+    <div class="row text-center">
+        <div class="col-md-3">
+        <div class="row text-center">
+            <h5>Sort by:</h5>
+            <div class="col-sm-4">
+            <form action="<?php echo URL; ?>products/searchproducts" method="GET">
+                    <input type="hidden" name="searchinput" value="<?php echo htmlspecialchars($_GET['searchinput']);?>">
+                    <input type="hidden" name="category" value="<?php echo htmlspecialchars($_GET['category']);?>">
+                    <input type="hidden" name="sortby" value="<?php if(isset($_GET['highprice'])) echo  htmlspecialchars($_GET['highprice']); else if(isset($_GET['lowprice'])) echo htmlspecialchars($_GET['lowprice']); else if (isset($_GET['date'])) echo htmlspecialchars($_GET['date']);?>">
+                    <input type="hidden" name="minprice" value="<?php if(isset($_GET['minprice']))echo htmlspecialchars($_GET['minprice']);?>">
+                                    <input type="hidden" name="maxprice" value="<?php if(isset($_GET['maxprice']))echo htmlspecialchars($_GET['maxprice']);?>">
+                        <input type="hidden" name="itemcondition" value="<?php if(isset($_GET['itemcondition'])) echo htmlspecialchars($_GET['itemcondition']);?>">
+    
+                    <input class="btn btn-info" type="submit" name="highprice" value="Highest Price"/>
+                </form>
+                </div>
+                    <div class="col-sm-4">
+                                <form action="<?php echo URL; ?>products/searchproducts" method="GET">
+                                        <input type="hidden" name="searchinput" value="<?php echo htmlspecialchars($_GET['searchinput']);?>">
+                                        <input type="hidden" name="category" value="<?php echo htmlspecialchars($_GET['category']);?>">
+                                        <input type="hidden" name="sortby" value="<?php if(isset($_GET['highprice'])) echo  htmlspecialchars($_GET['highprice']); else if(isset($_GET['lowprice'])) echo htmlspecialchars($_GET['lowprice']); else if (isset($_GET['date'])) echo htmlspecialchars($_GET['date']);?>">
+                                        <input type="hidden" name="minprice" value="<?php if(isset($_GET['minprice'])) echo htmlspecialchars($_GET['minprice']);?>">
+                                        <input type="hidden" name="maxprice" value="<?php if(isset($_GET['maxprice'])) echo htmlspecialchars($_GET['maxprice']);?>">
+                                        <input type="hidden" name="itemcondition" value="<?php if(isset($_GET['itemcondition'])) echo htmlspecialchars($_GET['itemcondition']);?>">
+
+                <input class="btn btn-info" type="submit" name="lowprice" value="Lowest Price"/>
+                </form>
+                </div>
+                <div class="col-sm-4">
+                                <form action="<?php echo URL; ?>products/searchproducts" method="GET">
+                            <input type="hidden" name="searchinput" value="<?php if(isset($_GET['searchinput'])) echo htmlspecialchars($_GET['searchinput']);?>">
+                                        <input type="hidden" name="category" value="<?php echo htmlspecialchars($_GET['category']);?>">
+                                        <input type="hidden" name="sortby" value="<?php if(isset($_GET['highprice'])) echo  htmlspecialchars($_GET['highprice']); else if(isset($_GET['lowprice'])) echo htmlspecialchars($_GET['lowprice']); else if (isset($_GET['date'])) echo htmlspecialchars($_GET['date']);?>">
+                                        <input type="hidden" name="minprice" value="<?php if(isset($_GET['minprice'])) echo htmlspecialchars($_GET['minprice']);?>">
+                                        <input type="hidden" name="maxprice" value="<?php if(isset($_GET['maxprice'])) echo htmlspecialchars($_GET['maxprice']);?>">
+                                        <input type="hidden" name="itemcondition" value="<?php if(isset($_GET['itemcondition'])) echo htmlspecialchars($_GET['itemcondition']);?>">             
+                <input class="btn btn-info" type="submit" name="date" value="Newly Listed"/>
+                </form>
+                </div>
+        </div>
+        </div>
+        <div class="col-md-3">
+            <h5>Filter by Price Range:</h5>
+            <div class="row text-center">
+            <form action="<?php echo URL; ?>products/searchproducts" method="GET">
+                        <input type="hidden" name="searchinput" value="<?php echo htmlspecialchars($_GET['searchinput']);?>">
+                                        <input type="hidden" name="category" value="<?php echo htmlspecialchars($_GET['category']);?>">
+                    <input type="hidden" name="sortby" value="<?php if(isset($_GET['highprice'])) echo  htmlspecialchars($_GET['highprice']); else if(isset($_GET['lowprice'])) echo htmlspecialchars($_GET['lowprice']); else if (isset($_GET['date'])) echo htmlspecialchars($_GET['date']);?>">
+                                        <input type="hidden" name="itemcondition" value="<?php if(isset($_GET['itemcondition'])) echo htmlspecialchars($_GET['itemcondition']);?>">
+                                        
+                <div class="col-lg-4">
+                <input class="form-control" type="text" name="minprice" value="" placeholder="Min Price" required/>
+                </div>
+                <div class="col-lg-4">   
+                <input class="form-control" type="text" name="maxprice" value="" placeholder="Max Price" required/>
+                </div>
+                <div class="col-lg-4">   
+                                <input type="submit" class="btn btn-info" name="submit_filter_price_product" value="Submit">
+                                </div>
+                </form>
+            </div>
+                                <form action="<?php echo URL; ?>products/searchproducts" method="GET">
+                                        <input type="hidden" name="searchinput" value="<?php echo htmlspecialchars($_GET['searchinput']);?>">
+                                        <input type="hidden" name="category" value="<?php echo htmlspecialchars($_GET['category']);?>">
+                                        <input type="hidden" name="sortby" value="<?php if(isset($_GET['highprice'])) echo  htmlspecialchars($_GET['highprice']); else if(isset($_GET['lowprice'])) echo htmlspecialchars($_GET['lowprice']); else if (isset($_GET['date'])) echo htmlspecialchars($_GET['date']);?>">
+                                        <input type="hidden" name="minprice" value="<?php if(isset($_GET['minprice'])) echo htmlspecialchars($_GET['minprice']);?>">
+                                        <input type="hidden" name="maxprice" value="<?php if(isset($_GET['maxprice'])) echo htmlspecialchars($_GET['maxprice']);?>">
+        </div>
+        <div class="col-md-3">
+            <h5>Filter by Condition:</h5>
+            <div class="row text-center">
+            <div class="col-md-6">
+            <select name="itemcondition" class="form-control">
+			<option value="">Any condition</option>
+                        <option>New</option>
+                        <option>Used</option>
+                    </select>
+                    </div>
+                    <div class="col-md-6">
+                    <input type="submit" class="btn btn-info" name="submit_condition_product" value="Submit"></form>
+                    </div>
+        </div>
+        </div>
+        <div class ="col-md-3">
+        <h5>Reset Filter:</h5>
+        <form action="<?php echo URL; ?>products/searchproducts" method="GET">
+                                        <input type="hidden" name="searchinput" value="<?php echo htmlspecialchars($_GET['searchinput']);?>">
+                                        <input type="hidden" name="category" value="<?php echo htmlspecialchars($_GET['category']);?>">
+                    
+                    <input type="submit" class="btn btn-info" name="reset_filter" value="Reset">
 
                 </form>
             </div>
