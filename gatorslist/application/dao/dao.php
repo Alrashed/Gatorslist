@@ -428,7 +428,7 @@ class Dao {
         
         else if ($target == "itemDetail") {
             $pid = $parameters[":product_id"];
-            $sql ="SELECT i.Image_blob1, i.Image_blob2, i.Image_blob3, i.Image_blob4, u.Firstname, p.Seller_id, p.Title, p.Description, p.Price, p.ItemCondition, p.Postdate, p.Product_id, p.Category_Id, p.ItemCondition FROM product p,image i, user u  WHERE p.Image_id = i.Image_id AND p.Product_id = ".$pid." AND u.User_id = p.Seller_id ";
+            $sql ="SELECT i.Image_blob1, i.Image_blob2, i.Image_blob3, i.Image_blob4, u.Email, p.Seller_id, p.Title, p.Description, p.Price, p.ItemCondition, p.Postdate, p.Product_id, p.Category_Id, p.ItemCondition FROM product p,image i, user u  WHERE p.Image_id = i.Image_id AND p.Product_id = ".$pid." AND u.User_id = p.Seller_id ";
 //            echo $sql;
             $query = $this->db->prepare($sql);
             try {
