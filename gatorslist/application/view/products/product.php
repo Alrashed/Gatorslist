@@ -1,4 +1,4 @@
-<div class="" style="width:80%; margin-left:10%">
+<div class="row" style="width:80%; margin-left:10%">
      <div class="panel panel-default" style="background:#f7f7f7">
       	<div class="panel-heading clearfix" style="background:#d0d0d0">
       		<h5 class="panel-title pull-left" style="padding-top: 7.5px;"><b>Search Results : <?php echo count($products) ?> items <?php if(isset($_GET['highprice'])) echo " > High to Low"; else if(isset($_GET['lowprice'])) echo " > Low to High"; else if(isset($_GET['date'])) echo " > Newly Listed";?> <?php if(isset($_GET['minprice'])&&($_GET['minprice']!="")) { echo " > $"; echo htmlspecialchars($_GET['minprice']); echo " - "; echo "$"; echo htmlspecialchars($_GET['maxprice']);} if(isset($_GET['itemcondition'])&&($_GET['itemcondition']!="")) { echo " > "; echo htmlspecialchars($_GET['itemcondition']); }?> </b></h5>
@@ -100,7 +100,6 @@
     </div>
             <div class="row">
                 <?php foreach ($products as $product) { ?>
-
                 <div class="col-sm-4">
                     <div class="panel-body"><a href="<?php echo URL. 'item/showitem/' . htmlspecialchars($product->Product_id, ENT_QUOTES, 'UTF-8'); ?>"><img  <?php if (isset($product->Image_blob1) && $product->Image_blob1 != "")
                                                         echo 'src="data:image/jpeg;base64,'.base64_encode($product->Image_blob1).'" height="150" width="150"';
