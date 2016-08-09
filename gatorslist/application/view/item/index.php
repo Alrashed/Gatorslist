@@ -1,5 +1,5 @@
 
-<div class="row" style="width:80%; margin-left:10%;opacity: 1;padding: 5%;border-radius: 5px;padding-bottom: 5vh;">
+<div class="row" style="width:80%; margin-left:10%;opacity: 1;border-radius: 5px;padding-bottom: 5vh;">
   	  <div class="panel-heading  col-xs-12"  style="background: #f2f2f2" ><h1 class=" col-xs-offset-1"  style="border-radius:10px"><?php if (isset($productDetail->Title)) echo htmlspecialchars($productDetail->Title, ENT_QUOTES, 'UTF-8'); ?></h1></div>
       <div class="row panel-body" style="background: #f2f2f2" >
       <div class="col-xs-6 col-xs-offset-1 float-left panel-body"  style="height: 60vh; width: 30vw;">
