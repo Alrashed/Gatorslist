@@ -74,7 +74,7 @@
             <div class="row">
                 <div class="col-xs-6 float-left" >
                     <select name="itemcondition" class="form-control">
-                    <option value="" size="2">Any condition</option>
+                    <option value="" size="2">Any</option>
                                 <option>New</option>
                                 <option>Used</option>
                     </select>
