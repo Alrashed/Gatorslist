@@ -4,7 +4,7 @@
   <h3 class="text-center">Item has been added!</h3>
 
     <div class="box text-center"> 
-        <p><strong>You will be redirected to the home page in 5 seconds. Or click <a href="<?php echo URL; ?>useraccount/index">here</a> to go there now.</strong></p>
+        <p><strong>You will be redirected to your account overview in 5 seconds. Or click <a href="<?php echo URL; ?>useraccount/index">here</a> to go there now.</strong></p>
     </div>
 </div>
 
