@@ -77,10 +77,10 @@
                     </div>
 
                     <div class="form-group" >
-                        <div class="" >
+
                           <button type="submit" class="btn btn-default col-lg-offset-4" name="submit" value="submit" id="submit">Submit</button>
-                        </div>
-                    </div>
+
+                      </div>
               </form>
             </div>
          </div>
