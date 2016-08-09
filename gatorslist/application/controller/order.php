@@ -35,7 +35,7 @@ class Order extends Controller
     {
         $buyer_id =  $_SESSION['loggedInUser_id'];
         $date = date("Y-m-d H:i:s");
-        $status = "In proces";
+        $status = "In process";
         
         if (isset($_POST["submit"])) {
             

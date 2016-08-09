@@ -17,6 +17,7 @@
                               <input type="text" class="form-control input-md" name='Title' id="item_title" style="font-size:14px" maxlength="50" placeholder="Enter item name">
                             </div>
                           </div>
+
                           <div class="form-group" style="margin-left:20%">  
                             <label class="" for="price" >Price: </label>
                             <div class="">
@@ -24,6 +25,7 @@
                             </div>
                            </div>
                       </div>
+
                           <div class="form-group">
                           	  <label class="" for="categories" >Choose Categories:</label>
                               <div class=""  id="categories">                              
@@ -38,6 +40,7 @@
                                   </select>
                               </div>
                           </div>
+
                           <div class="form-group">
                           	  <label class="" for="condition" >Choose Condition:</label>
                               <div class="" id="item_condition" style="margin-left:0%">                              	  

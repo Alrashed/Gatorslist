@@ -1,4 +1,4 @@
-	
+
   <div class="row" style="width:80%; margin-left:10%;opacity: 1;padding: 4%;border-radius: 5px">
   	  <div class="panel-heading  col-xs-12"  style="background: #f2f2f2" ><h1 class=" col-xs-offset-1"  style="border-radius:10px"><?php if (isset($productDetail->Title)) echo htmlspecialchars($productDetail->Title, ENT_QUOTES, 'UTF-8'); ?></h1><div>
       <div class="row">

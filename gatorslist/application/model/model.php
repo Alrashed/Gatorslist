@@ -202,7 +202,7 @@ class Model
 		if ($filtertype == "price"){ 
                         $parameters = [
                                 ":searchinput" => $searchinput,
-				":category" => $category,
+				                ":category" => $category,
                                 ":minprice" => $var1,
                                 ":maxprice" => $var2,
                         ];
