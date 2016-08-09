@@ -75,7 +75,7 @@ class Sell extends Controller
         $seller_id =  $_SESSION['loggedInUser_id'];
         $this->model->createItem($seller_id,$_POST["Title"], $_POST["Description"], $_POST["Price"], $_POST["Condition"],$date, $_POST["Category_Id"],$image1,$image2,$image3,$image4);
 
-        header('location: ' . URL . 'sell/index');
+        header('location: ' . URL . 'sell/added');
     }
 
     public function editItem()
@@ -120,6 +120,14 @@ class Sell extends Controller
         
         // where to go after user has been deleted
 //        header('location: ' . URL . 'item/index');
+    }
+
+    public function added()
+    {
+        // load views
+        require APP . 'view/_templates/header.php';
+        require APP . 'view/sell/added.php';
+        require APP . 'view/_templates/footer.php';
     }
     
 }
