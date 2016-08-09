@@ -69,7 +69,7 @@ class Sell extends Controller
             $image4 = NULL;
         }
 
-        $date = date("Y-m-d");
+        $date = date("Y-m-d H:i:s");
         $seller_id =  $_SESSION['loggedInUser_id'];
         $this->model->createItem($seller_id,$_POST["Title"], $_POST["Description"], $_POST["Price"], $_POST["Condition"],$date, $_POST["Category_Id"],$image1,$image2,$image3,$image4);
 
