@@ -1,11 +1,12 @@
-<div class="container" style="">
+
+<div class="container" id="sell" onpageshow="scrollWin()">
     <!-- register form -->
     <div class="box">
         <div class="col-lg-6 col-lg-offset-3" style="margin-top:1%" >
         	<!-- Panel container -->
             <div class="panel panel-default ">
             	<!-- panel head-->
-            	<div class="panel-heading" style="text-align:center; font-weight:800; font-size:20px">Sell your item</div>
+            	<div class="panel-heading" style="text-align:center; font-weight:800; font-size:20px">Enter your item info</div>
 				<!-- panel body -->                
                 <form class="panel-body col-lg-offset-0" style="font-size: 16px;background-color: #87CEFA"  role="form" action="<?php echo URL; ?>sell/createitem" method="POST" enctype="multipart/form-data">
                       
@@ -13,16 +14,18 @@
                           <div class="form-group" >
                             <label class="" for="item title" >Item title:</label>
                             <div class="">
-                              <input type="text" class="form-control input-md" name='Title' id="item_title" style="font-size:14px" placeholder="Enter item name">
+                              <input type="text" class="form-control input-md" name='Title' id="item_title" style="font-size:14px" maxlength="50" placeholder="Enter item name">
                             </div>
                           </div>
+
                           <div class="form-group" style="margin-left:20%">  
                             <label class="" for="price" >Price: </label>
                             <div class="">
-                              <input type="number" class="form-control input-md " name='Price' id="item_price" style="font-size:14px" placeholder="">
+                              <input type="number" class="form-control input-md " name='Price' id="item_price" style="font-size:14px" maxlength="1" placeholder="">
                             </div>
                            </div>
                       </div>
+
                           <div class="form-group">
                           	  <label class="" for="categories" >Choose Categories:</label>
                               <div class=""  id="categories">                              
@@ -37,6 +40,7 @@
                                   </select>
                               </div>
                           </div>
+
                           <div class="form-group">
                           	  <label class="" for="condition" >Choose Condition:</label>
                               <div class="" id="item_condition" style="margin-left:0%">                              	  
@@ -49,7 +53,7 @@
                           </div> 
                       <div class="form-group">
                           <label class="" for="condition">Description: </label>
-                          <textarea class="form-control" rows="5"  name='Description' id="description" placeholder="Describe your item here..."></textarea>
+                          <textarea class="form-control" rows="5"  name='Description' id="description" maxlength="1000" placeholder="Describe your item here..."></textarea>
                       </div>
 
                     <div class="form-group">
@@ -73,9 +77,9 @@
                     </div>
 
                     <div class="form-group" >
-                        <div class="" >
+
                           <button type="submit" class="btn btn-default col-lg-offset-4" name="submit" value="submit" id="submit">Submit</button>
-                        </div>
+
                       </div>
               </form>
             </div>

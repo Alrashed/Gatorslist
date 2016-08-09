@@ -100,14 +100,30 @@ class Model
 
     }
     
-    public function getAllSortedProducts($searchinput, $category, $sorttype)
-    {   	
+    public function getAllSortedProducts($searchinput, $category, $sorttype, $filtertype, $filterinput, $filterinput2="", $filterinput3="")
+    {	
+	    if($filterinput!="") 
+	    $tempinput = $filterinput;
+	    else 
+	    $tempinput = "";
 	    if($category == "") {
+		if($filterinput =="") {
             
 	  	    $parameters = [
                 	":searchinput" => $searchinput,
-            	];
-	
+            	    ];
+		}	
+		
+		else {  
+ 
+		   $parameters = [
+			":filtertype" => $filtertype,
+			":filterinput" => $tempinput,
+			":filterinput2" => $filterinput2,
+			":filterinput3" => $filterinput3,
+			":searchinput" => $searchinput,
+		   ];
+		}
            	if ($sorttype == "highprice") 
             		return $this->dao->get($parameters, "allHighProducts");
 	    
@@ -119,17 +135,29 @@ class Model
 	    }
 	   
 	else {
-	     $parameters = [
-                ":searchinput" => $searchinput,
-		":category" => $category,
-             ];
-        
-             if ($sorttype == "highprice") 
+	     if($filterinput="") {
+	     	$parameters = [
+                	":searchinput" => $searchinput,
+			":category" => $category,
+             	];
+	     }
+
+	     else {
+                   $parameters = [
+                        ":filtertype" => $filtertype,
+                        ":filterinput" => $tempinput,
+                        ":filterinput2" => $filterinput2,
+                        ":filterinput3" => $filterinput3,
+                        ":searchinput" => $searchinput,
+			":category" => $category,
+                   ];
+             }
+
+             if ($sorttype == "highprice")
              		return $this->dao->get($parameters, "allHighProducts");
 
              else if($sorttype == "lowprice")
-             		return $this->dao->get($parameters, "allLowProducts");
-                
+             		return $this->dao->get($parameters, "allLowProducts");   
             
              else if($sorttype == "date") 
              		return $this->dao->get($parameters, "allNewestProducts");
@@ -137,7 +165,7 @@ class Model
 		
     }
 
-    public function getAllFilteredProducts($searchinput,$category, $filtertype,$var1, $var2 = "constant")
+    public function getAllFilteredProducts($searchinput,$category, $filtertype,$var1, $var2 = "", $var3 = "")
     {
 	if ($category == "") {
 	    	if ($filtertype == "price"){ 
@@ -148,6 +176,17 @@ class Model
 	    		];
 
 	    		return $this->dao->get($parameters, "allFilterPriceProducts");
+		}
+
+		else if ($filtertype == "both") {
+			$parameters = [
+                                ":searchinput" => $searchinput,
+                                ":itemcondition" => $var1,
+				":minprice" => $var2,
+                                ":maxprice" => $var3,
+			];		
+	
+                        return $this->dao->get($parameters, "allFilterBothProducts");
 		}	
 		
 		else if ($filtertype == "condition") {
@@ -163,13 +202,25 @@ class Model
 		if ($filtertype == "price"){ 
                         $parameters = [
                                 ":searchinput" => $searchinput,
-				":category" => $category,
+				                ":category" => $category,
                                 ":minprice" => $var1,
                                 ":maxprice" => $var2,
                         ];
                         
                         return $this->dao->get($parameters, "allFilterPriceProducts");
-        }       
+        	}
+
+                else if ($filtertype == "both") {
+                        $parameters = [
+                                ":searchinput" => $searchinput,
+				":category" => $category,
+                                ":itemcondition" => $var1,
+                                ":minprice" => $var2,
+                                ":maxprice" => $var3,
+                        ];              
+        
+                        return $this->dao->get($parameters, "allFilterBothProducts");
+                }           
                 
                 else if ($filtertype == "condition") {
                         $parameters = [
