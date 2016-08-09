@@ -351,3 +351,10 @@ h5 {
     background-color:#cfebfd;
     border-radius: 10px;
 }
+b {
+    font-weight: 900;
+}
+.img-item {
+    height: 55vh; 
+    width: 30vw;
+}
