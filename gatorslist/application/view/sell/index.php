@@ -10,18 +10,18 @@
 				<!-- panel body -->                
                 <form class="panel-body col-lg-offset-0" style="font-size: 16px;background-color: #87CEFA"  role="form" action="<?php echo URL; ?>sell/createitem" method="POST" enctype="multipart/form-data">
                       
-                      <div class="form-group form-inline">
-                          <div class="form-group" >
-                            <label class="" for="item title" >Item title:</label>
-                            <div class="">
+                      <div class="form-group">
+                          <div class="row" >
+                            <label class=" col-lg-7" for="item title" >Item title:</label>
+                            <label class=" col-lg-5" for="price" >Price: </label>
+                            
+                          </div>
+                          <div class="row">  
+                            <div class="col-lg-5">
                               <input type="text" class="form-control input-md" name='Title' id="item_title" style="font-size:14px" maxlength="50" placeholder="Enter item name">
                             </div>
-                          </div>
-
-                          <div class="form-group" style="margin-left:20%">  
-                            <label class="" for="price" >Price: </label>
-                            <div class="">
-                              <input type="number" class="form-control input-md " name='Price' id="item_price" style="font-size:14px" maxlength="1" placeholder="">
+                            <div class="col-lg-5 col-lg-offset-2">
+                              <input type="number" class="form-control input-md " name='Price' id="item_price" style="font-size:14px" maxlength="20" placeholder="">
                             </div>
                            </div>
                       </div>
