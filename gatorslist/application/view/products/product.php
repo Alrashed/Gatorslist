@@ -101,7 +101,7 @@
                                                         else echo 'src="http://placehold.it/150x80?text=IMAGE" ' ?>class=" " style="width:95%;height:272px;" alt="Image"></a>
                         </div>
                         <div class="col-lg-12" style="float:left;  width:100%;background:">
-                                <div class="col-lg-12 col-lg-offset-0" style="background:#FFFFFF;font-size:18px;font-weight:bold;padding-top:1vh;padding-bottom:1vh;margin-right:1vw"> <?php if (isset($product->Title)) echo htmlspecialchars($product->Title, ENT_QUOTES, 'UTF-8'); ?></div>
+                                <div class="col-lg-12 col-lg-offset-0" style="background:#FFFFFF;font-size:24px;font-weight:bold;padding-top:1vh;padding-bottom:1vh;margin-right:1vw;height:6vh"> <?php if (isset($product->Title)) echo htmlspecialchars($product->Title, ENT_QUOTES, 'UTF-8'); ?></div>
                                 <div class="row panel-body" style="margin-top:3vh">
                                      <div class="col-lg-7 " style="background:#FFFFFF;float:left;font-size:14px; height:5vh;padding:auto">Date Upload : </br><?php if (isset($product->Postdate)) echo htmlspecialchars(date("Y-m-d", strtotime($product->Postdate)), ENT_QUOTES, 'UTF-8'); ?></div>
                                      <div class="col-lg-5 sansserif float-right" style="background:#FFFFFF;height:5vh;font-size:24px; font-weight:bolder;padding-top:.5vh;"> $<?php if (isset($product->Price)) echo htmlspecialchars($product->Price, ENT_QUOTES, 'UTF-8'); ?></div>
