@@ -12,13 +12,13 @@
                       <div class="form-group">
                         <label class="" for="email">SFSU Email:</label>
                         <div>
-                          <input type="email" name="email" value="" required class="form-control input-lg" id="username_field" style="font-size:16px" maxlength="50" placeholder="Enter SFSU email" />
+                          <input type="email" name="email" value="" required class="form-control input-lg" id="username_field" style="font-size:16px" placeholder="Enter SFSU email" />
                         </div>
                       </div>
                       <div class="form-group">
                         <label class="" for="password">Password:</label>
                         <div> 
-                          <input type="password" name="password" value="" required class="form-control input-lg" id="password_field" style="font-size:16px" maxlength="30" placeholder="Enter password" />
+                          <input type="password" name="password" value="" required class="form-control input-lg" id="password_field" style="font-size:16px" placeholder="Enter password" />
                         </div>
                       </div>                      
                       <div class="form-group" > 
