@@ -1,6 +1,6 @@
-<div class="container " style="width:80%; margin-left:10%; margin-top:1%">
+<div class="container " style="width:80%; margin-left:10%; margin-top:1%;border: 2px solid #EC971F;border-radius: 10px;background:#f7f7f7">
      <div class="panel panel-default" style="background:#f7f7f7">
-        <div class="panel-heading" style="background:#d0d0d0">Recently Added Items</div>
+        <div class="panel-heading" style="background:#d0d0d0;font-size:18px">Recently Added Items</div>
             <div class="row panel-body " style="background:;width:100%;margin-left:4%">
                 <div class="col-lg-3" style="background:;padding-left:1vw;padding-right:1vw">
                     <?php foreach ($newestBook as $product) { ?>
@@ -142,6 +142,5 @@
 
            
             </div>
-          </div>
-      </div>
+          
 </div><br>
