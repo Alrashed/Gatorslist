@@ -38,8 +38,7 @@ class Users extends Controller
         if (isset($_POST["submit"])) {
             $pass = $_POST["password"];
             $hash = password_hash($pass, PASSWORD_DEFAULT);
-            echo $hash;
-
+            
             // do createUser() in model/model.php
             $this->model->createUser($_POST["email"],  $hash, $_POST["firstname"], $_POST["lastname"]);
         }

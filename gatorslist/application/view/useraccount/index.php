@@ -43,7 +43,7 @@
 
                                 <td><a href="<?php echo URL . 'useraccount/editItem/' . htmlspecialchars($userproduct->Product_id, ENT_QUOTES, 'UTF-8'); ?>">EDIT</a></td>
  
-                                 <td><a href="<?php echo URL . 'useraccount/deleteItem/' . htmlspecialchars($userproduct->Product_id, ENT_QUOTES, 'UTF-8'); ?>">DELETE</a></td>
+                                 <td><a onclick="return confirm('This will permanantly delete your item.')" href="<?php echo URL . 'useraccount/deleteItem/' . htmlspecialchars($userproduct->Product_id, ENT_QUOTES, 'UTF-8'); ?>">DELETE</a></td>
                                 
                             </tr>
                         <?php } ?>

@@ -358,3 +358,6 @@ b {
     height: 55vh; 
     width: 30vw;
 }
+.sansserif {
+    font-family: Arial, Helvetica, sans-serif;
+}

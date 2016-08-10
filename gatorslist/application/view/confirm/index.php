@@ -2,7 +2,7 @@
 <div class="panel-heading shadow" style="background:#d0d0d0"><h1 class="text-center" style="color:#000000;">Order Confirmation</h1></div>
     <div class="jumbotron panel-body" >         
     	<div class="row">
-            <div class="col-lg-3 col-lg-offset-1">
+            <div class="col-lg-2 col-lg-offset-1">
                           <img  <?php if (isset($productDetail->Image_blob1) && $productDetail->Image_blob1 != "")
                           echo 'src="data:image/jpeg;base64,'.base64_encode($productDetail->Image_blob1).'" height="350" width="300"';?>>
             </div>
