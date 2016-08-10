@@ -36,9 +36,11 @@ class Users extends Controller
         // if we have POST data to create a new user entry
         $categories = $this->model->getProductCategory();
         if (isset($_POST["submit"])) {
-
+            $pass = $_POST["password"];
+            $hash = password_hash($pass, PASSWORD_DEFAULT);
+            
             // do createUser() in model/model.php
-            $this->model->createUser($_POST["email"],  $_POST["password"], $_POST["firstname"], $_POST["lastname"]);
+            $this->model->createUser($_POST["email"],  $hash, $_POST["firstname"], $_POST["lastname"]);
         }
         // where to go after user has been added
         header('location: ' . URL . 'login/index');

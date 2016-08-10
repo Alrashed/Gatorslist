@@ -1,4 +1,3 @@
-
 <div class="row" style="width:80%; margin-left:10%;opacity: 1;border-radius: 5px;padding-bottom: 5vh;">
       <div class="row panel-body" style="background: #f2f2f2" >
       <div class="col-xs-6 col-xs-offset-1 float-left panel-body"  style="height: 60vh; width: 30vw;">
@@ -24,3 +23,4 @@
       </div>
 </div>
   
+
