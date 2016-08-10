@@ -21,7 +21,7 @@
                           <div class="form-group" style="margin-left:20%">  
                             <label class="" for="price" >Price: </label>
                             <div class="">
-                              <input type="number" class="form-control input-md " name='Price' id="item_price" style="font-size:14px" maxlength="1" placeholder="">
+                              <input type="number" class="form-control input-md " name='Price' id="item_price" style="font-size:14px" min="0" max="1000000000" placeholder="">
                             </div>
                            </div>
                       </div>
