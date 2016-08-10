@@ -133,19 +133,30 @@ class Dao {
         }
         
         else if ($target == "user") {
-           $email = $parameters[":email"];
-           $password = $parameters[":password"];
-           $sql = "SELECT User_id, Email FROM user WHERE (Email = '".$email."') AND (Password = '".$password."')";
-           $query = $this->db->prepare($sql);
-           try {
-               if ($query->execute()) {
-                   return $query->fetch();
-               } else {
-                   return false;
-               }
-           } catch (PDOException $e) {
-               echo $e->getMessage();
-           }
+            $email = $parameters[":email"];
+            $password = $parameters[":password"];
+            $sql1 = "SELECT Password FROM user WHERE Email = '" . $email . "'";
+            $query = $this->db->prepare($sql1);
+            $query->execute();
+            $result = $query->fetch();
+            $hashed_pass = $result->Password;
+
+            if (password_verify($password, $hashed_pass)) {
+
+                $sql = "SELECT User_id, Email FROM user WHERE Email = '" . $email . "'";
+                $query = $this->db->prepare($sql);
+                try {
+                    if ($query->execute()) {
+                        return $query->fetch();
+                    } else {
+                        return false;
+                    }
+                } catch (PDOException $e) {
+                    echo $e->getMessage();
+                }
+            } else {
+                echo "wrong password";
+            }
         }
 
         else if ($target == "userInfo") {
