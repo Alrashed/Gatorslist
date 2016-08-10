@@ -42,7 +42,7 @@ class Login extends Controller
         
         if (isset($_GET["loginuser"])) {
 //            $email = $_POST["email"];
-//            $password = $_POST["password"];
+//            $password = $_GET["password"];
 //            $salt = "saltedpass4team4";
 //            $saltedpassword = md5($salt . $password);
             
