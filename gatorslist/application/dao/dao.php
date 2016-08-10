@@ -225,10 +225,10 @@ class Dao {
 
 	   if(isset($parameters[":filterInput"])&&($parameters[":filterInput"]!=""))
 	   	$filterInput = $parameters[":filterInput"];
-	   if(isset($parameters[":secondfilterInput"])&&($parameters[":secondfilterInput"]!=""))
-	    	$secondFIlterInput = $parameters[":secondfilterInput"];
-           if(isset($parameters[":thirdfilterInput"])&&($parameters[":thirdfilterInput"]!=""))
-                $thirdFilterInput = $parameters[":thirdfilterInput"];
+	   if(isset($parameters[":secondFilterInput"])&&($parameters[":secondFilterInput"]!=""))
+	    	$secondFilterInput = $parameters[":secondFilterInput"];
+           if(isset($parameters[":thirdFilterInput"])&&($parameters[":thirdFilterInput"]!=""))
+                $thirdFilterInput = $parameters[":thirdFilterInput"];
 	   if(isset($parameters[":filterType"]))
 	   	$filterType= $parameters[":filterType"];	
 	   
@@ -236,15 +236,15 @@ class Dao {
   
 	        if(isset($parameters[":category"])) {
 	    	    	$category = $parameters[":category"];
-			if(isset($secondFIlterInput)){
+			if(isset($secondFilterInput)){
 				if($filterType=="condition"){
             				$sql = "SELECT i.Image_blob1,p1.Title,p1.ItemCondition, p1.Description, p1.Price, p1.Postdate, p1.Product_id FROM product p1,image i WHERE i.Image_id = p1. Image_id AND p1.Category_Id = (SELECT pc.Category_id FROM productCategory pc WHERE pc.Category_name = '".$category."') AND (p1.Title LIKE '%".$searchinput."%'OR p1.Description LIKE '%".$searchinput."%') AND (ItemCondition = '".$filterInput."') ORDER BY cast(Price as SIGNED) DESC"; }
 			
 				else if($filterType=="both") {
-                                        $sql = "SELECT i.Image_blob1,p1.Title,p1.ItemCondition, p1.Description, p1.Price, p1.Postdate, p1.Product_id FROM product p1,image i WHERE i.Image_id = p1. Image_id AND p1.Category_Id = (SELECT pc.Category_id FROM productCategory pc WHERE pc.Category_name = '".$category."') AND (p1.Title LIKE '%".$searchinput."%'OR p1.Description LIKE '%".$searchinput."%') AND (ItemCondition = '".$filterInput."') AND (p1.Price BETWEEN $secondFIlterInput AND $thirdFilterInput) ORDER BY cast(Price as SIGNED) DESC";	}
+                                        $sql = "SELECT i.Image_blob1,p1.Title,p1.ItemCondition, p1.Description, p1.Price, p1.Postdate, p1.Product_id FROM product p1,image i WHERE i.Image_id = p1. Image_id AND p1.Category_Id = (SELECT pc.Category_id FROM productCategory pc WHERE pc.Category_name = '".$category."') AND (p1.Title LIKE '%".$searchinput."%'OR p1.Description LIKE '%".$searchinput."%') AND (ItemCondition = '".$filterInput."') AND (p1.Price BETWEEN $secondFilterInput AND $thirdFilterInput) ORDER BY cast(Price as SIGNED) DESC";	}
 		
 				else if($filterType=="price"){
-					$sql = "SELECT i.Image_blob1,p1.Title,p1.ItemCondition, p1.Description, p1.Price, p1.Postdate, p1.Product_id FROM product p1,image i WHERE i.Image_id = p1. Image_id AND p1.Category_Id = (SELECT pc.Category_id FROM productCategory pc WHERE pc.Category_name = '".$category."') AND (p1.Title LIKE '%".$searchinput."%'OR p1.Description LIKE '%".$searchinput."%') AND (p1.Price BETWEEN $filterInput AND $secondFIlterInput) ORDER BY cast(Price as SIGNED) DESC";
+					$sql = "SELECT i.Image_blob1,p1.Title,p1.ItemCondition, p1.Description, p1.Price, p1.Postdate, p1.Product_id FROM product p1,image i WHERE i.Image_id = p1. Image_id AND p1.Category_Id = (SELECT pc.Category_id FROM productCategory pc WHERE pc.Category_name = '".$category."') AND (p1.Title LIKE '%".$searchinput."%'OR p1.Description LIKE '%".$searchinput."%') AND (p1.Price BETWEEN $filterInput AND $secondFilterInput) ORDER BY cast(Price as SIGNED) DESC";
 				}
 			}
 
@@ -258,10 +258,10 @@ class Dao {
             				$sql = "SELECT i.Image_blob1,p.Title,p.ItemCondition, p.Description, p.Price, p.Postdate, p.Product_id FROM product p, image i  WHERE ((i.Image_id = p. Image_id AND p.Title LIKE '%" . $searchinput . "%') or (i.Image_id = p. Image_id AND Description LIKE '%." . $searchinput . "%')) AND (p.ItemCondition = '".$filterInput."') ORDER BY cast(Price as SIGNED) DESC";	
 				
 				else if($filterType=="both")
-					$sql = "SELECT i.Image_blob1,p.Title,p.ItemCondition, p.Description, p.Price, p.Postdate, p.Product_id FROM product p, image i  WHERE ((i.Image_id = p. Image_id AND p.Title LIKE '%" . $searchinput . "%') or (i.Image_id = p. Image_id AND Description LIKE '%." . $searchinput . "%')) AND (p.ItemCondition = '".$filterInput."') AND (p.Price BETWEEN $secondFIlterInput AND $thirdFilterInput) ORDER BY cast(Price as SIGNED) DESC";
+					$sql = "SELECT i.Image_blob1,p.Title,p.ItemCondition, p.Description, p.Price, p.Postdate, p.Product_id FROM product p, image i  WHERE ((i.Image_id = p. Image_id AND p.Title LIKE '%" . $searchinput . "%') or (i.Image_id = p. Image_id AND Description LIKE '%." . $searchinput . "%')) AND (p.ItemCondition = '".$filterInput."') AND (p.Price BETWEEN $secondFilterInput AND $thirdFilterInput) ORDER BY cast(Price as SIGNED) DESC";
 
 				else
-					$sql = "SELECT i.Image_blob1,p.Title,p.ItemCondition, p.Description, p.Price, p.Postdate, p.Product_id FROM product p, image i  WHERE ((i.Image_id = p. Image_id AND p.Title LIKE '%" . $searchinput . "%') or (i.Image_id = p. Image_id AND Description LIKE '%." . $searchinput . "%')) AND (p.Price BETWEEN $filterInput AND $secondFIlterInput) ORDER BY cast(Price as SIGNED) DESC";
+					$sql = "SELECT i.Image_blob1,p.Title,p.ItemCondition, p.Description, p.Price, p.Postdate, p.Product_id FROM product p, image i  WHERE ((i.Image_id = p. Image_id AND p.Title LIKE '%" . $searchinput . "%') or (i.Image_id = p. Image_id AND Description LIKE '%." . $searchinput . "%')) AND (p.Price BETWEEN $filterInput AND $secondFilterInput) ORDER BY cast(Price as SIGNED) DESC";
 				
 			}
 			else {
@@ -278,10 +278,10 @@ class Dao {
 	else if ($target == "allLowProducts") {
 	   if(isset($parameters[":filterInput"])&&($parameters[":filterInput"]!==""))
                 $filterInput = $parameters[":filterInput"];
-           if(isset($parameters[":secondfilterInput"])&&($parameters[":secondfilterInput"]!=""))
-                $secondFIlterInput = $parameters[":secondfilterInput"];
-           if(isset($parameters[":thirdfilterInput"])&&($parameters[":thirdfilterInput"]!=""))
-                $thirdFilterInput = $parameters[":thirdfilterInput"];
+           if(isset($parameters[":secondFilterInput"])&&($parameters[":secondFilterInput"]!=""))
+                $secondFilterInput = $parameters[":secondFilterInput"];
+           if(isset($parameters[":thirdFilterInput"])&&($parameters[":thirdFilterInput"]!=""))
+                $thirdFilterInput = $parameters[":thirdFilterInput"];
            if(isset($parameters[":filterType"]))
                 $filterType= $parameters[":filterType"];
             $searchinput = $parameters[":searchinput"];
@@ -292,10 +292,10 @@ class Dao {
                                         $sql = "SELECT i.Image_blob1,p1.Title,p1.ItemCondition, p1.Description, p1.Price, p1.Postdate, p1.Product_id FROM product p1,image i WHERE i.Image_id = p1. Image_id AND p1.Category_Id = (SELECT pc.Category_id FROM productCategory pc WHERE pc.Category_name = '".$category."') AND (p1.Title LIKE '%".$searchinput."%'OR p1.Description LIKE '%".$searchinput."%') AND (ItemCondition = '".$filterInput."') ORDER BY cast(Price as SIGNED) ASC";
 
                                 else if($filterType=="both")
-                                        $sql = "SELECT i.Image_blob1,p1.Title,p1.ItemCondition, p1.Description, p1.Price, p1.Postdate, p1.Product_id FROM product p1,image i WHERE i.Image_id = p1. Image_id AND p1.Category_Id = (SELECT pc.Category_id FROM productCategory pc WHERE pc.Category_name = '".$category."') AND (p1.Title LIKE '%".$searchinput."%'OR p1.Description LIKE '%".$searchinput."%') AND (ItemCondition = '".$filterInput."') AND (p1.Price BETWEEN $secondFIlterInput AND $thirdFilterInput) ORDER BY cast(Price as SIGNED) ASC";
+                                        $sql = "SELECT i.Image_blob1,p1.Title,p1.ItemCondition, p1.Description, p1.Price, p1.Postdate, p1.Product_id FROM product p1,image i WHERE i.Image_id = p1. Image_id AND p1.Category_Id = (SELECT pc.Category_id FROM productCategory pc WHERE pc.Category_name = '".$category."') AND (p1.Title LIKE '%".$searchinput."%'OR p1.Description LIKE '%".$searchinput."%') AND (ItemCondition = '".$filterInput."') AND (p1.Price BETWEEN $secondFilterInput AND $thirdFilterInput) ORDER BY cast(Price as SIGNED) ASC";
 
                                 else { echo "here?";
-                                        $sql = "SELECT i.Image_blob1,p1.Title,p1.ItemCondition, p1.Description, p1.Price, p1.Postdate, p1.Product_id FROM product p1,image i WHERE i.Image_id = p1. Image_id AND p1.Category_Id = (SELECT pc.Category_id FROM productCategory pc WHERE pc.Category_name = '".$category."') AND (p1.Title LIKE '%".$searchinput."%'OR p1.Description LIKE '%".$searchinput."%') AND (p1.Price BETWEEN $filterInput AND $secondFIlterInput) ORDER BY cast(Price as SIGNED) ASC";}
+                                        $sql = "SELECT i.Image_blob1,p1.Title,p1.ItemCondition, p1.Description, p1.Price, p1.Postdate, p1.Product_id FROM product p1,image i WHERE i.Image_id = p1. Image_id AND p1.Category_Id = (SELECT pc.Category_id FROM productCategory pc WHERE pc.Category_name = '".$category."') AND (p1.Title LIKE '%".$searchinput."%'OR p1.Description LIKE '%".$searchinput."%') AND (p1.Price BETWEEN $filterInput AND $secondFilterInput) ORDER BY cast(Price as SIGNED) ASC";}
                         }
                         else
                                 $sql = "SELECT i.Image_blob1,p1.Title,p1.ItemCondition, p1.Description, p1.Price, p1.Postdate, p1.Product_id FROM product p1,image i WHERE i.Image_id = p1. Image_id AND p1.Category_Id = (SELECT pc.Category_id FROM productCategory pc WHERE pc.Category_name = '".$category."') AND (p1.Title LIKE '%".$searchinput."%'OR p1.Description LIKE '%".$searchinput."%') ORDER BY cast(Price as SIGNED) ASC";
@@ -306,10 +306,10 @@ class Dao {
                                         $sql = "SELECT i.Image_blob1,p.Title,p.ItemCondition, p.Description, p.Price, p.Postdate, p.Product_id FROM product p, image i  WHERE ((i.Image_id = p. Image_id AND p.Title LIKE '%" . $searchinput . "%') or (i.Image_id = p. Image_id AND Description LIKE '%." . $searchinput . "%')) AND (p.ItemCondition = '".$filterInput."') ORDER BY cast(Price as SIGNED) ASC";
 
                                 else if($filterType=="both")
-                                        $sql = "SELECT i.Image_blob1,p.Title,p.ItemCondition, p.Description, p.Price, p.Postdate, p.Product_id FROM product p, image i  WHERE ((i.Image_id = p. Image_id AND p.Title LIKE '%" . $searchinput . "%') or (i.Image_id = p. Image_id AND Description LIKE '%." . $searchinput . "%')) AND (p.ItemCondition = '".$filterInput."') AND (p.Price BETWEEN $secondFIlterInput AND $thirdFilterInput) ORDER BY cast(Price as SIGNED) ASC";
+                                        $sql = "SELECT i.Image_blob1,p.Title,p.ItemCondition, p.Description, p.Price, p.Postdate, p.Product_id FROM product p, image i  WHERE ((i.Image_id = p. Image_id AND p.Title LIKE '%" . $searchinput . "%') or (i.Image_id = p. Image_id AND Description LIKE '%." . $searchinput . "%')) AND (p.ItemCondition = '".$filterInput."') AND (p.Price BETWEEN $secondFilterInput AND $thirdFilterInput) ORDER BY cast(Price as SIGNED) ASC";
 
                                 else
-                                        $sql = "SELECT i.Image_blob1,p.Title,p.ItemCondition, p.Description, p.Price, p.Postdate, p.Product_id FROM product p, image i  WHERE ((i.Image_id = p. Image_id AND p.Title LIKE '%" . $searchinput . "%') or (i.Image_id = p. Image_id AND Description LIKE '%." . $searchinput . "%')) AND (p.Price BETWEEN $filterInput AND $secondFIlterInput) ORDER BY cast(Price as SIGNED) ASC";
+                                        $sql = "SELECT i.Image_blob1,p.Title,p.ItemCondition, p.Description, p.Price, p.Postdate, p.Product_id FROM product p, image i  WHERE ((i.Image_id = p. Image_id AND p.Title LIKE '%" . $searchinput . "%') or (i.Image_id = p. Image_id AND Description LIKE '%." . $searchinput . "%')) AND (p.Price BETWEEN $filterInput AND $secondFilterInput) ORDER BY cast(Price as SIGNED) ASC";
 
                         }
                         else {
@@ -326,10 +326,10 @@ class Dao {
 	    else if ($target == "allNewestProducts") {
            if(isset($parameters[":filterInput"])&&($parameters[":filterInput"]!=""))
                 $filterInput = $parameters[":filterInput"];
-           if(isset($parameters[":secondfilterInput"])&&($parameters[":secondfilterInput"]!=""))
-                $secondFIlterInput = $parameters[":secondfilterInput"];
-           if(isset($parameters[":thirdfilterInput"])&&($parameters[":thirdfilterInput"]!=""))
-                $thirdFilterInput = $parameters[":thirdfilterInput"];
+           if(isset($parameters[":secondFilterInput"])&&($parameters[":secondFilterInput"]!=""))
+                $secondFilterInput = $parameters[":secondFilterInput"];
+           if(isset($parameters[":thirdFilterInput"])&&($parameters[":thirdFilterInput"]!=""))
+                $thirdFilterInput = $parameters[":thirdFilterInput"];
            if(isset($parameters[":filterType"]))
                 $filterType= $parameters[":filterType"];
                         $searchinput = $parameters[":searchinput"];
@@ -340,10 +340,10 @@ class Dao {
                                         $sql = "SELECT i.Image_blob1,p1.Title,p1.ItemCondition, p1.Description, p1.Price, p1.Postdate, p1.Product_id FROM product p1,image i WHERE i.Image_id = p1. Image_id AND p1.Category_Id = (SELECT pc.Category_id FROM productCategory pc WHERE pc.Category_name = '".$category."') AND (p1.Title LIKE '%".$searchinput."%'OR p1.Description LIKE '%".$searchinput."%') AND (ItemCondition = '".$filterInput."') ORDER BY Postdate DESC";
 
                                 else if($filterType=="both")
-                                        $sql = "SELECT i.Image_blob1,p1.Title,p1.ItemCondition, p1.Description, p1.Price, p1.Postdate, p1.Product_id FROM product p1,image i WHERE i.Image_id = p1. Image_id AND p1.Category_Id = (SELECT pc.Category_id FROM productCategory pc WHERE pc.Category_name = '".$category."') AND (p1.Title LIKE '%".$searchinput."%'OR p1.Description LIKE '%".$searchinput."%') AND (ItemCondition = '".$filterInput."') AND (p1.Price BETWEEN $secondFIlterInput AND $thirdFilterInput) ORDER BY Postdate DESC";
+                                        $sql = "SELECT i.Image_blob1,p1.Title,p1.ItemCondition, p1.Description, p1.Price, p1.Postdate, p1.Product_id FROM product p1,image i WHERE i.Image_id = p1. Image_id AND p1.Category_Id = (SELECT pc.Category_id FROM productCategory pc WHERE pc.Category_name = '".$category."') AND (p1.Title LIKE '%".$searchinput."%'OR p1.Description LIKE '%".$searchinput."%') AND (ItemCondition = '".$filterInput."') AND (p1.Price BETWEEN $secondFilterInput AND $thirdFilterInput) ORDER BY Postdate DESC";
 
                                 else
-                                        $sql = "SELECT i.Image_blob1,p1.Title,p1.ItemCondition, p1.Description, p1.Price, p1.Postdate, p1.Product_id FROM product p1,image i WHERE i.Image_id = p1. Image_id AND p1.Category_Id = (SELECT pc.Category_id FROM productCategory pc WHERE pc.Category_name = '".$category."') AND (p1.Title LIKE '%".$searchinput."%'OR p1.Description LIKE '%".$searchinput."%') AND (p1.Price BETWEEN $filterInput AND $secondFIlterInput) ORDER BY Postdate DESC";
+                                        $sql = "SELECT i.Image_blob1,p1.Title,p1.ItemCondition, p1.Description, p1.Price, p1.Postdate, p1.Product_id FROM product p1,image i WHERE i.Image_id = p1. Image_id AND p1.Category_Id = (SELECT pc.Category_id FROM productCategory pc WHERE pc.Category_name = '".$category."') AND (p1.Title LIKE '%".$searchinput."%'OR p1.Description LIKE '%".$searchinput."%') AND (p1.Price BETWEEN $filterInput AND $secondFilterInput) ORDER BY Postdate DESC";
                         }
                         else
                                 $sql = "SELECT i.Image_blob1,p1.Title,p1.ItemCondition, p1.Description, p1.Price, p1.Postdate, p1.Product_id FROM product p1,image i WHERE i.Image_id = p1. Image_id AND p1.Category_Id = (SELECT pc.Category_id FROM productCategory pc WHERE pc.Category_name = '".$category."') AND (p1.Title LIKE '%".$searchinput."%'OR p1.Description LIKE '%".$searchinput."%') ORDER BY Postdate DESC";
@@ -354,10 +354,10 @@ class Dao {
                                         $sql = "SELECT i.Image_blob1,p.Title,p.ItemCondition, p.Description, p.Price, p.Postdate, p.Product_id FROM product p, image i  WHERE ((i.Image_id = p. Image_id AND p.Title LIKE '%" . $searchinput . "%') or (i.Image_id = p. Image_id AND Description LIKE '%." . $searchinput . "%')) AND (p.ItemCondition = '".$filterInput."') ORDER BY Postdate DESC";
 
                                 else if($filterType=="both")
-                                        $sql = "SELECT i.Image_blob1,p.Title,p.ItemCondition, p.Description, p.Price, p.Postdate, p.Product_id FROM product p, image i  WHERE ((i.Image_id = p. Image_id AND p.Title LIKE '%" . $searchinput . "%') or (i.Image_id = p. Image_id AND Description LIKE '%." . $searchinput . "%')) AND (p.ItemCondition = '".$filterInput."') AND (p.Price BETWEEN $secondFIlterInput AND $thirdFilterInput) ORDER BY Postdate DESC";
+                                        $sql = "SELECT i.Image_blob1,p.Title,p.ItemCondition, p.Description, p.Price, p.Postdate, p.Product_id FROM product p, image i  WHERE ((i.Image_id = p. Image_id AND p.Title LIKE '%" . $searchinput . "%') or (i.Image_id = p. Image_id AND Description LIKE '%." . $searchinput . "%')) AND (p.ItemCondition = '".$filterInput."') AND (p.Price BETWEEN $secondFilterInput AND $thirdFilterInput) ORDER BY Postdate DESC";
 
                                 else
-                                        $sql = "SELECT i.Image_blob1,p.Title,p.ItemCondition, p.Description, p.Price, p.Postdate, p.Product_id FROM product p, image i  WHERE ((i.Image_id = p. Image_id AND p.Title LIKE '%" . $searchinput . "%') or (i.Image_id = p. Image_id AND Description LIKE '%." . $searchinput . "%')) AND (p.Price BETWEEN $filterInput AND $secondFIlterInput) ORDER BY Postdate DESC";
+                                        $sql = "SELECT i.Image_blob1,p.Title,p.ItemCondition, p.Description, p.Price, p.Postdate, p.Product_id FROM product p, image i  WHERE ((i.Image_id = p. Image_id AND p.Title LIKE '%" . $searchinput . "%') or (i.Image_id = p. Image_id AND Description LIKE '%." . $searchinput . "%')) AND (p.Price BETWEEN $filterInput AND $secondFilterInput) ORDER BY Postdate DESC";
 
                         }
                         else {
