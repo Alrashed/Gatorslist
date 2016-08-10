@@ -12,19 +12,19 @@
                       <div class="form-group">
                         <label class="" for="email">Email:</label>
                         <div class="">
-                          <input type="email" class="form-control input-lg placeholder" name="email" id="email_field" placeholder="Enter your email here">
+                          <input type="email" class="form-control input-lg placeholder" name="email" id="email_field" maxlength="50" placeholder="Enter your email here">
                         </div>
                       </div>
                       <div class="form-group">
                         <label class="" for="first name" >First Name:</label>
                         <div class="">
-                          <input type="text" class="form-control input-lg placeholder" name="firstname" id="firstname" placeholder="Enter your first name">
+                          <input type="text" class="form-control input-lg placeholder" name="firstname" id="firstname" maxlength="30" placeholder="Enter your first name">
                         </div>
                       </div>
                       <div class="form-group">
                         <label class="" for="last name" >Last Name:</label>
                         <div class="">
-                          <input type="text" class="form-control input-lg placeholder" name="lastname" id="lastname" placeholder="Enter your last name">
+                          <input type="text" class="form-control input-lg placeholder" name="lastname" id="lastname" maxlength="30" placeholder="Enter your last name">
                         </div>
                       </div>
 <!--                      <div class="form-group">-->
@@ -36,7 +36,7 @@
                       <div class="form-group">
                         <label class="" for="password">Password:</label>
                         <div class=""> 
-                          <input type="password" class="form-control input-lg placeholder" name= "password" id="password_field" placeholder="Enter password">
+                          <input type="password" class="form-control input-lg placeholder" name= "password" id="password_field" maxlength="30" placeholder="Enter password">
                         </div>
                       </div>
                       <div class="form-group"> 
