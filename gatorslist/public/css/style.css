@@ -26,7 +26,7 @@ body {
 }
 .shadow {
     box-shadow: 0 3px 10px -2px gray;
-    background: linear-gradient(#f6f6f6, #e6e6e6,#cdcdcd ) ;
+    background: linear-gradient(#e5d193,#cca328) ;
     border:0px;
     color: #797979;
 }
@@ -39,11 +39,11 @@ body {
     color:#333333;
 }
 .hover-this-tab a:hover{
-    background: #d7d7d7;
+    background: #f9f5e9;
     color: #333333;
 }
 .hover-this-tab span:hover{
-    background: #d7d7d7;
+    background: #f9f5e9;
     color: #333333;
 }
 img:hover  {
